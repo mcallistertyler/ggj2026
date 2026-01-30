@@ -35,17 +35,14 @@ func get_transition(index: int) -> ScreenTransition:
 		return transitions[0]
 	return null
 
-func get_scene_path(scene_name: String) -> String:
+func get_scene_path(scene_name: Enums.Scenes) -> String:
 	if scene_registry:
 		return scene_registry.get_scene_path(scene_name)
-	# Allow passing raw paths as fallback
-	if scene_name.begins_with("res://"):
-		return scene_name
 	push_error("SceneManager: No scene registry configured and '%s' is not a path" % scene_name)
 	return ""
 
 func transition_to_scene(
-	next_scene: String,
+	next_scene: Enums.Scenes,
 	skip_loading_screen: bool = false,
 	transition_out_index: int = -1,
 	transition_in_index: int = -1

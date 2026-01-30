@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dhdq7yu25ewf4" path="res://addons/scene_transitions/transition_effects/fade_black.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://cr8pxi8sa2mvx" path="res://scene_transitions/scene_registry.tres" id="2_5b08f"]
 
-[node name="SceneManager" type="CanvasLayer" unique_id=1591052442 node_paths=PackedStringArray("transitions")]
+[node name="SceneManager" type="CanvasLayer" unique_id=1591052442]
 layer = 100
 script = ExtResource("1")
 scene_registry = ExtResource("2_5b08f")
-transitions = [NodePath("FadeBlack")]
 
 [node name="FadeBlack" parent="." unique_id=1636458737 instance=ExtResource("2")]
 visible = false
