@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0uxqmb7lw81"]
 
 [ext_resource type="Script" uid="uid://c7wesmcs3rx1s" path="res://script_car.gd" id="1_xthnd"]
+[ext_resource type="Texture2D" uid="uid://x5cs145pc138" path="res://sprite_car.png" id="2_5u4n7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv56d"]
 
@@ -10,3 +11,6 @@ script = ExtResource("1_xthnd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=650230699]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_dv56d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606577364]
+texture = ExtResource("2_5u4n7")
