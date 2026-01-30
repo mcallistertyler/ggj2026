@@ -14,6 +14,11 @@ config/name="gamejam2026"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://addons/scene_transitions/SceneManager.tscn"
+AudioManager="*uid://0hq6cx44e2wt"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -21,4 +26,3 @@ config/icon="res://icon.svg"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="forward_plus"

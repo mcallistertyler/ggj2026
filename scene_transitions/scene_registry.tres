@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SceneRegistry" format=3 uid="uid://cr8pxi8sa2mvx"]
+
+[ext_resource type="Script" uid="uid://bvm626praj8yq" path="res://addons/scene_transitions/scene_registry.gd" id="1_mrjmu"]
+[ext_resource type="Script" uid="uid://bx1b54adesv51" path="res://addons/scene_transitions/resources/scene_entry.gd" id="2_dgyo5"]
+
+[resource]
+script = ExtResource("1_mrjmu")
+metadata/_custom_type_script = "uid://bvm626praj8yq"
