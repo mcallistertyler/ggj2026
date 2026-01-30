@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dmea7hyxrob0j"]
 
 [ext_resource type="Script" uid="uid://53q82natd5fe" path="res://script_location_entry.gd" id="1_q0hf4"]
-[ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="2_u2w04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkfy4"]
 
@@ -12,5 +11,5 @@ script = ExtResource("1_q0hf4")
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_nkfy4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102398639]
-texture = ExtResource("2_u2w04")
+[node name="MySprite" type="Sprite2D" parent="." unique_id=1102398639]
+unique_name_in_owner = true
