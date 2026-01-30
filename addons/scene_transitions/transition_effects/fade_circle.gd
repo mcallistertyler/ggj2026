@@ -1,7 +1,7 @@
 extends ScreenTransition
 
 @export var tween_time : float = 2.0
-@export var expanded_radius : float = 2.0
+@export var expanded_radius : float = 1.2
 @export var contracted_radius : float = 0.0
 
 var is_expanded : bool = false

@@ -2,6 +2,8 @@
 class_name ScreenTransition
 extends ColorRect
 
+@export var transition_type : TransitionType.Value
+
 var skip_loading_details : bool = false
 
 @abstract
