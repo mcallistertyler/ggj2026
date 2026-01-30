@@ -6,3 +6,4 @@
 *.tmp
 export.cfg
 export_credentials.cfg
+*.swp
