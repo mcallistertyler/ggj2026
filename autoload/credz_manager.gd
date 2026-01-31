@@ -6,10 +6,14 @@ signal credz_decreased(amount)
 
 
 func increaseCredz(amount: int):
+	if amount < 0:
+		decreaseCredz(amount)
 	credz += amount
 	credz_increased.emit(amount)
 
 func decreaseCredz(amount: int):
+	if amount < 0:
+		credz += amount
 	credz -= amount
 	credz_decreased.emit(amount)
 	

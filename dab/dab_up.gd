@@ -2,7 +2,7 @@ extends Control
 
 class_name DabUpMinigame
 
-enum DabUpCompletion { PASS, FAILURE }
+enum DabUpCompletion { PASS_EASY, PASS_HARD, FAILURE }
 
 signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
 
@@ -257,15 +257,18 @@ func _on_lane_pressed(lane_index: int):
 
 func _success():
 	var chosen_score : int
+	var chosen_completion : DabUpCompletion
 	if chosen_difficulty == Enums.ResponseTag.HARD_MODE:
 		chosen_score = hard_score
+		chosen_completion = DabUpCompletion.PASS_HARD
 	elif chosen_difficulty == Enums.ResponseTag.EASY_MODE:
+		chosen_completion = DabUpCompletion.PASS_EASY
 		chosen_score = easy_score
-	self.dab_up_completed.emit(DabUpCompletion.PASS, chosen_score)
+	self.dab_up_completed.emit(chosen_score, chosen_completion)
 	close()
 
 func _failure():
-	self.dab_up_completed.emit(DabUpCompletion.FAILURE, failure_score)
+	self.dab_up_completed.emit(failure_score, DabUpCompletion.FAILURE)
 	close()
 
 signal popup_closed
@@ -331,6 +334,5 @@ func close() -> void:
 	tween.tween_property(self, "modulate:a", 0.0, 0.2)
 	await tween.finished
 
-	PlayerManager.player_movement.emit(true)
 	emit_signal("popup_closed")
 	queue_free()
