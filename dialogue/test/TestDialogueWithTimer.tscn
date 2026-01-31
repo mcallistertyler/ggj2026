@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddsb56sknkaf8"]
 
-[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/dialogue_with_timer.gd" id="1_kqcun"]
+[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="1_kqcun"]
 [ext_resource type="Resource" uid="uid://07tcsd772b7i" path="res://dialogue/test/test_dialogue.dialogue" id="2_vnfly"]
 
 [node name="TestDialogueWithTimer" type="Node" unique_id=719189344]

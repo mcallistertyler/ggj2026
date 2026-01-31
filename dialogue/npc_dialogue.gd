@@ -3,6 +3,7 @@ class_name DialogueWithTimer
 
 @export var dialogue_resource : DialogueResource
 @export var dialogue_title : String
+@export var is_timed : bool
 @export var timeout_value : float = 2.0 # set this yourself
 
 enum DialogueState { TIMED_OUT, GAME_SUCCESS, GAME_FAILED }
@@ -30,5 +31,6 @@ func _on_response_selected(response: DialogueResponse) -> void:
 func start_dialogue() -> void:
 	var dialogue_balloon : DialogueBaloon = DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_title)
 	await dialogue_balloon.ready
-	dialogue_balloon.responses_shown.connect(_on_responses_shown)
-	dialogue_balloon.responses_menu.response_selected.connect(_on_response_selected)
+	if is_timed:
+		dialogue_balloon.responses_shown.connect(_on_responses_shown)
+		dialogue_balloon.responses_menu.response_selected.connect(_on_response_selected)

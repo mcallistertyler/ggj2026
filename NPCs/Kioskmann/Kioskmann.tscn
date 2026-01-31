@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dmd4n8w1eqa8n" path="res://NPCs/Kioskmann/kioskmann.gd" id="1_4e8fx"]
 [ext_resource type="PackedScene" uid="uid://5sopk4k1gwuc" path="res://NPCs/Kioskmann/kioskmann_sprite_3d.tscn" id="3_xb10o"]
 [ext_resource type="Shader" uid="uid://bkn4bl8jjiv1f" path="res://NPCs/Kioskmann/Kioskmann.gdshader" id="4_4e8fx"]
-[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/dialogue_with_timer.gd" id="4_bylqt"]
+[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="4_bylqt"]
 [ext_resource type="Resource" uid="uid://bxawq2nd7ybtx" path="res://dialogue/narvesen/kioskmann.dialogue" id="5_cwc8o"]
 [ext_resource type="Texture2D" uid="uid://dbpohoonhbc8b" path="res://NPCs/Kioskmann/kioskmann_texture_2d.tres" id="5_k0rx5"]
 
