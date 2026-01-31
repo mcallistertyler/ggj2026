@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Resource" uid="uid://07tcsd772b7i" path="res://dialogue/test/test_dialogue.dialogue" id="2_pn6fd"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="3_ds7q3"]
+[ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="4_dink0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -42,7 +44,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.7058824)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -53,6 +55,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
+default_font = ExtResource("3_ds7q3")
 default_font_size = 20
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
@@ -63,6 +66,13 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="Theme" id="Theme_tisj8"]
+default_font = ExtResource("4_dink0")
+RichTextLabel/colors/default_color = Color(0.4509804, 0.1764706, 0.28235295, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0.26666668, 0.6392157)
+RichTextLabel/constants/shadow_offset_x = 2
+RichTextLabel/constants/shadow_offset_y = 2
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -142,9 +152,9 @@ size_flags_horizontal = 3
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=244281531]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme = SubResource("Theme_tisj8")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
