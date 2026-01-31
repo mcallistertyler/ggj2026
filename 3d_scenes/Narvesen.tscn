@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/DialogueTimer.tscn" id="5_4vlna"]
+[ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -19,6 +20,8 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_2hy3x")
+
+[node name="DabUp" parent="." unique_id=221765917 instance=ExtResource("5_4vlna")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 visible = false
