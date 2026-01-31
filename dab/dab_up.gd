@@ -206,6 +206,26 @@ func _on_lane_pressed(lane_index: int):
 
 func _success():
 	print("NICE")
+	close()
 	
 func _failure():
 	print("FAIL")
+	close()
+
+signal popup_closed
+
+# TODO: default closed, open with triggers from parent
+func open(parent: Node = null):
+	if parent and get_parent() != parent:
+		if get_parent():
+			get_parent().remove_child(self)
+		parent.add_child(self)
+
+	# Make visible and bring in front
+	visible = true  # or: show()
+	move_to_front() # <-- Godot 4 replacement for raise()
+	grab_focus()    # optional: if you want this to receive keyboard input first
+
+func close() -> void:
+	emit_signal("popup_closed")
+	queue_free()  # or: hide() if you plan to reuse the instance
