@@ -5,10 +5,19 @@ class_name PlayerCharacterBody3D
 @export var gravity : float = 9.8
 @export var animated_sprite : AnimatedSprite3D
 @export var animation_player : AnimationPlayer
+@export var interaction_symbol : Sprite3D
 
 enum PlayerStates { IDLE, WALK }
 
 var movement_disabled : bool = false
+
+func show_interact() -> void:
+	if !interaction_symbol.visible:
+		interaction_symbol.visible = true
+		
+func hide_interact() -> void:
+	if interaction_symbol.visible:
+		interaction_symbol.visible = false 
 
 func _on_player_movement(is_enabled: bool) -> void:
 	movement_disabled = not is_enabled

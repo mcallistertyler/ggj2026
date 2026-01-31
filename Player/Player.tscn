@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dafaq6lihctbv" path="res://Player/player_character_body_3d.gd" id="2_tok1r"]
 [ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="3_8g4oa"]
 [ext_resource type="SpriteFrames" uid="uid://b441m46hqeouq" path="res://Player/player_sprite_frames.tres" id="5_6ysni"]
+[ext_resource type="Texture2D" uid="uid://c05buhggrmrg5" path="res://assets/ui/e.png" id="6_vlldt"]
+[ext_resource type="Script" uid="uid://d34jg0txope44" path="res://Player/interaction_symbol.gd" id="7_s1rgi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlldt"]
 render_priority = 0
@@ -113,10 +115,11 @@ _data = {
 script = ExtResource("1_q3lat")
 character_body_3d = NodePath("CharacterBody3D")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=509970354 node_paths=PackedStringArray("animated_sprite", "animation_player") groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=509970354 node_paths=PackedStringArray("animated_sprite", "animation_player", "interaction_symbol") groups=["player"]]
 script = ExtResource("2_tok1r")
 animated_sprite = NodePath("AnimatedSprite3D")
 animation_player = NodePath("../AnimationPlayer")
+interaction_symbol = NodePath("InteractionSymbol")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1161864378]
 material_override = SubResource("ShaderMaterial_vlldt")
@@ -127,6 +130,12 @@ animation = &"idle"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1132915088]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013671875, 0.06199646, 0.12155998)
 shape = SubResource("BoxShape3D_3qydi")
+
+[node name="InteractionSymbol" type="Sprite3D" parent="CharacterBody3D" unique_id=1043450614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.310214, 0)
+visible = false
+texture = ExtResource("6_vlldt")
+script = ExtResource("7_s1rgi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1518227713]
 libraries/ = SubResource("AnimationLibrary_8g4oa")

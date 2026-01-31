@@ -47,11 +47,14 @@ func _process(_delta: float) -> void:
 		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
 
 func _on_body_entered(body: Node3D):
-	print("body entered: ", body.name, " layer: ", body.collision_layer, " groups: ", body.get_groups())
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		player_within_area = true
+		if body is PlayerCharacterBody3D:
+			body.show_interact()
+
 		
 func _on_body_exited(body: Node3D):
-	print("body exited")
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		player_within_area = false
+		if body is PlayerCharacterBody3D:
+			body.hide_interact()
