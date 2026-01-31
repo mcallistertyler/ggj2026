@@ -37,3 +37,6 @@ environment = SubResource("Environment_saxnu")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=678245714]
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
+
+[node name="KompisCSGSphere3D" type="CSGSphere3D" parent="." unique_id=1764151542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.370826, 2.0282793, -2.6704032)
