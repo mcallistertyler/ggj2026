@@ -3,12 +3,17 @@
 [ext_resource type="Script" uid="uid://c6ey17640pxms" path="res://addons/scene_transitions/scene_manager.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dhdq7yu25ewf4" path="res://addons/scene_transitions/transition_effects/fade_black.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://cr8pxi8sa2mvx" path="res://scene_transitions/scene_registry.tres" id="2_5b08f"]
+[ext_resource type="PackedScene" uid="uid://b3uq5y0jn323e" path="res://addons/scene_transitions/transition_effects/fade_circle.tscn" id="4_t86ou"]
 
 [node name="SceneManager" type="CanvasLayer" unique_id=1591052442 node_paths=PackedStringArray("transitions")]
 layer = 100
 script = ExtResource("1")
 scene_registry = ExtResource("2_5b08f")
-transitions = [NodePath("FadeBlack")]
+transitions = [NodePath("FadeBlack"), NodePath("FadeCircle")]
 
 [node name="FadeBlack" parent="." unique_id=1636458737 instance=ExtResource("2")]
 visible = false
+
+[node name="FadeCircle" parent="." unique_id=164545795 instance=ExtResource("4_t86ou")]
+visible = false
+transition_type = 1

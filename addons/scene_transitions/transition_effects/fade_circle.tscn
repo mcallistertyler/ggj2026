@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b3uq5y0jn323e"]
+
+[ext_resource type="Script" uid="uid://doscf0ae40lwf" path="res://addons/scene_transitions/transition_effects/fade_circle.gd" id="1_bhpyf"]
+[ext_resource type="Shader" uid="uid://c8xkf6amt6ma7" path="res://addons/scene_transitions/transition_effects/fade_circle.gdshader" id="1_id8pl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tw6hu"]
+shader = ExtResource("1_id8pl")
+shader_parameter/radius = 0.5
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/edge_softness = 0.0025
+shader_parameter/aspect_ratio = 1.0
+
+[node name="FadeCircle" type="ColorRect" unique_id=164545795]
+material = SubResource("ShaderMaterial_tw6hu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_bhpyf")
