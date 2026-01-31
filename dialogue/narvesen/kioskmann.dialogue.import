@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bxawq2nd7ybtx"
+path="res://.godot/imported/kioskmann.dialogue-a9056b1841bdb60d4cb22f757e338181.tres"
+
+[deps]
+
+source_file="res://dialogue/narvesen/kioskmann.dialogue"
+dest_files=["res://.godot/imported/kioskmann.dialogue-a9056b1841bdb60d4cb22f757e338181.tres"]
+
+[params]
+
+defaults=true

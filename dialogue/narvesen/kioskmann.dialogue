@@ -1,0 +1,10 @@
+~ start
+Kioskmann: [[Yo|Hi|Hey]] welcome to Narvesen bro.
+
+- Response 1 [#response_type=hard_mode]
+	Kioskmann: Cool.
+	=> END
+- Response 2 [#response_type=easy_mode]
+	Kioskmann: Even cooler, I guess.
+	=> END
+=> END

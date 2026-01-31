@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://5sopk4k1gwuc"]
+
+[ext_resource type="Texture2D" uid="uid://b3yjjconkxfo5" path="res://assets/character_sprites/npc_kioskmann.png" id="1_lvf1m"]
+
+[node name="Sprite3D" type="Sprite3D" unique_id=1267509063]
+billboard = 2
+texture = ExtResource("1_lvf1m")
