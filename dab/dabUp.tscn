@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c78e8hn08pqcr"]
+
+[ext_resource type="Script" uid="uid://dwv1m7fsd157d" path="res://dab/dab_up.gd" id="1_7j2s3"]
+
+[node name="DabUp" type="Control" unique_id=221765917]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7j2s3")
