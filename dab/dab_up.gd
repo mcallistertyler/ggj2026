@@ -3,7 +3,7 @@ extends Control
 # -----------------------
 # CONFIG (minimal)
 # -----------------------
-const LANES: Array[String] = ["←", "↓", "↑", "→"]   # 0,1,2,3
+const LANES: Array[String] = ["←", "↓", "↑", "→"]   # indices: 0,1,2,3
 const KEY_MAP := {
 	"ui_left":  0,
 	"ui_down":  1,
@@ -11,8 +11,9 @@ const KEY_MAP := {
 	"ui_right": 3
 }
 
-@export var VISIBLE_COUNT: int = 5
+# varies depending on difficulty
 @export var SEQ_LENGTH: int = 10
+@export var TIME_LIMIT: int = 10
 
 const X_SPACING: float = 120.0
 const ROW_SPACING: float = 60.0
@@ -22,37 +23,29 @@ const GAP_ABOVE_BUTTONS: float = 40.0
 # -----------------------
 # STATE
 # -----------------------
-var sequence: Array[int] = []          # remaining arrows (lane indices)
-var visible_labels: Array[Label] = []  # exactly VISIBLE_COUNT labels reused
-var bottom_labels: Array[Label] = []   # static lane labels
+var sequence: Array[int] = []
+var arrow_labels: Array[Label] = []
+var bottom_labels: Array[Label] = []
 
 var _x_start: float = 0.0
-var _top_y: float = 0.0
 var _buttons_y: float = 0.0
 
 var _rng := RandomNumberGenerator.new()
 var _game_over: bool = false
 
-
-func _ready() -> void:
+func _ready():
 	_rng.randomize()
 	_create_bottom_labels()
-	_create_visible_labels()
 	_generate_sequence()
 	_compute_layout()
-	_refresh_visible_arrows()
+	_rebuild_arrow_labels()
 
-
-# -----------------------
-# LAYOUT (fixed, no resize handling)
-# -----------------------
-func _compute_layout() -> void:
+func _compute_layout():
 	var vp: Vector2 = get_viewport_rect().size
 	var group_width: float = float(LANES.size() - 1) * X_SPACING
 	_x_start = vp.x * 0.5 - group_width * 0.5
 
 	_buttons_y = vp.y * BUTTONS_Y_FRACTION
-	_top_y = _buttons_y - GAP_ABOVE_BUTTONS - float(VISIBLE_COUNT - 1) * ROW_SPACING
 
 	# position bottom (static) labels
 	for i in range(LANES.size()):
@@ -65,22 +58,15 @@ func _compute_layout() -> void:
 # -----------------------
 # SEQUENCE + LABELS
 # -----------------------
-func _generate_sequence() -> void:
+func _generate_sequence():
 	sequence.clear()
 	for i in range(SEQ_LENGTH):
 		sequence.append(_rng.randi_range(0, LANES.size() - 1))
-	# Debug: print current sequence
+	# Debug:
 	# print("SEQ:", [LANES[v] for v in sequence])
 
 
-func _create_visible_labels() -> void:
-	for i in range(VISIBLE_COUNT):
-		var lbl := Label.new()
-		add_child(lbl)
-		visible_labels.append(lbl)
-
-
-func _create_bottom_labels() -> void:
+func _create_bottom_labels():
 	for i in range(LANES.size()):
 		var lbl := Label.new()
 		lbl.text = LANES[i]
@@ -88,29 +74,37 @@ func _create_bottom_labels() -> void:
 		bottom_labels.append(lbl)
 
 
-func _refresh_visible_arrows() -> void:
-	# show up to VISIBLE_COUNT from the start of 'sequence'
-	var show_count: int = min(VISIBLE_COUNT, sequence.size())
-	var start_row: int = VISIBLE_COUNT - show_count  # pack downwards
+func _clear_arrow_labels():
+	for lbl in arrow_labels:
+		if is_instance_valid(lbl):
+			lbl.queue_free()
+	arrow_labels.clear()
 
-	for i in range(VISIBLE_COUNT):
-		var lbl: Label = visible_labels[i]
-		if i < show_count:
-			var lane_index: int = sequence[i]
-			lbl.text = LANES[lane_index]
-			lbl.position = Vector2(
-				_x_start + float(lane_index) * X_SPACING,
-				_top_y + float(start_row + i) * ROW_SPACING
-			)
-			lbl.show()
-		else:
-			lbl.hide()
+
+func _rebuild_arrow_labels():
+	# Clear and recreate labels to exactly match 'sequence'
+	_clear_arrow_labels()
+
+	# Compute top so that the last (bottom) arrow sits just above the buttons line
+	var count := sequence.size()
+	var top_y: float = _buttons_y - GAP_ABOVE_BUTTONS - float(max(0, count - 1)) * ROW_SPACING
+
+	for i in range(count):
+		var lane_index: int = sequence[i]
+		var lbl := Label.new()
+		lbl.text = LANES[lane_index]
+		lbl.position = Vector2(
+			_x_start + float(lane_index) * X_SPACING,
+			top_y + float(i) * ROW_SPACING
+		)
+		add_child(lbl)
+		arrow_labels.append(lbl)
 
 
 # -----------------------
 # INPUT
 # -----------------------
-func _input(event: InputEvent) -> void:
+func _input(event: InputEvent):
 	if _game_over:
 		return
 	if not event.is_pressed():
@@ -118,35 +112,34 @@ func _input(event: InputEvent) -> void:
 
 	for action in KEY_MAP.keys():
 		if event.is_action_pressed(action):
-			_check_lane(KEY_MAP[action])
+			_on_lane_pressed(KEY_MAP[action])
 
 
-func _check_lane(lane_index: int) -> void:
+func _on_lane_pressed(lane_index: int):
 	if sequence.is_empty():
-		return
+		return  # nothing to do
 
-	var bottom_idx: int = int(min(VISIBLE_COUNT, sequence.size())) - 1
+	# The bottom visible arrow is always the last element
+	var bottom_idx: int = sequence.size() - 1
 	var expected_lane: int = sequence[bottom_idx]
 
 	if lane_index == expected_lane:
-		_handle_correct(bottom_idx)
+		# Correct: remove bottom arrow
+		sequence.remove_at(bottom_idx)
+		if sequence.is_empty():
+			_game_over = true
+			_success()
+			_rebuild_arrow_labels()  # clears all
+			return
+		_rebuild_arrow_labels()
 	else:
-		_handle_wrong()
-
-
-func _handle_correct(bottom_idx: int) -> void:
-	# remove the bottom visible element
-	sequence.remove_at(bottom_idx)
-
-	if sequence.is_empty():
+		# FAIL - timeout or wrong button
 		_game_over = true
-		print("nice")  # success
-		_refresh_visible_arrows()  # hides all
-		return
+		_failure()
 
-	_refresh_visible_arrows()
-
-
-func _handle_wrong() -> void:
-	_game_over = true
-	print("wrong button")
+func _success():
+	print("NICE")
+	
+func _failure():
+	print("FAIL")
+	
