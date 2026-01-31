@@ -42,12 +42,13 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -
 	if result == DabUpMinigame.DabUpCompletion.PASS:
 	# TODO: create FAIL, PASS and PASS_HARD to trigger loss, win and big win dialogues
 		pass
+
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:
 		dialogue_started = true
 		var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue.dialogue_resource, dialogue.dialogue_title)
 		await dialogue_balloon.ready
-		dialogue_balloon.responses_shown.connect(_on_responses_shown)
+		#dialogue_balloon.responses_shown.connect(_on_responses_shown)
 		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
 
 func _on_body_entered(body: Node3D):
