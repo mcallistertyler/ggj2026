@@ -26,7 +26,13 @@ scene_name = 3
 scene_path = "uid://dsgilyt43rq2t"
 metadata/_custom_type_script = "uid://bx1b54adesv51"
 
+[sub_resource type="Resource" id="Resource_8cvme"]
+script = ExtResource("2_dgyo5")
+scene_name = 4
+scene_path = "uid://chgx6ewnlkdrp"
+metadata/_custom_type_script = "uid://bx1b54adesv51"
+
 [resource]
 script = ExtResource("1_mrjmu")
-transitionable_scenes = Array[ExtResource("2_dgyo5")]([SubResource("Resource_mrjmu"), SubResource("Resource_dgyo5"), SubResource("Resource_pmex8"), SubResource("Resource_d783i")])
+transitionable_scenes = Array[ExtResource("2_dgyo5")]([SubResource("Resource_mrjmu"), SubResource("Resource_dgyo5"), SubResource("Resource_pmex8"), SubResource("Resource_d783i"), SubResource("Resource_8cvme")])
 metadata/_custom_type_script = "uid://bvm626praj8yq"
