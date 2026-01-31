@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://p4fycl2f8y2b"]
 
-[ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_6lf6r"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_im13u"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_im13u"]
 
@@ -15,7 +14,6 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
 [node name="KompisHus" type="Node3D" unique_id=1809051035]
-script = ExtResource("1_6lf6r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 mesh = SubResource("PlaneMesh_7owcu")

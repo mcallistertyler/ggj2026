@@ -29,29 +29,44 @@ func _on_responses_shown(_responses: Array) -> void:
 func _on_response_chosen(response: DialogueResponse) -> void:
 	TimerManager.cancel_timer()
 	var response_type = Enums.get_dialogue_response_tag(response)
-	# start dabupgame, pause dialogue while game shows
+	# start dabupgame
 	dab_up.open(response_type)
 	# Show response based on minigame result
 	# Parent.gd
 
 func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -> void:
 	minigame_played = true
-	CredzManager.increaseCredz(result)
+	CredzManager.increaseCredz(score)
+	#continue dialogue based on result
+	var dialogue_to_use : DialogueWithTimer
+	if result == DabUpMinigame.DabUpCompletion.PASS_EASY:
+		dialogue_to_use = win_easy_dialogue
+	elif result == DabUpMinigame.DabUpCompletion.PASS_HARD:
+		dialogue_to_use = win_hard_dialogue
+	else:
+		dialogue_to_use = lose_dialogue
+	var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue_to_use.dialogue_resource, dialogue_to_use.dialogue_title)
+	await dialogue_balloon.ready
 
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:
 		dialogue_started = true
 		var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue.dialogue_resource, dialogue.dialogue_title)
 		await dialogue_balloon.ready
-		dialogue_balloon.responses_shown.connect(_on_responses_shown)
+		#dialogue_balloon.responses_shown.connect(_on_responses_shown)
 		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
 
 func _on_body_entered(body: Node3D):
-	print("body entered: ", body.name, " layer: ", body.collision_layer, " groups: ", body.get_groups())
+	if minigame_played:
+		return
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		player_within_area = true
+		if body is PlayerCharacterBody3D:
+			body.show_interact()
+
 		
 func _on_body_exited(body: Node3D):
-	print("body exited")
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		player_within_area = false
+		if body is PlayerCharacterBody3D:
+			body.hide_interact()
