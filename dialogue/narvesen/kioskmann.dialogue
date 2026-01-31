@@ -1,18 +1,20 @@
 ~ start
 Kioskmann: [[Yo|Hi|Hey]] welcome to Narvesen bro.
 
-- Give me a bacon dog with crispy onions, please [#response_type=hard_mode]
-- Give me a regular hotdog, i guess [#response_type=easy_mode]
+- Give me a bacon dog with crispy onions, please. [#response_type=hard_mode]
+- Give me...a regular hotdog, I guess [#response_type=easy_mode]
 => END
 
 ~ kioskmann_win_hard
-	%Kioskman: Damn you seem like someone who knows what they want!
-	=> END
-~ kioskmann_win_ez
-	%Kioskman: Ok, i guess
+Kioskman: Damn you seem like someone who knows what they want!
 => END
+
+~ kioskmann_win_easy
+Kioskman: Ok, I guess.
+=> END
+
 ~ kioskmann_lose
-	%Kioskman: ... Did someone say something?
-	The kioskman didn't even hear what I said
+Kioskman: ... Did someone say something?
+* The kioskman didn't even hear what I said... *
 => END
 

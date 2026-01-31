@@ -212,6 +212,7 @@ offset_bottom = 34.944
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_constants/separation = 2
 alignment = 1
 script = ExtResource("3_72ixx")
@@ -219,6 +220,7 @@ response_template = NodePath("ResponseContainer")
 
 [node name="ResponseContainer" type="HBoxContainer" parent="Balloon/ResponsesMenu" unique_id=546722812]
 layout_mode = 2
+mouse_filter = 2
 script = ExtResource("7_48kwm")
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=1290589712]
@@ -228,12 +230,14 @@ script = ExtResource("8_48kwm")
 sprites = SubResource("SpriteFrames_20ojp")
 speed_scale = 0.1
 auto_play = true
+playing = true
 metadata/_custom_type_script = "uid://5jtg6r22lo3a"
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=108008998]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=776053598]
