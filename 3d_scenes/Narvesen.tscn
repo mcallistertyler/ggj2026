@@ -33,7 +33,7 @@ shape = SubResource("BoxShape3D_saxnu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.023708, 9.386555)
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("1_saxnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.639508, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9759974, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
 environment = SubResource("Environment_saxnu")
