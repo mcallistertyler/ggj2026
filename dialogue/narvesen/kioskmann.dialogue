@@ -1,8 +1,15 @@
 ~ start
 Kioskmann: [[Yo|Hi|Hey]] welcome to Narvesen bro.
 
-- Response 1 [#response_type=hard_mode]
+- Give me a bacon dog with crispy onions, please [#response_type=hard_mode]
+	%Kioskman: Damn you seem like someone who knows what they want!
 	=> END
-- Response 2 [#response_type=easy_mode]
+- Give me a regular hotdog, i guess [#response_type=easy_mode]
+	%Kioskman: Ok, i guess
 	=> END
+=> END
+
+if Globals.game_fail:
+	%Kioskman: ... Did someone say something?
+	The kioskman didn't even hear what I said
 => END

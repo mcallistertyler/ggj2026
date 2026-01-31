@@ -2,13 +2,13 @@
 Svolic: Yo [[shrimp|loser|sweetpea]], it's my time on the machine!
 
 - Nu-uh [#response_type=hard_mode]
-	Svolic: Damn, [[shrimp|loser|sweetpea]] i didn't know you were intimidating like that!
+	%Svolic: Damn, [[shrimp|loser|sweetpea]] i didn't know you were intimidating like that!
 => END
 - Ok... [#response_type=easy_mode]
-	Svolic: About time, [[shrimp|loser|sweetpea]]
+	%Svolic: About time, [[shrimp|loser|sweetpea]]
 => END
 
 if Globals.game_fail:
-	Svolic: Get out, [[shrimp|loser|sweetpea]]!
-	% Damn...
+	%Svolic: Get out, [[shrimp|loser|sweetpea]]!
+	Damn...
 => END

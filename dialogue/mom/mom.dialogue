@@ -2,15 +2,15 @@
 Mom: You never visit anymore, [[love|deary|sweetie]]..
 
 - Shut the hell up, [love|deary|sweetie] [#response_type=hard_mode]
-	Mom: Damn [love|deary|sweetie] i didn't know you were cool like that!
+	%Mom: Damn [love|deary|sweetie] i didn't know you were cool like that!
 => END
 - I'm here right now what do you mean [#response_type=easy_mode]
-	Mom: I guess you're right
+	%Mom: I guess you're right
 => END
 
 if Globals.game_fail:
-	Homie: Why bring my mama into this, dog??
-	% I can't believe i fumbled my homie like that...
+	%Mom: Why bring my mama into this, dog??
+	I can't believe i fumbled my homie like that...
 => END
 else:
 	You gained some street cred!
