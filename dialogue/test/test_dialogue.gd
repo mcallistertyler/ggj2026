@@ -24,13 +24,18 @@ func _on_dialogue_title(title) -> void:
 	print("Dialogue title ", title)
 
 func _on_spoke(letter: String, letter_index: int, speed: float) -> void:
-	print("Letter ", letter, "\nLetter index ", letter_index, "\nSpeed ", str(speed))
+	#print("Letter ", letter, "\nLetter index ", letter_index, "\nSpeed ", str(speed))
+	pass
 
+func _on_response_chosen(response: DialogueResponse) -> void:
+	var response_tag = Enums.get_dialogue_response_tag(response)
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and !dialogue_open:
 		dialogue_open = true
 		var dialogue_balloon : DialogueBaloon = DialogueManager.show_dialogue_balloon(dialogue_resource, "start")
 		await dialogue_balloon.ready
 		dialogue_balloon.dialogue_label.spoke.connect(_on_spoke)
+		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
 		await DialogueManager.dialogue_ended
 		dialogue_open = false
