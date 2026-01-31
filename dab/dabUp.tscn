@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c78e8hn08pqcr"]
 
 [ext_resource type="Script" uid="uid://dwv1m7fsd157d" path="res://dab/dab_up.gd" id="1_7j2s3"]
-[ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="2_eb4ko"]
 [ext_resource type="Texture2D" uid="uid://c8r5riy3rqxjb" path="res://assets/ui/beat_left_tip.png" id="2_exl78"]
 [ext_resource type="Texture2D" uid="uid://cusgx3n1hwsl8" path="res://assets/ui/beat_down_tip.png" id="3_p8ur4"]
 [ext_resource type="Texture2D" uid="uid://blblhbx3ero3p" path="res://assets/ui/beat_up_tip.png" id="4_6txdt"]
@@ -13,7 +12,11 @@
 
 [node name="DabUp" type="Control" unique_id=221765917]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7j2s3")
 arrow_left = ExtResource("2_exl78")
 arrow_down = ExtResource("3_p8ur4")
@@ -24,8 +27,19 @@ arrow_down_label = ExtResource("7_t7vok")
 arrow_up_label = ExtResource("8_2mvmg")
 arrow_right_label = ExtResource("9_1mhgx")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2011129465]
-layout_mode = 0
-offset_right = 1146.0
-offset_bottom = 640.0
-texture = ExtResource("2_eb4ko")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1588830302]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.24313726)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906910180]
