@@ -36,12 +36,17 @@ func _on_response_chosen(response: DialogueResponse) -> void:
 
 func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -> void:
 	minigame_played = true
-	CredzManager.increaseCredz(result)
-	
+	CredzManager.increaseCredz(score)
 	#continue dialogue based on result
-	if result == DabUpMinigame.DabUpCompletion.PASS:
-	# TODO: create FAIL, PASS and PASS_HARD to trigger loss, win and big win dialogues
-		pass
+	var dialogue_to_use : DialogueWithTimer
+	if result == DabUpMinigame.DabUpCompletion.PASS_EASY:
+		dialogue_to_use = win_easy_dialogue
+	elif result == DabUpMinigame.DabUpCompletion.PASS_HARD:
+		dialogue_to_use = win_hard_dialogue
+	else:
+		dialogue_to_use = lose_dialogue
+	var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue_to_use.dialogue_resource, dialogue_to_use.dialogue_title)
+	await dialogue_balloon.ready
 
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:
@@ -52,6 +57,8 @@ func _process(_delta: float) -> void:
 		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
 
 func _on_body_entered(body: Node3D):
+	if minigame_played:
+		return
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		player_within_area = true
 		if body is PlayerCharacterBody3D:
