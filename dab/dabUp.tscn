@@ -2,21 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dwv1m7fsd157d" path="res://dab/dab_up.gd" id="1_7j2s3"]
 [ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="2_eb4ko"]
-[ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="3_qp8bs"]
-[ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="4_rrblq"]
+[ext_resource type="Texture2D" uid="uid://c8r5riy3rqxjb" path="res://assets/ui/beat_left_tip.png" id="2_exl78"]
+[ext_resource type="Texture2D" uid="uid://cusgx3n1hwsl8" path="res://assets/ui/beat_down_tip.png" id="3_p8ur4"]
+[ext_resource type="Texture2D" uid="uid://blblhbx3ero3p" path="res://assets/ui/beat_up_tip.png" id="4_6txdt"]
+[ext_resource type="Texture2D" uid="uid://b2ky7yk0flkkq" path="res://assets/ui/beat_right_tip.png" id="5_b7j57"]
+[ext_resource type="Texture2D" uid="uid://bnj5udvcf2gtn" path="res://assets/ui/beat_left.png" id="6_vdgic"]
+[ext_resource type="Texture2D" uid="uid://edglgjfma1fl" path="res://assets/ui/beat_down.png" id="7_t7vok"]
+[ext_resource type="Texture2D" uid="uid://c4w6o2f0htfx" path="res://assets/ui/beat_up.png" id="8_2mvmg"]
+[ext_resource type="Texture2D" uid="uid://bhfcr7whlwbfw" path="res://assets/ui/beat_right.png" id="9_1mhgx"]
 
 [node name="DabUp" type="Control" unique_id=221765917]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7j2s3")
-arrow_left = ExtResource("4_rrblq")
-arrow_down = ExtResource("4_rrblq")
-arrow_up = ExtResource("4_rrblq")
-arrow_right = ExtResource("4_rrblq")
-arrow_left_label = ExtResource("3_qp8bs")
-arrow_down_label = ExtResource("3_qp8bs")
-arrow_up_label = ExtResource("3_qp8bs")
-arrow_right_label = ExtResource("3_qp8bs")
+arrow_left = ExtResource("2_exl78")
+arrow_down = ExtResource("3_p8ur4")
+arrow_up = ExtResource("4_6txdt")
+arrow_right = ExtResource("5_b7j57")
+arrow_left_label = ExtResource("6_vdgic")
+arrow_down_label = ExtResource("7_t7vok")
+arrow_up_label = ExtResource("8_2mvmg")
+arrow_right_label = ExtResource("9_1mhgx")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2011129465]
 layout_mode = 0
