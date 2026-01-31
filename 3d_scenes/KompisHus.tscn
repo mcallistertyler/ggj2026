@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cvnmsene4ix33" path="res://sprite_background_kompishus.jpg" id="2_jq6uo"]
 [ext_resource type="Texture2D" uid="uid://b7u2ijxl8sfv5" path="res://sprite_background_kompishus_front.png" id="2_te53e"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_im13u"]
+[ext_resource type="Texture2D" uid="uid://bvhrcjxq802p6" path="res://sprite_kompis.png" id="5_te53e"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -32,15 +33,15 @@ transform = Transform3D(1, 0, 0, 0, 0.77792525, 0.62835693, 0, -0.62835693, 0.77
 
 [node name="BackgroundImageBack" type="Sprite3D" parent="Camera3D" unique_id=1813011410]
 transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
-visible = false
 texture = ExtResource("2_jq6uo")
 
 [node name="BackgroundImageFront" type="Sprite3D" parent="Camera3D" unique_id=600254422]
 transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
+sorting_offset = 100.0
 texture = ExtResource("2_te53e")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("2_im13u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.639508, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2365189, 6.639508, 5.9808993)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
 environment = SubResource("Environment_saxnu")
@@ -54,3 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.370826, 2.0282793, -2.6704
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("3_im13u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47110605, 4.797805, 6.4253764)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=878062923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.655969, 4.164565, -0.21053791)
+texture = ExtResource("5_te53e")
