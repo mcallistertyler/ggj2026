@@ -1,17 +1,17 @@
 extends Node
 
-var credz: int = 0
-signal credzIncreased(amount)
-signal credzDecreased(amount)
+var credz: int = 500
+signal credz_increased(amount)
+signal credz_decreased(amount)
 
 
 func increaseCredz(amount: int):
 	credz += amount
-	credzIncreased.emit(amount)
+	credz_increased.emit(amount)
 
 func decreaseCredz(amount: int):
 	credz -= amount
-	credzDecreased.emit(amount)
+	credz_decreased.emit(amount)
 	
 	if credz < 0:
 		die()
