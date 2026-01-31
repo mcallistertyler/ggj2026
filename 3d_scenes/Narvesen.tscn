@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://blntqbf8jjges"]
 
+[ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_2hy3x"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
@@ -13,6 +14,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_2hy3x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 mesh = SubResource("PlaneMesh_7owcu")
