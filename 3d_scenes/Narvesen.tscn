@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
+[ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/DialogueTimer.tscn" id="5_4vlna"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -45,5 +46,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9742546, -3.7434769)
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 
-[node name="DialogueTimerLayer" type="CanvasLayer" parent="." unique_id=1337266485]
-layer = 2
+[node name="TimerLayer" parent="." unique_id=1232861659 instance=ExtResource("5_4vlna")]

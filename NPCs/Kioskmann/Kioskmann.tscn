@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bptwcu5xksikr"]
 
-[ext_resource type="Script" uid="uid://bcvptxtqyop8u" path="res://NPCs/Kioskmann/kioskmann.gd" id="1_4e8fx"]
+[ext_resource type="Script" uid="uid://dmd4n8w1eqa8n" path="res://NPCs/Kioskmann/kioskmann.gd" id="1_4e8fx"]
 [ext_resource type="PackedScene" uid="uid://5sopk4k1gwuc" path="res://NPCs/Kioskmann/kioskmann_sprite_3d.tscn" id="3_xb10o"]
 [ext_resource type="Shader" uid="uid://bkn4bl8jjiv1f" path="res://NPCs/Kioskmann/Kioskmann.gdshader" id="4_4e8fx"]
 [ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/dialogue_with_timer.gd" id="4_bylqt"]

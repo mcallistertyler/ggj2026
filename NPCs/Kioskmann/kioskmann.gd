@@ -18,8 +18,9 @@ func _on_dialogue_ended(resource: DialogueResource) -> void:
 		await get_tree().create_timer(0.3).timeout
 		dialogue_started = false
 
-func _on_responses_visible(dialogue_balloon: DialogueBaloon) -> void:
-	if dialogue_balloon.responses_menu.visible and response_timeout_value != null:
+func _on_responses_shown(_responses: Array) -> void:
+	print("responses_shown fired, timeout: ", response_timeout_value)
+	if response_timeout_value > 0:
 		TimerManager.create_dialogue_timer(response_timeout_value, TimerManager.Context.DIALOGUE)
 
 func _on_response_chosen(response: DialogueResponse) -> void:
@@ -31,8 +32,9 @@ func _process(_delta: float) -> void:
 		dialogue_started = true
 		var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue.dialogue_resource, dialogue.dialogue_title)
 		await dialogue_balloon.ready
-		dialogue_balloon.responses_menu.visibility_changed.connect(_on_responses_visible.bind(dialogue_balloon))
-		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)	
+		dialogue_balloon.responses_shown.connect(_on_responses_shown)
+		dialogue_balloon.responses_menu.response_selected.connect(_on_response_chosen)
+
 func _on_body_entered(body: Node3D):
 	print("body entered: ", body.name, " layer: ", body.collision_layer, " groups: ", body.get_groups())
 	if body.is_in_group(Groups.PLAYER_GROUP):

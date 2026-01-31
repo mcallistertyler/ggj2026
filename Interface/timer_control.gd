@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 signal timed_out
 
@@ -9,6 +9,7 @@ signal timed_out
 var timer_active : bool = false
 
 func _ready() -> void:
+	print("huh")
 	self.hide()
 	TimerManager.start_dialogue_timer.connect(_on_start_dialogue_timer)
 	TimerManager.timer_manager_timeout.connect(_on_timer_timeout)
@@ -19,6 +20,7 @@ func _process(_delta: float) -> void:
 		timer_text.text = "%.2f" % time_left
 
 func _on_start_dialogue_timer() -> void:
+	print("Starting timer for response")
 	timer_active = true
 	self.show()
 
