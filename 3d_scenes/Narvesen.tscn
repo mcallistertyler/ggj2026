@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
 [ext_resource type="Texture2D" uid="uid://b3yjjconkxfo5" path="res://assets/character_sprites/npc_kioskmann.png" id="3_hkqfg"]
 [ext_resource type="Script" uid="uid://dh4wo5umt5wtt" path="res://3d_scenes/kioskmann.gd" id="3_plnti"]
+[ext_resource type="Texture2D" uid="uid://cq2oqhxfclbcj" path="res://sprite_narvesen_interior.jpg" id="5_4vlna"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -21,6 +22,7 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 script = ExtResource("1_2hy3x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
+visible = false
 mesh = SubResource("PlaneMesh_7owcu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1846613177]
@@ -30,10 +32,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046569824, 0, 0.064697266)
 shape = SubResource("BoxShape3D_saxnu")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2132365635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.023708, 9.386555)
+transform = Transform3D(1, 0, 0, 0, 0.797131, 0.60380644, 0, -0.60380644, 0.797131, 0, 5.7596297, 9.387)
+
+[node name="NarvesenBildeSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1771241929]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -24.387)
+pixel_size = 0.02
+texture = ExtResource("5_4vlna")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("1_saxnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.639508, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.917902, 7.490492)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
 environment = SubResource("Environment_saxnu")
