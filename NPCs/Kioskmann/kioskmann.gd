@@ -29,7 +29,7 @@ func _on_responses_shown(_responses: Array) -> void:
 func _on_response_chosen(response: DialogueResponse) -> void:
 	TimerManager.cancel_timer()
 	var response_type = Enums.get_dialogue_response_tag(response)
-	# start dabupgame, pause dialogue while game shows
+	# start dabupgame
 	dab_up.open(response_type)
 	# Show response based on minigame result
 	# Parent.gd
@@ -37,7 +37,11 @@ func _on_response_chosen(response: DialogueResponse) -> void:
 func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -> void:
 	minigame_played = true
 	CredzManager.increaseCredz(result)
-
+	
+	#continue dialogue based on result
+	if result == DabUpMinigame.DabUpCompletion.PASS:
+	# TODO: create FAIL, PASS and PASS_HARD to trigger loss, win and big win dialogues
+		pass
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:
 		dialogue_started = true
