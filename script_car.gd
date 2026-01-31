@@ -11,8 +11,10 @@ func _physics_process(delta):
 		direction.y += 1
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
+		%Sprite2D.flip_h = true
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
+		%Sprite2D.flip_h = false
 
 	direction = direction.normalized()
 	velocity = direction * speed
