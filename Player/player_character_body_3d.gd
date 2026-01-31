@@ -6,6 +6,8 @@ class_name PlayerCharacterBody3D
 @export var animated_sprite : AnimatedSprite3D
 @export var animation_player : AnimationPlayer
 
+enum PlayerStates { IDLE, WALK }
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
