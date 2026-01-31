@@ -63,3 +63,4 @@ dab_up = NodePath("../CanvasLayer/DabUp")
 visible = false
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("7_dtuyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7045674, 10.114904)
