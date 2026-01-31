@@ -28,6 +28,11 @@ PlayerManager="*uid://boalmsxexwxcx"
 
 runtime/balloon_path="res://dialogue/dialogue_box/balloon.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
