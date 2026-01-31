@@ -20,8 +20,6 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_2hy3x")
 
-[node name="DabUp" parent="." unique_id=221765917 instance=ExtResource("5_4vlna")]
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 visible = false
 mesh = SubResource("PlaneMesh_7owcu")
@@ -49,9 +47,15 @@ environment = SubResource("Environment_saxnu")
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
 
-[node name="Kioskmann" parent="." unique_id=2026299020 instance=ExtResource("3_plnti")]
+[node name="Kioskmann" parent="." unique_id=2026299020 node_paths=PackedStringArray("dab_up") instance=ExtResource("3_plnti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9742546, -3.7434769)
+dab_up = NodePath("../CanvasLayer/DabUp")
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 
 [node name="TimerLayer" parent="." unique_id=1232861659 instance=ExtResource("5_4vlna")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=757534782]
+
+[node name="DabUp" parent="CanvasLayer" unique_id=221765917 instance=ExtResource("5_4vlna")]
+visible = false
