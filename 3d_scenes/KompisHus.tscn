@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://p4fycl2f8y2b"]
 
-[ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_6lf6r"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_im13u"]
+[ext_resource type="Texture2D" uid="uid://cvnmsene4ix33" path="res://sprite_background_kompishus.jpg" id="2_jq6uo"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_im13u"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
@@ -15,9 +15,9 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
 [node name="KompisHus" type="Node3D" unique_id=1809051035]
-script = ExtResource("1_6lf6r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
+visible = false
 mesh = SubResource("PlaneMesh_7owcu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1846613177]
@@ -27,7 +27,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046569824, 0, 0.064697266)
 shape = SubResource("BoxShape3D_saxnu")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2132365635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.023708, 9.386555)
+transform = Transform3D(1, 0, 0, 0, 0.77792525, 0.62835693, 0, -0.62835693, 0.77792525, 0, 7.051299, 9.386555)
+
+[node name="BackgroundImageSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1813011410]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
+texture = ExtResource("2_jq6uo")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("2_im13u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.639508, 0)
