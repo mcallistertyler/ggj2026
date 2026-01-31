@@ -3,16 +3,14 @@ extends CanvasLayer
 signal timed_out
 
 @onready var timer_text : RichTextLabel = get_node("%TimerText")
-#TODO: I don't care about the progress bar yet
-@onready var progress_bar : ProgressBar = get_node("%ProgressBar")
 
 var timer_active : bool = false
 
 func _ready() -> void:
-	print("huh")
 	self.hide()
 	TimerManager.start_dialogue_timer.connect(_on_start_dialogue_timer)
 	TimerManager.timer_manager_timeout.connect(_on_timer_timeout)
+	TimerManager.timer_cancelled.connect(_on_timer_cancelled)
 
 func _process(_delta: float) -> void:
 	if timer_active:
@@ -25,5 +23,9 @@ func _on_start_dialogue_timer() -> void:
 	self.show()
 
 func _on_timer_timeout(_context: TimerManager.Context) -> void:
+	timer_active = false
+	self.hide()
+
+func _on_timer_cancelled() -> void:
 	timer_active = false
 	self.hide()

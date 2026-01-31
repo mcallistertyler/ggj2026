@@ -22,6 +22,7 @@ AudioManager="*uid://0hq6cx44e2wt"
 DialogueManager="*uid://c3rodes2l3gxb"
 CredzManager="*uid://bw33l4h7bywvb"
 TimerManager="*uid://b2gba5g6mfueu"
+PlayerManager="*uid://boalmsxexwxcx"
 
 [dialogue_manager]
 
