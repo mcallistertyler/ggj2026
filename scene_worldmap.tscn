@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cynf4a4us8i00" path="res://scene_location_entry.tscn" id="2_mq3a5"]
 [ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="3_2wbdq"]
 [ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="4_rlpqb"]
+[ext_resource type="Texture2D" uid="uid://dnxor84gy7jsb" path="res://sprite_entry_eplehuset.png" id="5_4ctb2"]
 [ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="5_anor1"]
 [ext_resource type="Texture2D" uid="uid://bf1xbcjeaspja" path="res://sprite_entry_gym.png" id="6_anor1"]
-[ext_resource type="Texture2D" uid="uid://dia3jae1k82mn" path="res://sprite_entry_fox.png" id="7_2pllx"]
+[ext_resource type="Texture2D" uid="uid://b5l1b8ek5q2yi" path="res://sprite_entry_frukt.png" id="8_4ctb2"]
 
 [node name="WorldMap" type="Node2D" unique_id=118894363]
 
@@ -16,26 +17,31 @@ position = Vector2(547, 245)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1805388494]
 z_index = -1
-position = Vector2(500, 400)
-scale = Vector2(15, 10)
+position = Vector2(636.5, 368.49994)
+scale = Vector2(4.1566663, 2.3900003)
 texture = ExtResource("3_2wbdq")
 
 [node name="EntryNarvesen" parent="." unique_id=615619979 instance=ExtResource("2_mq3a5")]
-position = Vector2(922, 209)
+position = Vector2(1036, 260)
 my_texture = ExtResource("4_rlpqb")
 target_scene = 1
 
+[node name="EntryApple" parent="." unique_id=1280924198 instance=ExtResource("2_mq3a5")]
+position = Vector2(638, 149)
+my_texture = ExtResource("5_4ctb2")
+target_scene = 1
+
 [node name="EntryHouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
-position = Vector2(291, 477)
+position = Vector2(215, 403)
 my_texture = ExtResource("5_anor1")
 target_scene = 2
 
 [node name="EntryGym" parent="." unique_id=160191680 instance=ExtResource("2_mq3a5")]
-position = Vector2(863, 559)
+position = Vector2(1127, 571)
 my_texture = ExtResource("6_anor1")
 target_scene = 3
 
-[node name="EntryFox" parent="." unique_id=226732560 instance=ExtResource("2_mq3a5")]
-position = Vector2(398, 298)
-my_texture = ExtResource("7_2pllx")
+[node name="EntryFoodStore" parent="." unique_id=226732560 instance=ExtResource("2_mq3a5")]
+position = Vector2(477, 636)
+my_texture = ExtResource("8_4ctb2")
 target_scene = 4
