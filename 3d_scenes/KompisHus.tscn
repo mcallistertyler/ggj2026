@@ -13,7 +13,7 @@ size = Vector3(29.749634, 1, 30.158691)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
-[node name="Narvesen" type="Node3D" unique_id=1809051035]
+[node name="KompisHus" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_6lf6r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]

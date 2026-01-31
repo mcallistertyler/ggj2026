@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_2hy3x"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
+[ext_resource type="Texture2D" uid="uid://b3yjjconkxfo5" path="res://assets/character_sprites/npc_kioskmann.png" id="3_hkqfg"]
+[ext_resource type="Script" uid="uid://dh4wo5umt5wtt" path="res://3d_scenes/kioskmann.gd" id="3_plnti"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -12,6 +14,8 @@ size = Vector3(29.749634, 1, 30.158691)
 [sub_resource type="Environment" id="Environment_saxnu"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2hy3x"]
 
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_2hy3x")
@@ -37,3 +41,16 @@ environment = SubResource("Environment_saxnu")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=678245714]
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
+
+[node name="Kioskmann" type="Area3D" parent="." unique_id=986518539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.072394, 3.9864836, -7.868355)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_plnti")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kioskmann" unique_id=701499661]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("CylinderShape3D_2hy3x")
+
+[node name="Sprite3D" type="Sprite3D" parent="Kioskmann" unique_id=1736574502]
+texture = ExtResource("3_hkqfg")
