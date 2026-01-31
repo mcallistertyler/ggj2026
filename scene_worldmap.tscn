@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://64b1uvkrr0qv"]
 
-[ext_resource type="PackedScene" uid="uid://0uxqmb7lw81" path="res://scene_car.tscn" id="1_j6b3k"]
-[ext_resource type="PackedScene" uid="uid://cynf4a4us8i00" path="res://scene_location_entry.tscn" id="2_mq3a5"]
+[ext_resource type="PackedScene" path="res://scene_car.tscn" id="1_j6b3k"]
+[ext_resource type="PackedScene" path="res://scene_location_entry.tscn" id="2_mq3a5"]
 [ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="3_2wbdq"]
 [ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="4_rlpqb"]
 [ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="5_anor1"]
