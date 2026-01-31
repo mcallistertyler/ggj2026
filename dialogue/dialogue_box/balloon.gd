@@ -2,6 +2,8 @@ extends CanvasLayer
 class_name DialogueBaloon
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+signal responses_shown(responses: Array)
+
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -98,17 +100,44 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	get_viewport().set_input_as_handled()
 
-	# Handle initial response selection - up selects top, down selects bottom
+	# Handle response menu navigation and selection
 	if responses_menu.visible:
-		var dominated_items = responses_menu.get_menu_items()
-		if dominated_items.size() > 0:
+		var menu_items = responses_menu.get_menu_items()
+		if menu_items.size() > 0:
 			var focused = get_viewport().gui_get_focus_owner()
-			var has_response_focused = focused in dominated_items
-			if not has_response_focused:
+			var focused_item = _get_focused_response_item(focused, menu_items)
+
+			if focused_item == null:
+				# No response focused - up selects top, down selects bottom
 				if event.is_action_pressed(&"ui_up"):
-					dominated_items[0].grab_focus()
+					_focus_response_item(menu_items[0])
 				elif event.is_action_pressed(&"ui_down"):
-					dominated_items[dominated_items.size() - 1].grab_focus()
+					_focus_response_item(menu_items[menu_items.size() - 1])
+			else:
+				# Response is focused - handle confirmation
+				if event.is_action_pressed(next_action):
+					var response = focused_item.get_meta("response")
+					if response:
+						responses_menu.response_selected.emit(response)
+
+
+## Get the response item that contains the focused control (or null if none)
+func _get_focused_response_item(focused: Control, menu_items: Array) -> Control:
+	if focused == null:
+		return null
+	for item in menu_items:
+		if focused == item or item.is_ancestor_of(focused):
+			return item
+	return null
+
+
+## Focus the appropriate control in a response item (the button if it's a container)
+func _focus_response_item(item: Control) -> void:
+	var button = item.get_node_or_null("ResponseExample")
+	if button:
+		button.grab_focus()
+	else:
+		item.grab_focus()
 
 
 func _notification(what: int) -> void:
@@ -169,6 +198,7 @@ func apply_dialogue_line() -> void:
 	elif dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
+		responses_shown.emit(dialogue_line.responses)
 	elif dialogue_line.time != "":
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout

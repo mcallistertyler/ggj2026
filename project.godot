@@ -21,6 +21,7 @@ SceneManager="*res://addons/scene_transitions/SceneManager.tscn"
 AudioManager="*uid://0hq6cx44e2wt"
 DialogueManager="*uid://c3rodes2l3gxb"
 CredzManager="*uid://bw33l4h7bywvb"
+TimerManager="*uid://b2gba5g6mfueu"
 
 [dialogue_manager]
 
@@ -56,6 +57,12 @@ move_right={
 [internationalization]
 
 locale/translations_pot_files=PackedStringArray("res://dialogue/test/test_dialogue.dialogue")
+
+[layer_names]
+
+3d_physics/layer_1="WorldObjects"
+3d_physics/layer_2="PlayerCharacter"
+3d_physics/layer_3="NPCs"
 
 [physics]
 
