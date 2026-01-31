@@ -24,7 +24,9 @@ func _on_responses_shown(_responses: Array) -> void:
 		TimerManager.create_dialogue_timer(response_timeout_value, TimerManager.Context.DIALOGUE)
 
 func _on_response_chosen(response: DialogueResponse) -> void:
-	print("Received response", response)
+	TimerManager.cancel_timer()
+	var response_type = Enums.get_dialogue_response_tag(response)
+	print("Received response", response, " type: ", response_type)
 
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept"):

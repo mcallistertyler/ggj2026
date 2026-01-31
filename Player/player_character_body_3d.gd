@@ -8,11 +8,21 @@ class_name PlayerCharacterBody3D
 
 enum PlayerStates { IDLE, WALK }
 
+var movement_disabled : bool = false
+
+func _on_player_movement(is_enabled: bool) -> void:
+	movement_disabled = not is_enabled
+
+func _ready() -> void:
+	PlayerManager.player_movement.connect(_on_player_movement)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if movement_disabled:
+		input_dir = Vector2.ZERO
 	var direction = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	if direction:
 		velocity.x = direction.x * speed
