@@ -1,7 +1,11 @@
 extends Control
 
+# DIFFICULTY SETTINGS
+@export var SEQ_LENGTH: int = 10
+@export var TIME_LIMIT: int = 10
+
 # -----------------------
-# CONFIG (minimal)
+# BUTTONS
 # -----------------------
 const LANES: Array[String] = ["←", "↓", "↑", "→"]   # indices: 0,1,2,3
 const KEY_MAP := {
@@ -11,21 +15,18 @@ const KEY_MAP := {
 	"ui_right": 3
 }
 
-# varies depending on difficulty
-@export var SEQ_LENGTH: int = 10
-@export var TIME_LIMIT: int = 10
-
+# STYLING CODE FOR BUTTONS
 const X_SPACING: float = 120.0
-const ROW_SPACING: float = 60.0
+const ROW_SPACING: float = 80.0
 const BUTTONS_Y_FRACTION: float = 0.78
-const GAP_ABOVE_BUTTONS: float = 40.0
+const GAP_ABOVE_BUTTONS: float = 70.0
 
 # -----------------------
 # STATE
 # -----------------------
 var sequence: Array[int] = []
-var arrow_labels: Array[Label] = []
-var bottom_labels: Array[Label] = []
+var arrow_labels: Array[TextureRect] = []   # falling icons
+var bottom_labels: Array[TextureRect] = []  # bottom row icons (CHANGED)
 
 var _x_start: float = 0.0
 var _buttons_y: float = 0.0
@@ -33,12 +34,46 @@ var _buttons_y: float = 0.0
 var _rng := RandomNumberGenerator.new()
 var _game_over: bool = false
 
+# -----------------------
+# TEXTURES
+# -----------------------
+# Falling arrows (per lane)
+@export var arrow_left:  Texture2D
+@export var arrow_down:  Texture2D
+@export var arrow_up:    Texture2D
+@export var arrow_right: Texture2D
+
+# Bottom row icons (per lane)
+@export var arrow_left_label:  Texture2D
+@export var arrow_down_label:  Texture2D
+@export var arrow_up_label:    Texture2D
+@export var arrow_right_label: Texture2D
+
+# Built at runtime
+var _lane_textures: Array[Texture2D] = []
+var _bottom_lane_textures: Array[Texture2D] = []
+
+
 func _ready():
 	_rng.randomize()
+
+	# Build lane -> texture map (falling arrows)
+	_lane_textures = [arrow_left, arrow_down, arrow_up, arrow_right]
+	for i in range(_lane_textures.size()):
+		if _lane_textures[i] == null:
+			push_warning("Missing texture for falling lane %d. Assign arrow_* textures in Inspector." % i)
+
+	# Build bottom lane -> texture map (bottom static row)
+	_bottom_lane_textures = [arrow_left_label, arrow_down_label, arrow_up_label, arrow_right_label]
+	for i in range(_bottom_lane_textures.size()):
+		if _bottom_lane_textures[i] == null:
+			push_warning("Missing texture for bottom lane %d (arrow_*_label)." % i)
+
 	_create_bottom_labels()
 	_generate_sequence()
 	_compute_layout()
 	_rebuild_arrow_labels()
+
 
 func _compute_layout():
 	var vp: Vector2 = get_viewport_rect().size
@@ -47,7 +82,7 @@ func _compute_layout():
 
 	_buttons_y = vp.y * BUTTONS_Y_FRACTION
 
-	# position bottom (static) labels
+	# position bottom (static) icons
 	for i in range(LANES.size()):
 		bottom_labels[i].position = Vector2(
 			_x_start + float(i) * X_SPACING,
@@ -68,21 +103,41 @@ func _generate_sequence():
 
 func _create_bottom_labels():
 	for i in range(LANES.size()):
-		var lbl := Label.new()
-		lbl.text = LANES[i]
-		add_child(lbl)
-		bottom_labels.append(lbl)
+		var tr := TextureRect.new()
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		tr.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+		tr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+		var tex: Texture2D = null
+		if i >= 0 and i < _bottom_lane_textures.size():
+			tex = _bottom_lane_textures[i]
+		tr.texture = tex
+
+		add_child(tr)
+		bottom_labels.append(tr)
 
 
 func _clear_arrow_labels():
-	for lbl in arrow_labels:
-		if is_instance_valid(lbl):
-			lbl.queue_free()
+	for n in arrow_labels:
+		if is_instance_valid(n):
+			n.queue_free()
 	arrow_labels.clear()
 
 
+# Create one TextureRect for a given lane index using the exported textures
+func _make_arrow_icon(lane_index: int) -> TextureRect:
+	var tr := TextureRect.new()
+	tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tr.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	var tex: Texture2D = null
+	if lane_index >= 0 and lane_index < _lane_textures.size():
+		tex = _lane_textures[lane_index]
+	tr.texture = tex
+	return tr
+
+
 func _rebuild_arrow_labels():
-	# Clear and recreate labels to exactly match 'sequence'
+	# Clear and recreate icons to exactly match 'sequence'
 	_clear_arrow_labels()
 
 	# Compute top so that the last (bottom) arrow sits just above the buttons line
@@ -91,14 +146,15 @@ func _rebuild_arrow_labels():
 
 	for i in range(count):
 		var lane_index: int = sequence[i]
-		var lbl := Label.new()
-		lbl.text = LANES[lane_index]
-		lbl.position = Vector2(
+
+		# Use TextureRect instead of Label
+		var icon := _make_arrow_icon(lane_index)
+		icon.position = Vector2(
 			_x_start + float(lane_index) * X_SPACING,
 			top_y + float(i) * ROW_SPACING
 		)
-		add_child(lbl)
-		arrow_labels.append(lbl)
+		add_child(icon)
+		arrow_labels.append(icon)
 
 
 # -----------------------
@@ -137,9 +193,9 @@ func _on_lane_pressed(lane_index: int):
 		_game_over = true
 		_failure()
 
+
 func _success():
 	print("NICE")
 	
 func _failure():
 	print("FAIL")
-	
