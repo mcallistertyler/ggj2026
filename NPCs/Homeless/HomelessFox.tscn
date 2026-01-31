@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://q6420e2ngn3m" path="res://NPCs/Homeless/homeless_texture_2d.tres" id="3_7sde2"]
 [ext_resource type="Texture2D" uid="uid://cc5pqq4c2ipja" path="res://assets/character_sprites/obj_kaffe.png" id="4_7sde2"]
 [ext_resource type="Script" uid="uid://ciwif0os673a0" path="res://NPCs/Homeless/homeless_cup.gd" id="4_ts2es"]
+[ext_resource type="Texture2D" uid="uid://0l01x8hokupk" path="res://assets/character_sprites/obj_kaffe_fallen.png" id="6_opukc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ts2es"]
 render_priority = 0
@@ -48,11 +49,16 @@ shape = SubResource("CylinderShape3D_opukc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5786829, -0.7319556, 0)
 script = ExtResource("4_ts2es")
 
-[node name="Sprite3D" type="Sprite3D" parent="HomelessCup" unique_id=608945195]
+[node name="VisualNode" type="Node3D" parent="HomelessCup" unique_id=63534024]
+
+[node name="StandingCup" type="Sprite3D" parent="HomelessCup/VisualNode" unique_id=608945195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3639522, 1.2803831)
 material_override = SubResource("ShaderMaterial_opukc")
 billboard = 2
 texture = ExtResource("4_7sde2")
+
+[node name="FallenCup" type="Sprite3D" parent="HomelessCup/VisualNode" unique_id=1740656229]
+texture = ExtResource("6_opukc")
 
 [node name="Area3D" type="Area3D" parent="HomelessCup" unique_id=421736103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8143079, 1.1117862)
