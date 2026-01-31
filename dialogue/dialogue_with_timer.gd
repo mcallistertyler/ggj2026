@@ -3,7 +3,7 @@ class_name DialogueWithTimer
 
 @export var dialogue_resource : DialogueResource
 @export var dialogue_title : String
-@export var timeout : float = 2.0 # set this yourself
+@export var timeout_value : float = 2.0 # set this yourself
 
 enum DialogueState { TIMED_OUT, GAME_SUCCESS, GAME_FAILED }
 

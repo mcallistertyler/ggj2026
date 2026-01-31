@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ddsb56sknkaf8"]
+
+[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/dialogue_with_timer.gd" id="1_kqcun"]
+[ext_resource type="Resource" uid="uid://07tcsd772b7i" path="res://dialogue/test/test_dialogue.dialogue" id="2_vnfly"]
+
+[node name="TestDialogueWithTimer" type="Node" unique_id=719189344]
+script = ExtResource("1_kqcun")
+dialogue_resource = ExtResource("2_vnfly")
+dialogue_title = "start"
+timeout = 4.0
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
