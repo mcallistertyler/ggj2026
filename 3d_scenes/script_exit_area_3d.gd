@@ -8,11 +8,7 @@ func _ready():
 	connect("body_exited", Callable(self, "_on_body_exited"))
 
 func _process(delta):
-	var ready_to_exit = \
-		is_player_within_area and \
-			( has_player_entered_room or Input.is_action_just_pressed("ui_accept") )
-
-	if ready_to_exit:
+	if is_player_within_area and Input.is_action_just_pressed("ui_accept"):
 		SceneManager.transition_to_scene(Enums.Scenes.WORLD_MAP)
 
 func _on_body_entered(body):
