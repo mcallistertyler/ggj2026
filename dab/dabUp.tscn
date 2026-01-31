@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://c78e8hn08pqcr"]
 
 [ext_resource type="Script" uid="uid://dwv1m7fsd157d" path="res://dab/dab_up.gd" id="1_7j2s3"]
+[ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="2_eb4ko"]
+[ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="3_qp8bs"]
+[ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="4_rrblq"]
 
 [node name="DabUp" type="Control" unique_id=221765917]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7j2s3")
+arrow_left = ExtResource("4_rrblq")
+arrow_down = ExtResource("4_rrblq")
+arrow_up = ExtResource("4_rrblq")
+arrow_right = ExtResource("4_rrblq")
+arrow_left_label = ExtResource("3_qp8bs")
+arrow_down_label = ExtResource("3_qp8bs")
+arrow_up_label = ExtResource("3_qp8bs")
+arrow_right_label = ExtResource("3_qp8bs")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2011129465]
+layout_mode = 0
+offset_right = 1146.0
+offset_bottom = 640.0
+texture = ExtResource("2_eb4ko")
