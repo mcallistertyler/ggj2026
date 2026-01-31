@@ -1,3 +1,144 @@
 [gd_scene format=3 uid="uid://b3cqatwpvbdm0"]
 
-[node name="PauseMenu" type="Node2D" unique_id=592839465]
+[ext_resource type="PackedScene" uid="uid://bejoxd28okgyw" path="res://Interface/menu_button.tscn" id="1_ijom4"]
+[ext_resource type="Script" uid="uid://buexlwl4c31ww" path="res://Interface/pause_menu.gd" id="1_v680y"]
+[ext_resource type="Texture2D" uid="uid://x5cs145pc138" path="res://sprite_car.png" id="3_plta2"]
+[ext_resource type="Texture2D" uid="uid://b3aco3gdbxf6v" path="res://assets/character_sprites/player_sprite.png" id="3_ul3im"]
+[ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="5_obkrf"]
+
+[sub_resource type="FontVariation" id="FontVariation_ul3im"]
+base_font = ExtResource("5_obkrf")
+
+[sub_resource type="FontVariation" id="FontVariation_glk5w"]
+base_font = ExtResource("5_obkrf")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipj8o"]
+atlas = ExtResource("3_ul3im")
+region = Rect2(320, 0, 320, 560)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2e3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipj8o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2078417793]
+script = ExtResource("1_v680y")
+
+[node name="Label" type="Label" parent="." unique_id=389505297]
+offset_left = 483.0
+offset_top = 40.0
+offset_right = 850.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(1, 0.8235294, 0.4, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_fonts/font = SubResource("FontVariation_ul3im")
+theme_override_font_sizes/font_size = 31
+text = "You are currently a..."
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="." unique_id=1973119703]
+unique_name_in_owner = true
+offset_left = 509.0
+offset_top = 80.0
+offset_right = 806.0
+offset_bottom = 170.0
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_glk5w")
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1469908812]
+offset_left = 475.0
+offset_top = 569.0
+offset_right = 842.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(1, 0.8235294, 0.4, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_fonts/font = SubResource("FontVariation_ul3im")
+theme_override_font_sizes/font_size = 31
+text = "Get more street
+CREDZ to level up"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=412660536]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -529.0
+offset_top = -158.0
+offset_right = -317.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Resume" parent="VBoxContainer2" unique_id=579359187 instance=ExtResource("1_ijom4")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="Exit" parent="VBoxContainer2" unique_id=1391599939 instance=ExtResource("1_ijom4")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit Game"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1661454318]
+offset_left = 950.0
+offset_top = 432.0
+offset_right = 1270.0
+offset_bottom = 714.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1825090650]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1373680966]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1941187702]
+layout_mode = 2
+text = "How to play the game :)"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=34337075]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "
+
+Move with WASD, talk with SPACE
+
+Use ARROW KEYS and ENTER to select options.
+
+USE ARROW KEYS to play the SOCIAL MASKING minigame"
+autowrap_mode = 2
+
+[node name="Player" type="AnimatedSprite2D" parent="." unique_id=739194080]
+position = Vector2(656, 378)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_v2e3r")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1787156563]
+unique_name_in_owner = true
+position = Vector2(59, 37)
+texture = ExtResource("3_plta2")
+
+[connection signal="focus_entered" from="VBoxContainer2/Resume" to="." method="_on_resume_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Resume" to="." method="_on_resume_focus_exited"]
+[connection signal="pressed" from="VBoxContainer2/Resume" to="." method="_on_resume_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/Exit" to="." method="_on_exit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Exit" to="." method="_on_exit_focus_exited"]
+[connection signal="pressed" from="VBoxContainer2/Exit" to="." method="_on_exit_pressed"]
