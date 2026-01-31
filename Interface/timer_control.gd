@@ -2,23 +2,26 @@ extends Control
 
 signal timed_out
 
-@export var timeout_value : float
-@onready var timer_text : RichTextLabel
-@onready var progress_bar : ProgressBar
+@onready var timer_text : RichTextLabel = get_node("%TimerText")
+#TODO: I don't care about the progress bar yet
+@onready var progress_bar : ProgressBar = get_node("%ProgressBar")
+
+var timer_active : bool = false
 
 func _ready() -> void:
 	self.hide()
 	TimerManager.start_dialogue_timer.connect(_on_start_dialogue_timer)
-	### TEST CODE
-	#await get_tree().create_timer(2.0).timeout
-	#print("creating some kind of dialogue")
-	#DialogueTimerManager.start_dialogue_timer.emit()
+	TimerManager.timer_manager_timeout.connect(_on_timer_timeout)
+
+func _process(_delta: float) -> void:
+	if timer_active:
+		var time_left = TimerManager.get_time_left()
+		timer_text.text = "%.2f" % time_left
 
 func _on_start_dialogue_timer() -> void:
-	print("should have showed?")
+	timer_active = true
 	self.show()
 
-
-func start_timer() -> void:
-	timer_text.text = ""
-	
+func _on_timer_timeout(_context: TimerManager.Context) -> void:
+	timer_active = false
+	self.hide()

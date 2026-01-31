@@ -10,14 +10,17 @@ enum DialogueState { TIMED_OUT, GAME_SUCCESS, GAME_FAILED }
 signal dialogue_state_result(response_tag)
 
 func start_timer() -> void:
-	pass
+	TimerManager.create_dialogue_timer(timeout_value, TimerManager.Context.DIALOGUE)
 
-func _on_got_dialogue(line: DialogueLine) -> void:
-	if line.responses.size() > 0:
-		start_timer()
+func _on_responses_shown(_responses: Array) -> void:
+	start_timer()
 
 func _ready() -> void:
-	DialogueManager.got_dialogue.connect(_on_got_dialogue)
+	TimerManager.timer_manager_timeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout(context: TimerManager.Context) -> void:
+	if context == TimerManager.Context.DIALOGUE:
+		dialogue_state_result.emit(DialogueState.TIMED_OUT)
 
 func _on_response_selected(response: DialogueResponse) -> void:
 	var response_tag = Enums.get_dialogue_response_tag(response)
@@ -27,4 +30,5 @@ func _on_response_selected(response: DialogueResponse) -> void:
 func start_dialogue() -> void:
 	var dialogue_balloon : DialogueBaloon = DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_title)
 	await dialogue_balloon.ready
+	dialogue_balloon.responses_shown.connect(_on_responses_shown)
 	dialogue_balloon.responses_menu.response_selected.connect(_on_response_selected)
