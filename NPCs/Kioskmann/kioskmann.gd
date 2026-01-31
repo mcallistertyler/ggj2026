@@ -1,5 +1,6 @@
 extends NPC
 
+@export var dab_up : Control
 var player_within_area : bool = false
 var dialogue_started : bool = false
 
@@ -27,6 +28,13 @@ func _on_response_chosen(response: DialogueResponse) -> void:
 	TimerManager.cancel_timer()
 	var response_type = Enums.get_dialogue_response_tag(response)
 	print("Received response", response, " type: ", response_type)
+	# start dabupgame, pause dialogue while game shows
+	dab_up.open(response_type)
+	# Show response based on minigame result
+	# Parent.gd
+
+func _on_minigame_closed(result: String, ok: bool) -> void:
+	print("Popup ended:", result, "ok:", ok)
 
 func _process(_delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept"):

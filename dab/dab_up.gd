@@ -55,6 +55,7 @@ var _bottom_lane_textures: Array[Texture2D] = []
 
 
 func _ready():
+	visible = false
 	_rng.randomize()
 
 	# Build lane -> texture map (falling arrows)
@@ -171,6 +172,8 @@ func _rebuild_arrow_labels():
 # INPUT
 # -----------------------
 func _input(event: InputEvent):
+	if self.visible == false:
+		return
 	if _game_over:
 		return
 	if not event.is_pressed():
@@ -215,11 +218,13 @@ func _failure():
 signal popup_closed
 
 # TODO: default closed, open with triggers from parent
-func open(parent: Node = null):
-	if parent and get_parent() != parent:
-		if get_parent():
-			get_parent().remove_child(self)
-		parent.add_child(self)
+func open(difficulty: Enums.ResponseTag):
+	if difficulty == Enums.ResponseTag.HARD_MODE:
+		TIME_LIMIT = 5
+		SEQ_LENGTH = 10
+	else:
+		TIME_LIMIT = 10
+		SEQ_LENGTH = 10
 
 	# Make visible and bring in front
 	visible = true  # or: show()
