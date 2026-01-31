@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dmea7hyxrob0j"]
+[gd_scene format=3 uid="uid://cynf4a4us8i00"]
 
-[ext_resource type="Script" uid="uid://53q82natd5fe" path="res://script_location_entry.gd" id="1_q0hf4"]
+[ext_resource type="Script" path="res://script_location_entry.gd" id="1_q0hf4"]
 [ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="2_u2w04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkfy4"]
