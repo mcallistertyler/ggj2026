@@ -4,8 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
 [ext_resource type="Texture2D" uid="uid://cq2oqhxfclbcj" path="res://sprite_narvesen_interior.jpg" id="2_la8by"]
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
-[ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
-[ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/DialogueTimer.tscn" id="5_4vlna"]
+[ext_resource type="PackedScene" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
