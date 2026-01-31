@@ -1,0 +1,14 @@
+~ start
+Hot babe: What's up?
+
+- Me, after you've risen me (up) [#response_type=hard_mode]
+	%Hot babe: Damn, [[boo|lover|sweetie]] i didn't know you were hot like that!
+=> END
+- Nothing... [#response_type=easy_mode]
+	%Hot babe: That' ok
+=> END
+
+if Globals.game_fail:
+	%Hot babe: Ew!
+	% Damn...
+=> END

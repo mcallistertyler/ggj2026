@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://db2lptw24kuy3"
+path="res://.godot/imported/hotbabe.dialogue-87044d8dc6ed5fc2231ae43773ae4c56.tres"
+
+[deps]
+
+source_file="res://dialogue/gata/hotbabe.dialogue"
+dest_files=["res://.godot/imported/hotbabe.dialogue-87044d8dc6ed5fc2231ae43773ae4c56.tres"]
+
+[params]
+
+defaults=true

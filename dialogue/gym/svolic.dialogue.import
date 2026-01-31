@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dwmlxb7fvinps"
+path="res://.godot/imported/svolic.dialogue-9eab98ace842fc862e5039c83d5c0d20.tres"
+
+[deps]
+
+source_file="res://dialogue/gym/svolic.dialogue"
+dest_files=["res://.godot/imported/svolic.dialogue-9eab98ace842fc862e5039c83d5c0d20.tres"]
+
+[params]
+
+defaults=true

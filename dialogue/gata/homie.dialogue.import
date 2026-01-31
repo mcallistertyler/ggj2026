@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://brechjm20tsv5"
+path="res://.godot/imported/homie.dialogue-513ebb2a5ad87a07049119c8e2a55aa9.tres"
+
+[deps]
+
+source_file="res://dialogue/gata/homie.dialogue"
+dest_files=["res://.godot/imported/homie.dialogue-513ebb2a5ad87a07049119c8e2a55aa9.tres"]
+
+[params]
+
+defaults=true

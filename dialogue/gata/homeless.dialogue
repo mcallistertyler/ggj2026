@@ -1,0 +1,17 @@
+~ start
+Homeless person: Got any change to spare?
+
+- Money is just a concept, freedom is a state of mind [[love|deary|sweetie]] [#response_type=hard_mode]
+	Homeless person: Damn [[nigga|bro|son] if that ain't the truth!
+=> END
+- No... [#response_type=easy_mode]
+	Homeless person: That's alright, [[nigga|bro|son]]
+=> END
+
+if Globals.game_fail:
+	Homeless person: Damn you too, [[nigga|bro|son]]
+	% Damn what am i even doing...
+=> END
+else:
+	You gained some street cred!
+=> END
