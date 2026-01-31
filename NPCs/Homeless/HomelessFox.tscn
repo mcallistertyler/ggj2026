@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cq83ngkj1j3ms"]
+
+[ext_resource type="Script" uid="uid://1i4gn14vu28r" path="res://NPCs/Homeless/homeless_fox.gd" id="1_7sde2"]
+[ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_4hkxh"]
+[ext_resource type="Texture2D" uid="uid://q6420e2ngn3m" path="res://NPCs/Homeless/homeless_texture_2d.tres" id="3_7sde2"]
+[ext_resource type="Texture2D" uid="uid://cc5pqq4c2ipja" path="res://assets/character_sprites/obj_kaffe.png" id="4_7sde2"]
+[ext_resource type="Script" uid="uid://ciwif0os673a0" path="res://NPCs/Homeless/homeless_cup.gd" id="4_ts2es"]
+[ext_resource type="Texture2D" uid="uid://0l01x8hokupk" path="res://assets/character_sprites/obj_kaffe_fallen.png" id="6_opukc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ts2es"]
+render_priority = 0
+shader = ExtResource("2_4hkxh")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/tex = ExtResource("3_7sde2")
+shader_parameter/sway_strength = 0.1
+shader_parameter/sway_speed = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_opukc"]
+height = 5.39209
+radius = 3.5078125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opukc"]
+render_priority = 0
+shader = ExtResource("2_4hkxh")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/tex = ExtResource("4_7sde2")
+shader_parameter/sway_strength = 0.1
+shader_parameter/sway_speed = 2.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7sde2"]
+
+[node name="HomelessFox" type="Node3D" unique_id=699519701]
+script = ExtResource("1_7sde2")
+metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=457472611]
+material_override = SubResource("ShaderMaterial_ts2es")
+billboard = 2
+texture = ExtResource("3_7sde2")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=176881150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.033097386, 0, -0.0030322075)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=697672287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28213406, 0)
+shape = SubResource("CylinderShape3D_opukc")
+
+[node name="HomelessCup" type="Node3D" parent="." unique_id=1285477507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5786829, -0.7319556, 0)
+script = ExtResource("4_ts2es")
+
+[node name="VisualNode" type="Node3D" parent="HomelessCup" unique_id=63534024]
+
+[node name="StandingCup" type="Sprite3D" parent="HomelessCup/VisualNode" unique_id=608945195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3639522, 1.2803831)
+material_override = SubResource("ShaderMaterial_opukc")
+billboard = 2
+texture = ExtResource("4_7sde2")
+
+[node name="FallenCup" type="Sprite3D" parent="HomelessCup/VisualNode" unique_id=1740656229]
+texture = ExtResource("6_opukc")
+
+[node name="Area3D" type="Area3D" parent="HomelessCup" unique_id=421736103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8143079, 1.1117862)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HomelessCup/Area3D" unique_id=1882913701]
+shape = SubResource("CylinderShape3D_7sde2")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="7_dtuyh"]
+[ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="7_80t3h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -20,8 +21,6 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_2hy3x")
-
-[node name="DabUp" parent="." unique_id=221765917 instance=ExtResource("5_4vlna")]
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 mesh = SubResource("PlaneMesh_7owcu")
@@ -51,16 +50,20 @@ shadow_enabled = true
 
 [node name="Kioskmann" parent="." unique_id=2026299020 node_paths=PackedStringArray("dab_up") instance=ExtResource("3_plnti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9742546, -3.7434769)
-dab_up = NodePath("../CanvasLayer/DabUp")
+dab_up = NodePath("../DabUpLayer/DabUp")
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 
-[node name="TimerLayer" parent="." unique_id=1232861659 instance=ExtResource("5_4vlna")]
+[node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=757534782]
+layer = 3
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=757534782]
-
-[node name="DabUp" parent="CanvasLayer" unique_id=2076522590 instance=ExtResource("5_4vlna")]
+[node name="DabUp" parent="DabUpLayer" unique_id=845130805 instance=ExtResource("5_4vlna")]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DabUpLayer" unique_id=2036799397]
+
+[node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("7_80t3h")]
+layer = 4
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("7_dtuyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7045674, 10.114904)
