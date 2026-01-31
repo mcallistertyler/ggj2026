@@ -1,8 +1,20 @@
 extends Control
 
+class_name DabUpMinigame
+
+enum DabUpCompletion { PASS, FAILURE }
+
+signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
+
 # DIFFICULTY SETTINGS
 @export var SEQ_LENGTH: int = 10
 @export var TIME_LIMIT: int = 10
+
+@export var easy_score : int = 50
+@export var hard_score : int = 100
+@export var failure_score : int = -100
+
+var chosen_difficulty : Enums.ResponseTag
 
 # -----------------------
 # BUTTONS
@@ -33,6 +45,8 @@ var _buttons_y: float = 0.0
 
 var _rng := RandomNumberGenerator.new()
 var _game_over: bool = false
+var _input_allowed: bool = false
+var _glow_tween: Tween = null
 
 # -----------------------
 # TEXTURES
@@ -75,6 +89,11 @@ func _ready():
 	_compute_layout()
 	_rebuild_arrow_labels()
 
+	TimerManager.timer_manager_timeout.connect(_on_timer_manager_timeout)
+
+func _on_timer_manager_timeout(context: TimerManager.Context) -> void:
+	if context == TimerManager.Context.MINIGAME:
+		_failure()
 
 func _compute_layout():
 	var vp: Vector2 = get_viewport_rect().size
@@ -115,8 +134,9 @@ func _create_bottom_labels():
 		tr.texture = tex
 
 		# --- ICON SIZES ---
-		tr.custom_minimum_size = Vector2(100, 100)
+		tr.custom_minimum_size = Vector2(70, 70)
 		tr.size = tr.custom_minimum_size
+		tr.modulate.a = 0.0  # Start invisible for tween
 
 		add_child(tr)
 		bottom_labels.append(tr)
@@ -141,8 +161,10 @@ func _make_arrow_icon(lane_index: int) -> TextureRect:
 	tr.texture = tex
 
 	# --- ICON SIZE ---
-	tr.custom_minimum_size = Vector2(100, 100)
+	tr.custom_minimum_size = Vector2(70, 70)
 	tr.size = tr.custom_minimum_size
+	# Start invisible only during intro, visible during gameplay
+	tr.modulate.a = 1.0 if _input_allowed else 0.0
 
 	return tr
 
@@ -167,12 +189,38 @@ func _rebuild_arrow_labels():
 		add_child(icon)
 		arrow_labels.append(icon)
 
+	_highlight_active_arrow()
+
+
+func _highlight_active_arrow():
+	# Stop any existing glow tween
+	if _glow_tween and _glow_tween.is_valid():
+		_glow_tween.kill()
+
+	if arrow_labels.is_empty():
+		return
+
+	# Only highlight during gameplay, not during intro
+	if not _input_allowed:
+		return
+
+	# The bottom arrow (last in array) is the one to press
+	var active_arrow := arrow_labels[arrow_labels.size() - 1]
+
+	# Subtle pulsing glow effect
+	_glow_tween = create_tween()
+	_glow_tween.set_loops()
+	_glow_tween.tween_property(active_arrow, "modulate", Color(1.3, 1.3, 1.3, 1.0), 0.4)
+	_glow_tween.tween_property(active_arrow, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.4)
+
 
 # -----------------------
 # INPUT
 # -----------------------
 func _input(event: InputEvent):
 	if self.visible == false:
+		return
+	if not _input_allowed:
 		return
 	if _game_over:
 		return
@@ -208,29 +256,81 @@ func _on_lane_pressed(lane_index: int):
 
 
 func _success():
-	print("NICE")
+	var chosen_score : int
+	if chosen_difficulty == Enums.ResponseTag.HARD_MODE:
+		chosen_score = hard_score
+	elif chosen_difficulty == Enums.ResponseTag.EASY_MODE:
+		chosen_score = easy_score
+	self.dab_up_completed.emit(DabUpCompletion.PASS, chosen_score)
 	close()
-	
+
 func _failure():
-	print("FAIL")
+	self.dab_up_completed.emit(DabUpCompletion.FAILURE, failure_score)
 	close()
 
 signal popup_closed
 
 # TODO: default closed, open with triggers from parent
 func open(difficulty: Enums.ResponseTag):
-	if difficulty == Enums.ResponseTag.HARD_MODE:
+	PlayerManager.player_movement.emit(false)
+	chosen_difficulty = difficulty
+	if chosen_difficulty == Enums.ResponseTag.HARD_MODE:
 		TIME_LIMIT = 5
 		SEQ_LENGTH = 10
 	else:
 		TIME_LIMIT = 10
 		SEQ_LENGTH = 10
 
+	# Start invisible for fade-in
+	modulate.a = 0.0
+	_input_allowed = false
+
 	# Make visible and bring in front
-	visible = true  # or: show()
-	move_to_front() # <-- Godot 4 replacement for raise()
-	grab_focus()    # optional: if you want this to receive keyboard input first
+	visible = true
+	move_to_front()
+	grab_focus()
+
+	# Run intro tween sequence
+	await _play_intro_tween()
+
+	# Now start the timer and allow input
+	TimerManager.create_dialogue_timer(float(TIME_LIMIT), TimerManager.Context.MINIGAME)
+	_input_allowed = true
+	_highlight_active_arrow()
+
+
+func _play_intro_tween() -> void:
+	var tween := create_tween()
+
+	# Fade in the whole scene
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
+
+	# Fade in bottom labels together
+	for label in bottom_labels:
+		tween.parallel().tween_property(label, "modulate:a", 1.0, 0.12)
+
+	await tween.finished
+
+	# Fade in arrows sequentially (quick stagger)
+	var arrow_tween := create_tween()
+	for i in range(arrow_labels.size()):
+		if i == 0:
+			arrow_tween.tween_property(arrow_labels[i], "modulate:a", 1.0, 0.08)
+		else:
+			arrow_tween.parallel().tween_property(arrow_labels[i], "modulate:a", 1.0, 0.08).set_delay(i * 0.03)
+
+	await arrow_tween.finished
 
 func close() -> void:
+	TimerManager.cancel_timer()
+	_input_allowed = false
+	if _glow_tween and _glow_tween.is_valid():
+		_glow_tween.kill()
+
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.2)
+	await tween.finished
+
+	PlayerManager.player_movement.emit(true)
 	emit_signal("popup_closed")
-	queue_free()  # or: hide() if you plan to reuse the instance
+	queue_free()
