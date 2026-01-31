@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SceneEntry" format=3 uid="uid://b5xevrrnpp86g"]
+
+[ext_resource type="Script" uid="uid://bx1b54adesv51" path="res://addons/scene_transitions/resources/scene_entry.gd" id="1_iskch"]
+
+[resource]
+script = ExtResource("1_iskch")
+scene_path = "uid://64b1uvkrr0qv"
+metadata/_custom_type_script = "uid://bx1b54adesv51"

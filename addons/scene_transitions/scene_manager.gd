@@ -5,7 +5,9 @@ signal transition_completed
 
 @export var scene_registry: SceneRegistry
 @export var transitions: Array[ScreenTransition] = []
-@export var default_transition_index: int = 0
+
+## Remember to actually have the transition this type applies to in the scene, otherwise this will crash bigly
+@export var default_transition_value : TransitionType.Value
 
 var is_loading: bool = false
 var is_transitioning: bool = false
@@ -20,7 +22,7 @@ func _ready() -> void:
 			transition.hide()
 
 	# Fade in from default transition on game start
-	var default_transition = get_transition(default_transition_index)
+	var default_transition = get_transition(default_transition_value)
 	if default_transition:
 		default_transition.show()
 		default_transition.scene_transitioned_to()
@@ -28,34 +30,25 @@ func _ready() -> void:
 func can_process_input() -> bool:
 	return not is_transitioning
 
-func get_transition(index: int) -> ScreenTransition:
-	if index >= 0 and index < transitions.size():
-		return transitions[index]
-	if transitions.size() > 0:
-		return transitions[0]
-	return null
+func get_transition(type: TransitionType.Value) -> ScreenTransition:
+	for transition in transitions:
+		if transition.transition_type == type:
+			return transition
+	push_error("SceneManager: No transition found for type '%s'" % TransitionType.Value.keys()[type])
+	return transitions[0] if transitions.size() > 0 else null
 
-func get_scene_path(scene_name: String) -> String:
+func get_scene_path(scene_name: Enums.Scenes) -> String:
 	if scene_registry:
 		return scene_registry.get_scene_path(scene_name)
-	# Allow passing raw paths as fallback
-	if scene_name.begins_with("res://"):
-		return scene_name
 	push_error("SceneManager: No scene registry configured and '%s' is not a path" % scene_name)
 	return ""
 
 func transition_to_scene(
-	next_scene: String,
+	next_scene: Enums.Scenes,
 	skip_loading_screen: bool = false,
-	transition_out_index: int = -1,
-	transition_in_index: int = -1
+	transition_out_value: TransitionType.Value = default_transition_value,
+	transition_in_value: TransitionType.Value = default_transition_value
 ) -> void:
-	# Use default if not specified
-	if transition_out_index < 0:
-		transition_out_index = default_transition_index
-	if transition_in_index < 0:
-		transition_in_index = default_transition_index
-
 	# Guard against concurrent transitions
 	if is_transitioning or is_loading:
 		push_warning("SceneManager: Transition already in progress, ignoring request for '%s'" % next_scene)
@@ -65,7 +58,7 @@ func transition_to_scene(
 	is_loading = true
 	transition_started.emit()
 
-	var transition_out = get_transition(transition_out_index)
+	var transition_out = get_transition(transition_out_value)
 	if not transition_out:
 		push_error("SceneManager: No valid transition_out, aborting")
 		_reset_flags()
@@ -81,11 +74,12 @@ func transition_to_scene(
 		_reset_flags()
 		return
 
-	var transition_in = get_transition(transition_in_index)
+	var transition_in = get_transition(transition_in_value)
 	if not transition_in:
 		transition_in = transition_out
 
 	if skip_loading_screen:
+		## you probably don't want to ever skip loading to be honest, but why not sometimes :)
 		await _load_scene_fast(scene_path, transition_in, transition_out)
 	else:
 		await _load_scene_async(scene_path, transition_in, transition_out)
