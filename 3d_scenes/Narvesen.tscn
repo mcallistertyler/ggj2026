@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
-[ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="7_dtuyh"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="7_80t3h"]
+[ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="7_dtuyh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -23,6 +23,7 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 script = ExtResource("1_2hy3x")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
+visible = false
 mesh = SubResource("PlaneMesh_7owcu")
 
 [node name="FloorStaticBody3D" type="StaticBody3D" parent="FloorMeshInstance3D" unique_id=1846613177]
@@ -64,7 +65,6 @@ visible = false
 
 [node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("7_80t3h")]
 layer = 4
-
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("7_dtuyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7045674, 10.114904)

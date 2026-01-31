@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bejoxd28okgyw"]
+
+[ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="1_qiymq"]
+
+[sub_resource type="FontVariation" id="FontVariation_qiymq"]
+base_font = ExtResource("1_qiymq")
+variation_embolden = 1.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kwu7"]
+
+[node name="MenuButton" type="Button" unique_id=579359187]
+custom_minimum_size = Vector2(120, 65)
+theme_override_colors/font_color = Color(0.09803922, 0.10980392, 0.15294118, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = SubResource("FontVariation_qiymq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0kwu7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0kwu7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0kwu7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0kwu7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0kwu7")
+text = "Play"
