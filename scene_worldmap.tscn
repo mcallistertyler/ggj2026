@@ -21,9 +21,8 @@ texture = ExtResource("3_2wbdq")
 [node name="Narvesen" parent="." unique_id=615619979 instance=ExtResource("2_mq3a5")]
 position = Vector2(922, 209)
 my_texture = ExtResource("4_rlpqb")
-my_name = "narvesen"
+target_scene = 1
 
 [node name="HouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
 position = Vector2(291, 477)
 my_texture = ExtResource("5_anor1")
-my_name = "house yellow"
