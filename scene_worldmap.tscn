@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="3_2wbdq"]
 [ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="4_rlpqb"]
 [ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="5_anor1"]
+[ext_resource type="Texture2D" uid="uid://bf1xbcjeaspja" path="res://sprite_entry_gym.png" id="6_anor1"]
 
 [node name="WorldMap" type="Node2D" unique_id=118894363]
 
@@ -18,12 +19,17 @@ position = Vector2(500, 400)
 scale = Vector2(15, 10)
 texture = ExtResource("3_2wbdq")
 
-[node name="Narvesen" parent="." unique_id=615619979 instance=ExtResource("2_mq3a5")]
+[node name="EntryNarvesen" parent="." unique_id=615619979 instance=ExtResource("2_mq3a5")]
 position = Vector2(922, 209)
 my_texture = ExtResource("4_rlpqb")
 target_scene = 1
 
-[node name="HouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
+[node name="EntryHouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
 position = Vector2(291, 477)
 my_texture = ExtResource("5_anor1")
 target_scene = 2
+
+[node name="EntryGym" parent="." unique_id=160191680 instance=ExtResource("2_mq3a5")]
+position = Vector2(863, 559)
+my_texture = ExtResource("6_anor1")
+target_scene = 3

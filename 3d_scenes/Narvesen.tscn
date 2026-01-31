@@ -21,7 +21,6 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 script = ExtResource("1_2hy3x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
-visible = false
 mesh = SubResource("PlaneMesh_7owcu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1846613177]
