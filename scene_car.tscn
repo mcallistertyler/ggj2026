@@ -13,4 +13,5 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_dv56d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=606577364]
+unique_name_in_owner = true
 texture = ExtResource("2_5u4n7")
