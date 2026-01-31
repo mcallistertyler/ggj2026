@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="3_ds7q3"]
 [ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="4_dink0"]
+[ext_resource type="Script" uid="uid://cgicppfvlpvpv" path="res://dialogue/dialogue_box/response_container.gd" id="7_48kwm"]
+[ext_resource type="Script" uid="uid://5jtg6r22lo3a" path="res://dialogue/dialogue_box/animated_texture_rect.gd" id="8_48kwm"]
+[ext_resource type="Texture2D" uid="uid://x5cs145pc138" path="res://sprite_car.png" id="9_fxp4q"]
+[ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="10_ieogh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -110,6 +114,20 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_20ojp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_fxp4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ieogh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=1138092890]
 layer = 100
 script = ExtResource("1_36de5")
@@ -182,25 +200,40 @@ autoplay = &"progress"
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=1865897098 node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.24700001
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.24700001
 offset_left = -290.5
-offset_top = -35.0
+offset_top = -35.056
 offset_right = 290.5
-offset_bottom = 35.0
+offset_bottom = 34.944
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 alignment = 1
 script = ExtResource("3_72ixx")
-response_template = NodePath("ResponseExample")
+response_template = NodePath("ResponseContainer")
 
-[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=108008998]
+[node name="ResponseContainer" type="HBoxContainer" parent="Balloon/ResponsesMenu" unique_id=546722812]
 layout_mode = 2
+script = ExtResource("7_48kwm")
+
+[node name="AnimatedTextureRect" type="TextureRect" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=1290589712]
+layout_mode = 2
+texture = ExtResource("9_fxp4q")
+script = ExtResource("8_48kwm")
+sprites = SubResource("SpriteFrames_20ojp")
+speed_scale = 0.1
+auto_play = true
+metadata/_custom_type_script = "uid://5jtg6r22lo3a"
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=108008998]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=776053598]

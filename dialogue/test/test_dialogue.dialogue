@@ -3,13 +3,13 @@ Tyler: I FUCKING LOVE CHEESE
 Tyler2: WOW THAT'S SO COOL
 Tyler2: What's your favourite kind?
 
-- Cheddar
+- Cheddar [#response_type=hard_mode]
 	Tyler2: A classic choice.
 	=> END
-- Gouda
+- Gouda [#response_type=easy_mode]
 	Tyler2: Based.
 	=> END
-- I hate cheese actually
+- I hate cheese actually [#response_type=failure]
 	Tyler2: ...
 	Tyler2: Get out.
 	=> END
