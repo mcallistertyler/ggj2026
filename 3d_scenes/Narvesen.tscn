@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
-[ext_resource type="Script" uid="uid://bcplsyeug1gsd" path="res://3d_scenes/script_exit_area_3d.gd" id="7_dtuyh"]
+[ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="7_dtuyh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -17,8 +17,6 @@ size = Vector3(29.749634, 1, 30.158691)
 [sub_resource type="Environment" id="Environment_saxnu"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_la8by"]
 
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_2hy3x")
@@ -64,9 +62,4 @@ dab_up = NodePath("../CanvasLayer/DabUp")
 [node name="DabUp" parent="CanvasLayer" unique_id=2076522590 instance=ExtResource("5_4vlna")]
 visible = false
 
-[node name="ExitArea3D" type="Area3D" parent="." unique_id=854795536]
-script = ExtResource("7_dtuyh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitArea3D" unique_id=177050204]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.8778257, 8.691582)
-shape = SubResource("BoxShape3D_la8by")
+[node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("7_dtuyh")]
