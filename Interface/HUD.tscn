@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://bpbb6hsj1ibjd"]
 
+[ext_resource type="Texture2D" uid="uid://brbyg3vlqk6o6" path="res://assets/ui/credzcoin.png" id="1_p8tq8"]
+
 [node name="Hud" type="Node2D" unique_id=1273526067]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1861428837]
+offset_right = 326.0
+offset_bottom = 228.0
+
+[node name="CredzLabel" type="Label" parent="HBoxContainer" unique_id=875411364]
+layout_mode = 2
+text = "0 CREDZ"
+
+[node name="CredzTexture" type="TextureRect" parent="HBoxContainer" unique_id=1972125373]
+layout_mode = 2
+texture = ExtResource("1_p8tq8")
