@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dsgilyt43rq2t"]
+
+[ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_g7dc4"]
+[ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_caxsf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_saxnu"]
+size = Vector3(29.749634, 1, 30.158691)
+
+[sub_resource type="Environment" id="Environment_saxnu"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 0.9882353, 1)
+
+[node name="KompisHus" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_g7dc4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
+mesh = SubResource("PlaneMesh_7owcu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1846613177]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1369127749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046569824, 0, 0.064697266)
+shape = SubResource("BoxShape3D_saxnu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2132365635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.023708, 9.386555)
+
+[node name="Player" parent="." unique_id=1892090061 instance=ExtResource("2_caxsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.639508, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
+environment = SubResource("Environment_saxnu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=678245714]
+transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
+shadow_enabled = true
