@@ -2,13 +2,13 @@
 Homie: [[Yo!|Yooooooo!|Wallah!]] Long time no see, what's up, dog?
 
 - Nothing much, u? [#response_type=hard_mode]
-	Homie: That dab was gorgeous just like you, dog
+	%Homie: That dab was gorgeous just like you, dog
 => END
 - Your momma on this lap, homie! [#response_type=easy_mode]
-	Homie: Damn dog i didn't know you were chill like that!
+	%Homie: Damn dog i didn't know you were chill like that!
 => END
 
 if Globals.game_fail:
-	Homie: Why bring my mama into this, dog??
+	%Homie: Why bring my mama into this, dog??
 	% I can't believe i fumbled my homie like that...
 => END
