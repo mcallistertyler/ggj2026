@@ -18,6 +18,9 @@ size = Vector3(29.749634, 1, 30.158691)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvxn2"]
+size = Vector3(53.77237, 2.4311523, 6.861328)
+
 [node name="Narvesen" type="Node3D" unique_id=1809051035]
 script = ExtResource("1_mylib")
 
@@ -35,11 +38,13 @@ shape = SubResource("BoxShape3D_saxnu")
 transform = Transform3D(1, 0, 0, 0, 0.99806166, 0.06223309, 0, -0.06223309, 0.99806166, 0, 3.8818192, 9.222057)
 
 [node name="BGImageSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1457430929]
-transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
+unique_name_in_owner = true
+transform = Transform3D(6.5, 0, 0, 0, 6.5000005, -2.9802322e-08, 0, 2.9802322e-08, 6.5000005, 0, 0.008657455, -30.138845)
+modulate = Color(1, 1, 1, 0.13333334)
 texture = ExtResource("2_nvxn2")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("3_oxqva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9759974, 7.78203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5476952, 2.9759974, 5.6567783)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
 environment = SubResource("Environment_saxnu")
@@ -61,5 +66,33 @@ visible = false
 [node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("7_1t868")]
 layer = 4
 
+[node name="RigidBody3D4" type="StaticBody3D" parent="." unique_id=878224058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743, -0.21181393, -10.640322)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4" unique_id=1699551341]
+transform = Transform3D(0.7718356, 0, 0.6358225, 0, 1, 0, -0.6358225, 0, 0.7718356, 21.212378, 0.7155762, 7.956459)
+shape = SubResource("BoxShape3D_nvxn2")
+debug_color = Color(1, 0.6, 0.69803923, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D4" unique_id=951887236]
+transform = Transform3D(-0.57571906, 0, 0.81764764, 0, 1, 0, -0.81764764, 0, -0.57571906, -11.359584, 0.7155762, 12.163352)
+shape = SubResource("BoxShape3D_nvxn2")
+debug_color = Color(1, 0.6, 0.69803923, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D4" unique_id=1358806679]
+transform = Transform3D(0.9089817, 0, 0.41683614, 0, 1, 0, -0.41683614, 0, 0.9089817, 5.3607197, 0.7155762, 6.4241304)
+shape = SubResource("BoxShape3D_nvxn2")
+debug_color = Color(1, 0.6, 0.69803923, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D4" unique_id=904075287]
+transform = Transform3D(-0.54381937, 0, 0.83920294, 0, 1, 0, -0.83920294, 0, -0.54381937, 18.529352, 0.7155762, 5.823784)
+shape = SubResource("BoxShape3D_nvxn2")
+debug_color = Color(1, 0.6, 0.69803923, 1)
+
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("8_trkf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7045674, 10.114904)
+transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 8.380829)
+
+[node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
+transform = Transform3D(4.970764, 0, 0.5399102, 0, 5, 0, -0.5399102, 0, 4.970764, 1.0436511, 0, -0.5225034)
+
+[editable path="ExitArea3D"]
