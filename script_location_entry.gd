@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var my_texture : CompressedTexture2D
-
 @export var my_name : String
 
 func _ready():
@@ -10,3 +9,4 @@ func _ready():
 
 func _on_body_entered(body):
 	print("TODO Enter: " + my_name)
+	SceneManager.transition_to_scene(Enums.Scenes.NARVESEN)
