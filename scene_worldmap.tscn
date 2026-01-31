@@ -26,3 +26,4 @@ target_scene = 1
 [node name="HouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
 position = Vector2(291, 477)
 my_texture = ExtResource("5_anor1")
+target_scene = 2
