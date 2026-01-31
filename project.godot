@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SceneManager="*res://addons/scene_transitions/SceneManager.tscn"
 AudioManager="*uid://0hq6cx44e2wt"
 DialogueManager="*uid://c3rodes2l3gxb"
+CredzManager="*uid://bw33l4h7bywvb"
 
 [dialogue_manager]
 
