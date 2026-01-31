@@ -31,6 +31,10 @@ runtime/balloon_path="res://dialogue/dialogue_box/balloon.tscn"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 move_up={
@@ -56,7 +60,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/test/test_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/test/test_dialogue.dialogue", "res://dialogue/narvesen/kioskmann.dialogue")
 
 [layer_names]
 

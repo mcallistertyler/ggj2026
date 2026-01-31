@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bptwcu5xksikr"]
+
+[ext_resource type="Script" uid="uid://bcvptxtqyop8u" path="res://NPCs/Kioskmann/kioskmann.gd" id="1_4e8fx"]
+[ext_resource type="PackedScene" uid="uid://5sopk4k1gwuc" path="res://NPCs/Kioskmann/kioskmann_sprite_3d.tscn" id="3_xb10o"]
+[ext_resource type="Shader" uid="uid://bkn4bl8jjiv1f" path="res://NPCs/Kioskmann/Kioskmann.gdshader" id="4_4e8fx"]
+[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/dialogue_with_timer.gd" id="4_bylqt"]
+[ext_resource type="Resource" uid="uid://bxawq2nd7ybtx" path="res://dialogue/narvesen/kioskmann.dialogue" id="5_cwc8o"]
+[ext_resource type="Texture2D" uid="uid://dbpohoonhbc8b" path="res://NPCs/Kioskmann/kioskmann_texture_2d.tres" id="5_k0rx5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cwc8o"]
+height = 5.8598633
+radius = 6.168457
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrox8"]
+render_priority = 0
+shader = ExtResource("4_4e8fx")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/tex = ExtResource("5_k0rx5")
+shader_parameter/sway_strength = 0.1
+shader_parameter/sway_speed = 2.0
+
+[node name="Kioskmann" type="Node3D" unique_id=2026299020 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d")]
+script = ExtResource("1_4e8fx")
+npc_name = "Kioskmann"
+sprite_3d = NodePath("Sprite3D")
+dialogue = NodePath("DialogueWithTimer")
+area_3d = NodePath("Area3D")
+metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2142674765]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2027098031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38410354, 0)
+shape = SubResource("CylinderShape3D_cwc8o")
+debug_color = Color(0.7299875, 0.29990995, 0.9113863, 0.41960785)
+
+[node name="Sprite3D" parent="." unique_id=1267509063 instance=ExtResource("3_xb10o")]
+material_override = SubResource("ShaderMaterial_lrox8")
+texture = ExtResource("5_k0rx5")
+
+[node name="DialogueWithTimer" type="Node" parent="." unique_id=1062363579]
+script = ExtResource("4_bylqt")
+dialogue_resource = ExtResource("5_cwc8o")
+dialogue_title = "start"
+timeout_value = 4.0
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"

@@ -113,8 +113,7 @@ _data = {
 script = ExtResource("1_q3lat")
 character_body_3d = NodePath("CharacterBody3D")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=509970354 node_paths=PackedStringArray("animated_sprite", "animation_player")]
-collision_layer = 2
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=509970354 node_paths=PackedStringArray("animated_sprite", "animation_player") groups=["player"]]
 script = ExtResource("2_tok1r")
 animated_sprite = NodePath("AnimatedSprite3D")
 animation_player = NodePath("../AnimationPlayer")
