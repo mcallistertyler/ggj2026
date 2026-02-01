@@ -32,10 +32,7 @@ func _update_icon_and_text() -> void:
 	var response_tag = Enums.get_dialogue_response_tag(response)
 	match response_tag:
 		Enums.ResponseTag.EASY_MODE:
-			icon_rect.texture = preload("res://assets/ui/yikes.png")  # Easy = yikes icon
+			icon_rect.texture = preload("res://assets/ui/yikes.png")
 		Enums.ResponseTag.HARD_MODE:
-			icon_rect.texture = preload("res://assets/ui/solbrille.png")  # Hard = sunglasses icon
-		Enums.ResponseTag.FAILURE:
-			icon_rect.texture = preload("res://assets/ui/credzcoin.png")  # Failure icon
-		_:
-			icon_rect.texture = preload("res://assets/ui/credzcoin.png")  # Default icon
+			icon_rect.texture = preload("res://assets/ui/solbrille.png")
+	
