@@ -28,7 +28,8 @@ var sound_effects = {
 	"dab3": preload("res://audio/sound_effects/dap3.mp3"),
 	"dab4": preload("res://audio/sound_effects/dap4.mp3"),
 	"dab5": preload("res://audio/sound_effects/dap5.mp3"),
-	"dab6": preload("res://audio/sound_effects/dap6.mp3")
+	"dab6": preload("res://audio/sound_effects/dap6.mp3"),
+	"big-dab": preload("res://audio/sound_effects/big_dap.mp3")
 }
 
 var music = {

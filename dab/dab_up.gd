@@ -246,7 +246,6 @@ func _input(event: InputEvent):
 
 func _on_lane_pressed(lane_index: int):
 	play_random_dab()
-	#AudioManager.playSFX("dab1")
 	if sequence.is_empty():
 		return  # nothing to do
 
