@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjnr5vv8dr6ig"
-path="res://.godot/imported/bathroom_bad.png-f3d86007f9fec80c3c2f6229da4c72d2.ctex"
+uid="uid://tn4l1mrw4tg"
+path="res://.godot/imported/old-endsplash_neutral.png-82faa8ad3d1ba144c6380e344a73ad9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bathroom_bad.png"
-dest_files=["res://.godot/imported/bathroom_bad.png-f3d86007f9fec80c3c2f6229da4c72d2.ctex"]
+source_file="res://assets/ending/old-endsplash_neutral.png"
+dest_files=["res://.godot/imported/old-endsplash_neutral.png-82faa8ad3d1ba144c6380e344a73ad9c.ctex"]
 
 [params]
 
