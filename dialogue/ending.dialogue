@@ -1,33 +1,34 @@
 ~ terrible_ending
-There's nothing you're good at
-But there's one thing you're the very best at; having no street cred
-Regretting the events of your day haunts you
-There's been forever since the last successful dap-up
-If you could do it all again, you'd make sure not to mess up this bad
+It's no good. You're not very good at all.
+Well, there's one thing you're the best at;[wait=1] having no street cred.
+The events of this day will haunt you forever. You regret all of your actions.
+It's been forever since your last successful dap-up. What did it even feel like? You don't remember.
+If you could do it all again, you'd make sure not to mess up this bad.
 => END
 
 ~ bad_ending
-Occasionally, you don't make a fool of yourself
-But today was not one of those occasions
-You're a real loser and nearly everyone knows it
-There's so much you would change if you could do it all over again
+On some days, you don't make a complete ass of yourself.
+But today [wait=1]was not one of those days.
+You're a real loser, and everyone knows it.
+There's so much you would change if you could do it all over again.
 => END
 
 ~ neutral_ending
-Sometimes you wish you could go back and change things
-The awkward greetings
-The missed dap-ups
-The misunderstandings
-If you could try all over again, you'd make sure not to make the same mistakes again
+It... wasn't all bad. You wish you could go back and change things.
+The awkward greetings.
+The missed dap-ups.
+The misunderstandings.
+It's hard not to think about these things.
+But deep down inside, you know you'll be OK. Good work today, king.
 => END
 
 ~ good_ending
-Nobody's perfect but you get pretty darn close
-Everything that could go wrong, went right
-Every dap-up, every greeting and errand
-Every word spoken word, gesture and eye contact
-At the end of the day, there's nothing you'd change
-You're a real one for this
+Nobody's perfect, but you get pretty darn close.
+Everything that could go wrong, went right!
+Every dap-up, every greeting and errand.
+Every word spoken word, gesture and eye contact.
+At the end of the day, there's nothing you'd change. Cause you're cool. You're perfect.
+You're a real one for this.
 => END
 
 ~ bugged_ending
