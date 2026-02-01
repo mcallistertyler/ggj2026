@@ -9,7 +9,7 @@ func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	connect("body_exited", Callable(self, "_on_body_exited"))
 	if effect_mesh:
-		effect_mesh.visible = true
+		effect_mesh.visible = false
 
 func _process(delta):
 	if is_player_within_area and Input.is_action_just_pressed("ui_accept"):
