@@ -106,12 +106,13 @@ transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.85121
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
 transform = Transform3D(4.970764, 0, 0.5399102, 0, 5, 0, -0.5399102, 0, 4.970764, 1.0436511, 0, -0.5225034)
 
-[node name="DealerCat" parent="." unique_id=1549133963 node_paths=PackedStringArray("dab_up", "dab_up_second_round", "dab_up_cutscene") instance=ExtResource("7_nvxn2")]
+[node name="DealerCat" parent="." unique_id=1549133963 node_paths=PackedStringArray("dab_up", "dab_up_second_round", "dab_up_cutscene", "player") instance=ExtResource("7_nvxn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.502155, 2.7004085, -1.7639732)
 game_scene = "gate"
 dab_up = NodePath("../DabUpLayer/DabUp")
 dab_up_second_round = NodePath("../DabUpLayer/DabUp2")
 dab_up_cutscene = NodePath("../dab_cutscene")
+player = NodePath("../Player")
 
 [node name="dab_cutscene" parent="." unique_id=1255112179 instance=ExtResource("8_m786f")]
 npc_texture = ExtResource("9_ckaka")

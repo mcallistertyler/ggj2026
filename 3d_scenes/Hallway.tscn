@@ -98,9 +98,10 @@ transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.85121
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
 transform = Transform3D(4.970764, 0, 0.53991044, 0, 5, 0, -0.53991044, 0, 4.970764, 0.3570695, 0, -1.636087)
 
-[node name="NeighbourDeer" parent="." unique_id=1542945239 node_paths=PackedStringArray("dab_up") instance=ExtResource("7_2fenj")]
+[node name="NeighbourDeer" parent="." unique_id=1542945239 node_paths=PackedStringArray("dab_up", "player") instance=ExtResource("7_2fenj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.850912, 3.5285053, -3.6194541)
 game_scene = "hallway"
 dab_up = NodePath("../DabUpLayer/DabUp")
+player = NodePath("../Player")
 
 [editable path="ExitArea3D"]
