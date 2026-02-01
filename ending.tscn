@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buwcw8323px6f" path="res://ending.gd" id="1_fsb5k"]
 [ext_resource type="Resource" uid="uid://c1wolv7rff2vo" path="res://dialogue/ending.dialogue" id="2_dmh3q"]
-[ext_resource type="Texture2D" uid="uid://doj2rdk2a4ee5" path="res://assets/ending/old-endsplash_bad.png" id="3_iggq8"]
+[ext_resource type="Texture2D" uid="uid://drbsh80ys2ci3" path="res://assets/ending/endsplash_bad.png" id="3_iggq8"]
 [ext_resource type="FontFile" uid="uid://jeqjpu5it7yx" path="res://fonts/BagelFatOne-Regular.ttf" id="4_k7rdy"]
 [ext_resource type="Texture2D" uid="uid://brbyg3vlqk6o6" path="res://assets/ui/credzcoin.png" id="5_sy8ce"]
 [ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="6_sy8ce"]
@@ -198,10 +198,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 227.0
-offset_top = 552.0
-offset_right = 1033.0
-offset_bottom = 681.0
+offset_left = 230.0
+offset_top = 563.0
+offset_right = 1036.0
+offset_bottom = 890.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9424485, 0.88400745, 0.96882457, 1)
@@ -210,5 +210,13 @@ theme_override_font_sizes/font_size = 23
 text = "Thank you so much for playing our game!
 
 If you want to try for a different ending, please close the
-game and restart :D"
+game and restart :D
+
+Made by:
+bekeblob
+awakebydefault
+hanniko
+byllgrim
+Overworld music by ITR
+"
 horizontal_alignment = 1
