@@ -14,6 +14,13 @@ signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
 @export var hard_score : int = 100
 @export var failure_score : int = -100
 
+@onready var dap1 = preload("res://audio/sound_effects/dap1.mp3")
+@onready var dap2 = preload("res://audio/sound_effects/dap2.mp3")
+@onready var dap3 = preload("res://audio/sound_effects/dap3.mp3")
+@onready var dap4 = preload("res://audio/sound_effects/dap4.mp3")
+@onready var dap5 = preload("res://audio/sound_effects/dap5.mp3")
+@onready var dap6 = preload("res://audio/sound_effects/dap6.mp3")
+
 var chosen_difficulty : Enums.ResponseTag
 
 # -----------------------
@@ -237,6 +244,8 @@ func _input(event: InputEvent):
 
 
 func _on_lane_pressed(lane_index: int):
+	play_random_dab()
+	#AudioManager.playSFX("dab1")
 	if sequence.is_empty():
 		return  # nothing to do
 
@@ -277,7 +286,6 @@ func _failure():
 
 signal popup_closed
 
-# TODO: default closed, open with triggers from parent
 func open(difficulty: Enums.ResponseTag):
 	PlayerManager.player_movement.emit(false)
 	chosen_difficulty = difficulty
@@ -340,3 +348,8 @@ func close() -> void:
 
 	emit_signal("popup_closed")
 	queue_free()
+
+func play_random_dab():
+	var clips := ["dab1", "dab2", "dab3", "dab4", "dab5", "dab6"]
+	var i := randi() % clips.size()   # ensure you called randomize() once (see below)
+	AudioManager.playSFX(clips[i], 0, 1)    # use () for function call, [] only for indexing
