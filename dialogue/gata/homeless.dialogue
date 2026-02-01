@@ -6,12 +6,14 @@ Homeless person: Got any change to spare?
 => END
 
 ~ homeless_win_hard
-	%Homeless person: Damn [[nigga|bro|son] if that ain't the truth!
-	=> END
-~ homeless_win_ez
-	%Homeless person: Damn [[nigga|bro|son] if that ain't the truth!
+Homeless person: Damn [[dude|bro|son]] if that ain't the truth!
 => END
+
+~ homeless_win_easy
+Homeless person: Uh, I guess? I need clothes though...
+=> END
+
 ~ homeless_lose
-	%Homeless person: Damn you too, [[nigga|bro|son]]
-	Damn what am i even doing...
+Homeless person: Damn you too, [[dude|bro|son]].
+* Damn what am I even doing... *
 => END

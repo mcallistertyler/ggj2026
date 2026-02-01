@@ -134,6 +134,7 @@ shape = SubResource("BoxShape3D_3qydi")
 [node name="InteractionSymbol" type="Sprite3D" parent="CharacterBody3D" unique_id=1043450614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.310214, 0)
 visible = false
+sorting_offset = 200.0
 texture = ExtResource("6_vlldt")
 script = ExtResource("7_s1rgi")
 

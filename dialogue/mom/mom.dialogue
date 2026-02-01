@@ -1,17 +1,19 @@
 ~ start
 Mom: You never visit anymore, [[love|deary|sweetie]]..
 
-- Shut the hell up, [love|deary|sweetie] [#response_type=hard_mode]
-	%Mom: Damn [love|deary|sweetie] i didn't know you were cool like that!
-=> END
+- Shut the hell up, [[love|deary|sweetie]] [#response_type=hard_mode]
 - I'm here right now what do you mean [#response_type=easy_mode]
-	%Mom: I guess you're right
 => END
 
-if Globals.game_fail:
-	%Mom: Why bring my mama into this, dog??
-	I can't believe i fumbled my homie like that...
+~ mom_win_hard
+Mom: Damn [[love|deary|sweetie]] i didn't know you were cool like that!
 => END
-else:
-	You gained some street cred!
+
+~ mom_win_easy
+Mom: I guess you're right.
+=> END
+
+~ mom_lose
+Mom: I'm so disappointed in you...
+* I can't believe i fumbled my own mom like that... *
 => END

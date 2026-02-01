@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_o48ro"]
 [ext_resource type="SpriteFrames" uid="uid://ckhcrydgkilx4" path="res://NPCs/Dealer/dealer_sprite_frames.tres" id="3_7jdph"]
 [ext_resource type="Texture2D" uid="uid://djurl3atfkulp" path="res://assets/character_sprites/dealer_spritesheet.png" id="3_jqx06"]
+[ext_resource type="Resource" uid="uid://b1qiqxktrxnho" path="res://dialogue/gata/dealer.dialogue" id="6_jqx06"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jqx06"]
 render_priority = 0
@@ -41,16 +42,24 @@ shape = SubResource("CylinderShape3D_4pn2v")
 
 [node name="StartingDialogue" type="Node" parent="." unique_id=1808584431]
 script = ExtResource("2_djd3p")
+dialogue_resource = ExtResource("6_jqx06")
+dialogue_title = "start"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="WinHardDialogue" type="Node" parent="." unique_id=1005392491]
 script = ExtResource("2_djd3p")
+dialogue_resource = ExtResource("6_jqx06")
+dialogue_title = "dealer_win_hard"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="WinEasyDialogue" type="Node" parent="." unique_id=1871127829]
 script = ExtResource("2_djd3p")
+dialogue_resource = ExtResource("6_jqx06")
+dialogue_title = "dealer_win_easy"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="LoseDialogue" type="Node" parent="." unique_id=325529154]
 script = ExtResource("2_djd3p")
+dialogue_resource = ExtResource("6_jqx06")
+dialogue_title = "dealer_lose"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"

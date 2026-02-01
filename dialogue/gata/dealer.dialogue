@@ -1,0 +1,19 @@
+~ start
+Dealer: [[Yo|Psst|Hey]], you looking for something?
+
+- What you got? [#response_type=hard_mode]
+- No thanks... [#response_type=easy_mode]
+=> END
+
+~ dealer_win_hard
+Dealer: [[Aight|Nice|Word]], I like your style.
+=> END
+
+~ dealer_win_easy
+Dealer: Your loss, [[homie|dawg|bro]].
+=> END
+
+~ dealer_lose
+Dealer: Get out of here, [[punk|fool|kid]].
+* That could've gone better... *
+=> END
