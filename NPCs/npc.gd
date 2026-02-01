@@ -6,6 +6,8 @@ class_name NPC
 @export var dialogue : DialogueWithTimer
 @export var area_3d : Area3D
 
+@export var game_scene : String
+
 @export var dab_up : DabUpMinigame
 @export var dab_up_second_round : DabUpMinigame
 @export var win_hard_dialogue : DialogueWithTimer
@@ -19,6 +21,9 @@ var dialogue_started : bool = false
 var minigame_played : bool = false
 
 var response_timeout_value : float
+
+func finished_with_scene() -> void:
+	GamestateManager.exhaust_dialogue(game_scene)
 
 func _ready() -> void:
 	area_3d.body_entered.connect(_on_body_entered)
@@ -54,8 +59,8 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion, s
 		await dab_up_cutscene.play_success_animation()
 		PlayerManager.player_movement.emit(true)
 		CredzManager.increaseCredz(score)
-		
 		return
+	finished_with_scene()
 	minigame_played = true
 	CredzManager.increaseCredz(score)
 	var dialogue_to_use : DialogueWithTimer
