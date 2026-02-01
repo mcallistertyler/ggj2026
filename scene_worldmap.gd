@@ -14,6 +14,9 @@ func _ready() -> void:
 		await SceneManager.transition_completed
 	check_win_conditions()
 
+func _exit_tree() -> void:
+	AudioManager.stop_music()
+
 #You can use GamestateManager.exhaust_dialogue("id") to permanently disable a location in the map
 func disable_exhausted_locations():
 	if GamestateManager.is_dialogue_exhausted["gate"]:
