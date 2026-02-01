@@ -1,16 +1,16 @@
 ~ start
 Homie: [[Yo!|Yooooooo!|Wallah!]] Long time no see, what's up, dog?
 
-- Nothing much, u? [#response_type=hard_mode]
-- Your momma on this lap, homie! [#response_type=easy_mode]
+- Your momma on this lap, homie! [#response_type=hard_mode]
+- Nothing much, u? [#response_type=easy_mode]
 => END
 
 ~ homie_win_hard
-Homie: That's my homie!. You're welcome here any time.
+Homie: Damn dog i didn't know you were chill like that!
 => END
 
 ~ homie_win_easy
-Homie: ...My mom? Funny. I guess...
+Homie: That's what's up, dog
 => END
 
 ~ homie_lose

@@ -31,3 +31,4 @@ func play_dab_animation():
 func play_success_animation():
 	$AnimationPlayer.play("dab_success")
 	await $AnimationPlayer.animation_finished
+	AudioManager.playSFX("dab1", 0, 1)
