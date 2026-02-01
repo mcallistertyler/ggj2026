@@ -13,11 +13,20 @@ void vertex() {
 	VERTEX.x += sin(NODE_POSITION_WORLD.x + TIME * sway_speed) * sway_amount;
 	VERTEX.z += cos(NODE_POSITION_WORLD.z + TIME * sway_speed) * sway_amount * 0.5;
 
-	// Y-axis billboard - always face camera
+	// Extract scale from MODEL_MATRIX
+	vec3 scale = vec3(
+		length(MODEL_MATRIX[0].xyz),
+		length(MODEL_MATRIX[1].xyz),
+		length(MODEL_MATRIX[2].xyz)
+	);
+
+	// Y-axis billboard - always face camera, preserving scale
+	vec3 right = normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz));
+	vec3 forward = normalize(cross(right, vec3(0.0, 1.0, 0.0)));
 	MODELVIEW_MATRIX = VIEW_MATRIX * mat4(
-		vec4(normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz)), 0.0),
-		vec4(0.0, 1.0, 0.0, 0.0),
-		vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0),
+		vec4(right * scale.x, 0.0),
+		vec4(0.0, scale.y, 0.0, 0.0),
+		vec4(forward * scale.z, 0.0),
 		MODEL_MATRIX[3]
 	);
 }
