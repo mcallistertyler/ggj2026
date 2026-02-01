@@ -240,9 +240,6 @@ expand_mode = 1
 script = ExtResource("8_48kwm")
 sprites = SubResource("SpriteFrames_20ojp")
 frame_index = 1
-speed_scale = 0.2
-auto_play = true
-playing = true
 metadata/_custom_type_script = "uid://5jtg6r22lo3a"
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=108008998]
