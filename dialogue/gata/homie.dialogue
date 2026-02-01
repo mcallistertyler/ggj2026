@@ -1,19 +1,27 @@
 ~ start
-Homie: [[Yo!|Yooooooo!|Wallah!]] Long time no see, what's up, dog?
+Homie: [[Yo!|Yooooooo!|Wallah!]] What's up.
+Homie: Long time no see, dog!
+Homie: Seriously, it's been forever.[wait=0.5] What'chu been doing lately?
 
 - Your momma on this lap, homie! [#response_type=hard_mode]
-- Nothing much, u? [#response_type=easy_mode]
+- Not much.. U? [#response_type=easy_mode]
 => END
 
 ~ homie_win_hard
-Homie: Damn dog i didn't know you were chill like that!
+Homie: Haha. Damn dog i didn't know you were chill like that! Wow. Haha.
+Homie: [wait=1.5]I missed you dog.
+Homie: Life's been hard lately. I'm not gonna get into it but, yeah. Y'know. 
+Homie: It's whatever.
+Homie: But for real, it's been good seeing ya. Stop by whenever you want. My house your house, and all that.
 => END
 
 ~ homie_win_easy
-Homie: That's what's up, dog
+Homie: That's what's up, dog.
+Homie: Well, cya.
 => END
 
 ~ homie_lose
-Homie: You doing alright buddy? Got nothing to say? I thought we were homies.
+Homie: You doing alright buddy? Got nothing to say? 
+Homie: I thought we were homies.
 * I can't believe i fumbled my homie like that... *
 => END

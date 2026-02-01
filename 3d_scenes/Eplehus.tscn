@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="4_8robu"]
 [ext_resource type="PackedScene" uid="uid://cq83ngkj1j3ms" path="res://NPCs/Homeless/HomelessFox.tscn" id="6_yhlt8"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="7_culi5"]
+[ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="8_4fujt"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="8_uhavq"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="9_4fujt"]
 
@@ -61,7 +62,7 @@ sorting_offset = 100.0
 texture = ExtResource("3_mtuvu")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("3_rw35c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.87255, 0, -47.974396)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.157337, 0, -45.79551)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
 environment = SubResource("Environment_saxnu")
@@ -114,7 +115,7 @@ shape = SubResource("BoxShape3D_mtuvu")
 debug_color = Color(0.9450186, 0.20087913, 0.32433376, 0.41960785)
 
 [node name="HomelessFox" parent="." unique_id=699519701 node_paths=PackedStringArray("dab_up") instance=ExtResource("6_yhlt8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.167292, 3.2359076, -44.699474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.309244, 3.2359076, -11.844553)
 game_scene = "eplehuset"
 dab_up = NodePath("../DabUpLayer/DabUp")
 
@@ -123,7 +124,16 @@ layer = 3
 
 [node name="DabUp" parent="DabUpLayer" unique_id=221765917 instance=ExtResource("7_culi5")]
 
+[node name="PauseMenu" parent="." unique_id=2078417793 node_paths=PackedStringArray("player") instance=ExtResource("8_4fujt")]
+player = NodePath("../Player")
+
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("8_uhavq")]
 
 [node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("9_4fujt")]
 layer = 4
+
+[node name="ExitArea3D2" parent="." unique_id=200713395 instance=ExtResource("4_8robu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.614456, 0.5, -43.510338)
+
+[node name="ExitArea3D3" parent="." unique_id=807664708 instance=ExtResource("4_8robu")]
+transform = Transform3D(2.99, 0, 0, 0, 2.99, 0, 0, 0, 2.99, 22.15177, 0.5, -39.431835)
