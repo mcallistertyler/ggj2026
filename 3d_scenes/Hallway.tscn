@@ -93,7 +93,7 @@ shape = SubResource("BoxShape3D_nvxn2")
 debug_color = Color(1, 0.6, 0.69803923, 1)
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("6_76pf0")]
-transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 9.436739)
+transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 6.675433)
 
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
 transform = Transform3D(4.970764, 0, 0.53991044, 0, 5, 0, -0.53991044, 0, 4.970764, 0.3570695, 0, -1.636087)
