@@ -31,7 +31,9 @@ var sound_effects = {
 	"dab6": preload("res://audio/sound_effects/dap6.mp3")
 }
 
-var music = {}
+var music = {
+	"hip_hop": preload("res://audio/music/hiphoppy.mp3"),
+}
 
 var sfx_players = []
 var next = 0
