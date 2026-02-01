@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://du2vx7a2sdtux"]
+
+[ext_resource type="Texture2D" uid="uid://cvnmsene4ix33" path="res://sprite_background_kompishus.jpg" id="1_mtuvu"]
+[ext_resource type="Texture2D" uid="uid://ytun8jhvwnls" path="res://sprite_background_eplehus.png" id="2_mtuvu"]
+[ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="3_rw35c"]
+[ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="4_8robu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
+size = Vector2(30, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_saxnu"]
+size = Vector3(29.749634, 1, 30.158691)
+
+[sub_resource type="Environment" id="Environment_saxnu"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 0.9882353, 1)
+
+[node name="Eplehus" type="Node3D" unique_id=1809051035]
+
+[node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
+visible = false
+mesh = SubResource("PlaneMesh_7owcu")
+
+[node name="FloorStaticBody3D" type="StaticBody3D" parent="FloorMeshInstance3D" unique_id=1846613177]
+
+[node name="FloorCollisionShape3D" type="CollisionShape3D" parent="FloorMeshInstance3D/FloorStaticBody3D" unique_id=1369127749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046569824, 0, 0.064697266)
+shape = SubResource("BoxShape3D_saxnu")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2132365635]
+transform = Transform3D(1, 0, 0, 0, 0.6528259, 0.75750804, 0, -0.75750804, 0.6528259, 0, 15.234738, 13.719201)
+
+[node name="BackgroundImageBack" type="Sprite3D" parent="Camera3D" unique_id=1813011410]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
+visible = false
+texture = ExtResource("1_mtuvu")
+
+[node name="BackgroundImageFront" type="Sprite3D" parent="Camera3D" unique_id=600254422]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -30)
+sorting_offset = 100.0
+texture = ExtResource("2_mtuvu")
+
+[node name="Player" parent="." unique_id=1892090061 instance=ExtResource("3_rw35c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.876526, 6.639508, 4.2052417)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=451059080]
+environment = SubResource("Environment_saxnu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=678245714]
+transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
+shadow_enabled = true
+
+[node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("4_8robu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47110605, 4.797805, 6.4253764)
