@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_im13u"]
 [ext_resource type="Texture2D" uid="uid://b7u2ijxl8sfv5" path="res://sprite_background_kompishus_front.png" id="2_te53e"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_im13u"]
-[ext_resource type="Texture2D" uid="uid://bvhrcjxq802p6" path="res://sprite_kompis.png" id="5_te53e"]
+[ext_resource type="PackedScene" uid="uid://dc86dhdbcri6y" path="res://NPCs/MouseMan/MouseMan.tscn" id="4_te53e"]
+[ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="6_fix58"]
+[ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="7_5hm12"]
+[ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="8_epk6l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -12,6 +15,8 @@ size = Vector2(30, 30)
 size = Vector3(29.749634, 1, 30.158691)
 
 [sub_resource type="Environment" id="Environment_saxnu"]
+background_mode = 1
+background_color = Color(0.5343806, 0.6856764, 1, 1)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
@@ -58,9 +63,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.370826, 2.0282793, -2.6704
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("3_im13u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5500245, 4.797805, 13.247711)
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=878062923]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.655969, 4.164565, -0.21053791)
-texture = ExtResource("5_te53e")
+[node name="MouseMan" parent="." unique_id=212321152 node_paths=PackedStringArray("dab_up") instance=ExtResource("4_te53e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.656, 4.165, -0.211)
+dab_up = NodePath("../DabUpLayer/DabUp")
 
 [node name="RigidBody3D" type="StaticBody3D" parent="." unique_id=1017954107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6197677, 0, 6.711071)
@@ -104,3 +109,13 @@ debug_color = Color(0.85490197, 0.30588236, 0.52156866, 0.48235294)
 transform = Transform3D(0.40560433, 0, -0.91404885, 0, 1, 0, 0.91404885, 0, 0.40560433, -10.314686, 1.8001204, -9.352856)
 shape = SubResource("BoxShape3D_jq6uo")
 debug_color = Color(0.85490197, 0.30588236, 0.52156866, 0.48235294)
+
+[node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=822306516]
+layer = 3
+
+[node name="DabUp" parent="DabUpLayer" unique_id=221765917 instance=ExtResource("6_fix58")]
+
+[node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("7_5hm12")]
+
+[node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("8_epk6l")]
+layer = 4

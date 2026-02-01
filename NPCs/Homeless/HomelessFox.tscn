@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ciwif0os673a0" path="res://NPCs/Homeless/homeless_cup.gd" id="4_ts2es"]
 [ext_resource type="Texture2D" uid="uid://0l01x8hokupk" path="res://assets/character_sprites/obj_kaffe_fallen.png" id="6_opukc"]
 [ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="7_eiv4v"]
+[ext_resource type="Resource" uid="uid://cyc370vrq6xbb" path="res://dialogue/gata/homeless.dialogue" id="8_2id2a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ts2es"]
 render_priority = 0
@@ -37,7 +38,7 @@ sprite_3d = NodePath("Sprite3D")
 dialogue = NodePath("StartingDialogue")
 area_3d = NodePath("Area3D")
 win_hard_dialogue = NodePath("WinHardDialogue")
-win_easy_dialogue = NodePath("WinEasyHard")
+win_easy_dialogue = NodePath("WinEasyDialogue")
 lose_dialogue = NodePath("LoseDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
@@ -76,16 +77,24 @@ shape = SubResource("CylinderShape3D_7sde2")
 
 [node name="StartingDialogue" type="Node" parent="." unique_id=2002381023]
 script = ExtResource("7_eiv4v")
+dialogue_resource = ExtResource("8_2id2a")
+dialogue_title = "start"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="WinHardDialogue" type="Node" parent="." unique_id=371313718]
 script = ExtResource("7_eiv4v")
+dialogue_resource = ExtResource("8_2id2a")
+dialogue_title = "homeless_win_hard"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
-[node name="WinEasyHard" type="Node" parent="." unique_id=568346519]
+[node name="WinEasyDialogue" type="Node" parent="." unique_id=568346519]
 script = ExtResource("7_eiv4v")
+dialogue_resource = ExtResource("8_2id2a")
+dialogue_title = "homeless_win_easy"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="LoseDialogue" type="Node" parent="." unique_id=1211726547]
 script = ExtResource("7_eiv4v")
+dialogue_resource = ExtResource("8_2id2a")
+dialogue_title = "homeless_lose"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"

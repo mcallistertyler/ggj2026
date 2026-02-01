@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b558yrpguqaeh" path="res://sprite_background_eplehus-forgrunn.png" id="3_mtuvu"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="3_rw35c"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="4_8robu"]
+[ext_resource type="PackedScene" uid="uid://cq83ngkj1j3ms" path="res://NPCs/Homeless/HomelessFox.tscn" id="6_yhlt8"]
+[ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="7_culi5"]
+[ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="8_uhavq"]
+[ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="9_4fujt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -108,3 +112,17 @@ shape = SubResource("BoxShape3D_rw35c")
 transform = Transform3D(-0.015340827, 0, -0.9998824, 0, 1, 0, 0.9998824, 0, -0.015340827, 33.766384, 0, 52.23611)
 shape = SubResource("BoxShape3D_mtuvu")
 debug_color = Color(0.9450186, 0.20087913, 0.32433376, 0.41960785)
+
+[node name="HomelessFox" parent="." unique_id=699519701 node_paths=PackedStringArray("dab_up") instance=ExtResource("6_yhlt8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.167292, 3.2359076, -44.699474)
+dab_up = NodePath("../DabUpLayer/DabUp")
+
+[node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=648875393]
+layer = 3
+
+[node name="DabUp" parent="DabUpLayer" unique_id=221765917 instance=ExtResource("7_culi5")]
+
+[node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("8_uhavq")]
+
+[node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("9_4fujt")]
+layer = 4
