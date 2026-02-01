@@ -15,16 +15,22 @@ func _ready() -> void:
 func disable_exhausted_locations():
 	if GamestateManager.is_dialogue_exhausted["gate"]:
 		$EntryFoodStore.monitoring = false
+		$EntryFoodStore.cross_off()
 	if GamestateManager.is_dialogue_exhausted["narvesen"]:
 		$EntryNarvesen.monitoring = false
+		$EntryNarvesen.cross_off()
 	if GamestateManager.is_dialogue_exhausted["hallway"]:
 		$EntryHome.monitoring = false
+		$EntryHome.cross_off()
 	if GamestateManager.is_dialogue_exhausted["kompis_hus"]:
 		$EntryHouseYellow.monitoring = false
+		$EntryHouseYellow.cross_off()
 	if GamestateManager.is_dialogue_exhausted["gym"]:
 		$EntryGym.monitoring = false
+		$EntryGym.cross_off()
 	if GamestateManager.is_dialogue_exhausted["eplehuset"]:
 		$EntryApple.monitoring = false
+		$EntryApple.cross_off()
 	
 	#"gate",
 	#"narvesen

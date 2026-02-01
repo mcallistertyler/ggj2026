@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drvtj0mxsop6q"]
 
-[ext_resource type="Script" uid="uid://bi2v6bg12bqm6" path="res://NPCs/npc.gd" id="1_8b6s6"]
+[ext_resource type="Script" uid="uid://25rvxh3fvxj3" path="res://NPCs/Dealer/dealer_cat.gd" id="1_jqx06"]
 [ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="2_djd3p"]
 [ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_o48ro"]
 [ext_resource type="SpriteFrames" uid="uid://ckhcrydgkilx4" path="res://NPCs/Dealer/dealer_sprite_frames.tres" id="3_7jdph"]
@@ -17,10 +17,10 @@ shader_parameter/sway_speed = 2.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4pn2v"]
 height = 5.861084
-radius = 3.5854492
+radius = 4.9868164
 
 [node name="DealerCat" type="Node3D" unique_id=1549133963 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue", "dab_up_dialogue")]
-script = ExtResource("1_8b6s6")
+script = ExtResource("1_jqx06")
 npc_name = "DealerCat"
 sprite_3d = NodePath("AnimatedSprite3D")
 dialogue = NodePath("StartingDialogue")
@@ -32,6 +32,7 @@ dab_up_dialogue = NodePath("DabUpDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1409908271]
+unique_name_in_owner = true
 material_override = SubResource("ShaderMaterial_jqx06")
 sprite_frames = ExtResource("3_7jdph")
 

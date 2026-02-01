@@ -246,7 +246,6 @@ func _input(event: InputEvent):
 
 func _on_lane_pressed(lane_index: int):
 	play_random_dab()
-	#AudioManager.playSFX("dab1")
 	if sequence.is_empty():
 		return  # nothing to do
 
@@ -352,5 +351,5 @@ func close() -> void:
 
 func play_random_dab():
 	var clips := ["dab1", "dab2", "dab3", "dab4", "dab5", "dab6"]
-	var i := randi() % clips.size()   # ensure you called randomize() once (see below)
-	AudioManager.playSFX(clips[i], 0, 1)    # use () for function call, [] only for indexing
+	var i := randi() % clips.size()
+	AudioManager.playSFX(clips[i], -10, 1)

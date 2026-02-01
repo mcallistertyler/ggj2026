@@ -1,22 +1,28 @@
 ~ start
-Svolic: Yo [[shrimp|loser|sweetpea]], it's my turn on the bench!
+Svolic: Yo [[shrimp|loser|sweetpea]], I see you hoggin the gear!
+Svolic: What's that? You just got here? No way, I seen you sitting here doing nothing all day.
+Svolic: It's my turn on the bench! [wait=1]Get lost.
 
-- Nu-uh [#response_type=hard_mode]
-- Ok... [#response_type=easy_mode]
+- Fuck off. [#response_type=hard_mode]
+- ...Ok [#response_type=easy_mode]
 => END
 
 ~ svolic_win_hard
-Svolic: Damn, [[shrimp|loser|sweetpea]] I didn't know you were intimidating like that!
+Svolic: Damn, [[shrimp|loser|sweetpea]]. You'se kinda scared me.
+Svolic:  I didn't know you were intimidating like that!
 => END
 
 ~ svolic_win_easy
-Svolic: About time, [[shrimp|loser|sweetpea]].
+Svolic: About time.
+Svolic: [[shrimp|loser|sweetpea]].
 => END
 
 ~ svolic_lose
 Svolic: Get out, [[shrimp|loser|sweetpea]]!
+Svolic: Loser.
 * Damn... *
 => END
 
 ~ svolic_dab_up
-Svolic: Yoooo bro, sorry I was so hard on ya. You look huge! Come here and give a bro some love.
+Svolic: Broooo, I'm sorry I was so hard on ya. You're huge, and totally cool. 
+Svolic: Come here and give a bro some love.

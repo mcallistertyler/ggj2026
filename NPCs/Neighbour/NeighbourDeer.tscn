@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdv4cp0lak1u3"]
 
-[ext_resource type="Script" uid="uid://bi2v6bg12bqm6" path="res://NPCs/npc.gd" id="1_r4cf3"]
+[ext_resource type="Script" uid="uid://bor44kogm7t3i" path="res://NPCs/Neighbour/neighbour_deer.gd" id="1_i1swb"]
 [ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_y8wen"]
 [ext_resource type="Texture2D" uid="uid://dcf3mitwyua27" path="res://assets/character_sprites/deer_spritesheet.png" id="3_rdp2c"]
 [ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="4_rdp2c"]
@@ -41,7 +41,7 @@ height = 5.9000244
 radius = 4.678711
 
 [node name="NeighbourDeer" type="Node3D" unique_id=1542945239 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
-script = ExtResource("1_r4cf3")
+script = ExtResource("1_i1swb")
 npc_name = "NeighbourDeer"
 sprite_3d = NodePath("AnimatedSprite3D")
 dialogue = NodePath("StartDialogue")
@@ -52,6 +52,7 @@ lose_dialogue = NodePath("LoseDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2054543790]
+unique_name_in_owner = true
 material_override = SubResource("ShaderMaterial_i1swb")
 sprite_frames = SubResource("SpriteFrames_pdcrc")
 

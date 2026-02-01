@@ -1,12 +1,14 @@
 ~ start
 Homeless person: Got any change to spare?
 
-- Money is just a concept, freedom is a state of mind [[love|deary|sweetie]] [#response_type=hard_mode]
+- Money is just a concept, \nfreedom is a state of mind, [[love|deary|sweetie]] [#response_type=hard_mode]
 - No... [#response_type=easy_mode]
 => END
 
 ~ homeless_win_hard
 Homeless person: Damn [[dude|bro|son]] if that ain't the truth!
+Homeless person: You made my day, homie! [wait=0.5]Who needs money, anyways!?
+Homeless person: Up yours, dad! I am my own person.
 => END
 
 ~ homeless_win_easy
@@ -14,6 +16,6 @@ Homeless person: Uh, I guess? I need clothes though...
 => END
 
 ~ homeless_lose
-Homeless person: Damn you too, [[dude|bro|son]].
+Homeless person: Damn. You too, huh, [[dude|bro|son]].
 * Damn what am I even doing... *
 => END
