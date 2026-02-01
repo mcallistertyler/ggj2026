@@ -114,6 +114,19 @@ func stop_music() -> void:
 	music_player.stop()
 
 
+func create_audio_player(parent: Node, track: String, volume_db := 0.0):
+	var audio_res = sound_effects[track]
+	if audio_res == null:
+		print("TODO ERROR ", track)
+		return null
+
+	var player = AudioStreamPlayer.new()
+	player.stream = audio_res
+	player.volume_db = volume_db
+	parent.add_child(player)
+	player.play()
+
+
 func fade_out_music(duration := 1.0) -> void:
 	if not music_player or not music_player.playing:
 		return

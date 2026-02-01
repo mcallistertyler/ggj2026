@@ -4,12 +4,12 @@ extends Node2D
 
 func _ready() -> void:
 	scene_car.movement_allowed = true
+
 	AudioManager.play_music("hip_hop")
+	AudioManager.create_audio_player(self, "engine-hum", -3.0)
+
 	disable_exhausted_locations()
 	check_win_conditions()
-
-func _exit_tree() -> void:
-	AudioManager.stop_music()
 
 #You can use GamestateManager.exhaust_dialogue("id") to permanently disable a location in the map
 func disable_exhausted_locations():
