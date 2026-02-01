@@ -1,6 +1,6 @@
 extends Node
 
-var credz: int = 500
+var credz: int = 1000
 signal credz_increased(amount)
 signal credz_decreased(amount)
 
