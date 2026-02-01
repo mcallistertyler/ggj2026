@@ -25,7 +25,9 @@ var sound_effects = {
 	"menu_blink": preload("res://audio/sound_effects/button_accept.mp3"),
 }
 
-var music = {}
+var music = {
+	"hip_hop": preload("res://audio/music/hiphoppy.mp3"),
+}
 
 var sfx_players = []
 var next = 0
