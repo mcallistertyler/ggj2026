@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://edglgjfma1fl" path="res://assets/ui/beat_down.png" id="7_t7vok"]
 [ext_resource type="Texture2D" uid="uid://c4w6o2f0htfx" path="res://assets/ui/beat_up.png" id="8_2mvmg"]
 [ext_resource type="Texture2D" uid="uid://bhfcr7whlwbfw" path="res://assets/ui/beat_right.png" id="9_1mhgx"]
+[ext_resource type="PackedScene" uid="uid://0hq6cx44e2wt" path="res://addons/audio_manager/AudioManager.tscn" id="10_exl78"]
 
 [node name="DabUp" type="Control" unique_id=221765917]
 layout_mode = 3
@@ -43,3 +44,7 @@ grow_vertical = 2
 color = Color(0.19607843, 0.19607843, 0.19607843, 0.24313726)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906910180]
+
+[node name="AudioManager" parent="." unique_id=946486825 instance=ExtResource("10_exl78")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=866522849]

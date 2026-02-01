@@ -14,6 +14,13 @@ signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
 @export var hard_score : int = 100
 @export var failure_score : int = -100
 
+@onready var dap1 = preload("res://audio/sound_effects/dap1.mp3")
+@onready var dap2 = preload("res://audio/sound_effects/dap2.mp3")
+@onready var dap3 = preload("res://audio/sound_effects/dap3.mp3")
+@onready var dap4 = preload("res://audio/sound_effects/dap4.mp3")
+@onready var dap5 = preload("res://audio/sound_effects/dap5.mp3")
+@onready var dap6 = preload("res://audio/sound_effects/dap6.mp3")
+
 var chosen_difficulty : Enums.ResponseTag
 
 # -----------------------
@@ -233,6 +240,8 @@ func _input(event: InputEvent):
 
 	for action in KEY_MAP.keys():
 		if event.is_action_pressed(action):
+			# TODO: play sound
+			#AudioManager.playSFX(dap1) 
 			_on_lane_pressed(KEY_MAP[action])
 
 
