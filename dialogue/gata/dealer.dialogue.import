@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b1qiqxktrxnho"
+path="res://.godot/imported/dealer.dialogue-41c160f022963b3f1d938ce83a83fe5a.tres"
+
+[deps]
+
+source_file="res://dialogue/gata/dealer.dialogue"
+dest_files=["res://.godot/imported/dealer.dialogue-41c160f022963b3f1d938ce83a83fe5a.tres"]
+
+[params]
+
+defaults=true
