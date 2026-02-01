@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://dosdab2vgwvhr"]
+
+[ext_resource type="Script" uid="uid://buwcw8323px6f" path="res://ending.gd" id="1_fsb5k"]
+[ext_resource type="Resource" uid="uid://c1wolv7rff2vo" path="res://dialogue/ending.dialogue" id="2_dmh3q"]
+[ext_resource type="Texture2D" uid="uid://doj2rdk2a4ee5" path="res://assets/ending/endsplash_bad.png" id="3_iggq8"]
+[ext_resource type="FontFile" uid="uid://jeqjpu5it7yx" path="res://fonts/BagelFatOne-Regular.ttf" id="4_k7rdy"]
+[ext_resource type="Texture2D" uid="uid://brbyg3vlqk6o6" path="res://assets/ui/credzcoin.png" id="5_sy8ce"]
+[ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="6_sy8ce"]
+
+[sub_resource type="Animation" id="Animation_dmh3q"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ThanksLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ThanksLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iggq8"]
+resource_name = "fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 2.2, 4.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_dialogue"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_sy8ce"]
+resource_name = "show_thanks"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ThanksLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ThanksLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jooh"]
+_data = {
+&"RESET": SubResource("Animation_dmh3q"),
+&"fade_in": SubResource("Animation_iggq8"),
+&"show_thanks": SubResource("Animation_sy8ce")
+}
+
+[node name="Ending" type="Node2D" unique_id=1183879534]
+script = ExtResource("1_fsb5k")
+end_dialogue = ExtResource("2_dmh3q")
+
+[node name="Bakground" type="ColorRect" parent="." unique_id=861212669]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = -286.0
+offset_top = -150.0
+offset_right = 1744.0
+offset_bottom = 1129.0
+size_flags_horizontal = 4
+color = Color(0.085425, 0.091021486, 0.11729265, 1)
+
+[node name="Illustration" type="Sprite2D" parent="." unique_id=1160792101]
+unique_name_in_owner = true
+position = Vector2(636.18677, 288.49997)
+scale = Vector2(0.83904165, 0.86288416)
+texture = ExtResource("3_iggq8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=104506686]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_4jooh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=432980088]
+offset_left = 561.0
+offset_top = 4.0
+offset_right = 744.0
+offset_bottom = 104.0
+size_flags_horizontal = 4
+
+[node name="CredzLabel" type="Label" parent="HBoxContainer" unique_id=1328211023]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.097002156, 0.109097116, 0.15413472, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_k7rdy")
+theme_override_font_sizes/font_size = 43
+text = "300"
+metadata/_edit_lock_ = true
+
+[node name="CredzTexture" type="TextureRect" parent="HBoxContainer" unique_id=416665698]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_sy8ce")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=936271898]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = -286.0
+offset_top = -150.0
+offset_right = 1744.0
+offset_bottom = 1129.0
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="ThanksLabel" type="Label" parent="." unique_id=1863299707]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 227.0
+offset_top = 552.0
+offset_right = 1033.0
+offset_bottom = 681.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9424485, 0.88400745, 0.96882457, 1)
+theme_override_fonts/font = ExtResource("6_sy8ce")
+theme_override_font_sizes/font_size = 23
+text = "Thank you so much for playing our game!
+
+If you want to try for a different ending, please close the
+game and restart :D"
+horizontal_alignment = 1

@@ -1,0 +1,20 @@
+~ terrible_ending
+this is the worst ending you can get 
+=> END
+
+~ bad_ending
+this is a pretty bad ending but not the worst
+=> END
+
+~ neutral_ending
+this is the normal ending most people should get
+=> END
+
+~ good_ending
+this is the best ending you can get
+=> END
+
+~ bugged_ending
+No one was supposed to get this ending... 
+It means something went wrong in the game, woopsie!
+=> END
