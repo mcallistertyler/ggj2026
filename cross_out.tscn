@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dksknofgg6mh3"]
+
+[ext_resource type="Texture2D" uid="uid://c6w74w754pywb" path="res://assets/ui/cross.png" id="1_88ydd"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=1279988669]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_88ydd")

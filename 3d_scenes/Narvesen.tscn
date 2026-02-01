@@ -157,6 +157,7 @@ debug_color = Color(1, 0.6, 0.69803923, 1)
 
 [node name="Kioskmann" parent="." unique_id=2026299020 node_paths=PackedStringArray("dab_up", "dab_up_second_round", "dab_up_cutscene") instance=ExtResource("3_plnti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3527555, 0, -14.676476)
+game_scene = "narvesen"
 dab_up = NodePath("../DabUpLayer/DabUp")
 dab_up_second_round = NodePath("../DabUpLayer/DabUp2")
 dab_up_cutscene = NodePath("../dab_cutscene")

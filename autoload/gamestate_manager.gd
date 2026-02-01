@@ -13,7 +13,7 @@ var is_dialogue_exhausted: Dictionary = {
 
 
 func exhaust_dialogue(dialogue_id: String):
-	if dialogue_id in is_dialogue_exhausted.keys:
+	if dialogue_id in is_dialogue_exhausted.keys():
 		if is_dialogue_exhausted[dialogue_id]:
 			push_error("Someone tried to exhaust the same dialogue twice")
 		is_dialogue_exhausted[dialogue_id] = true
