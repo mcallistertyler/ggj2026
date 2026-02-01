@@ -50,8 +50,9 @@ func _on_resume_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	get_tree().paused = false
-	SceneManager.change_scene("main_menu")
+	#TODO: Idk how to add the enums without breaking shit so the exit button currently does nothing lmao
+	#TODO: It is certainly not supposed to do this.
+	toggle_pause()
 
 
 
