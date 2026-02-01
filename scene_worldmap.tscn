@@ -29,7 +29,7 @@ target_scene = 1
 [node name="EntryApple" parent="." unique_id=1280924198 instance=ExtResource("2_mq3a5")]
 position = Vector2(638, 149)
 my_texture = ExtResource("5_4ctb2")
-target_scene = 1
+target_scene = 7
 
 [node name="EntryHouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
 position = Vector2(215, 403)
