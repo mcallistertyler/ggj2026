@@ -11,6 +11,7 @@ var position_B = Vector2(400.0, 375.0)
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	visible = false
 	calculate_status()
 
@@ -19,11 +20,9 @@ func _unhandled_input(event):
 		toggle_pause()
 
 func toggle_pause():
-	if get_tree().paused:
-		get_tree().paused = false
+	if visible == true:
 		visible = false
 	else:
-		get_tree().paused = true
 		visible = true
 		resume_button.grab_focus() # So player can immediately hit Enter/Confirm
 		calculate_status()
@@ -51,8 +50,9 @@ func _on_resume_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	get_tree().paused = false
-	SceneManager.change_scene("main_menu")
+	#TODO: Idk how to add the enums without breaking shit so the exit button currently does nothing lmao
+	#TODO: It is certainly not supposed to do this.
+	toggle_pause()
 
 
 
@@ -77,3 +77,8 @@ func _on_exit_focus_entered() -> void:
 
 func _on_exit_focus_exited() -> void:
 	unfocus_button(exit_button)
+
+
+func _on_dialogue_ended(resource: DialogueResource):
+	resume_button.grab_focus()
+	
