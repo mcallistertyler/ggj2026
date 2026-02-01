@@ -6,14 +6,14 @@ Homie: [[Yo!|Yooooooo!|Wallah!]] Long time no see, what's up, dog?
 => END
 
 ~ homie_win_hard
-Homie: That dab was gorgeous just like you, dog.
+Homie: That's my homie!. You're welcome here any time.
 => END
 
 ~ homie_win_easy
-Homie: Damn dog i didn't know you were chill like that!
+Homie: ...My mom? Funny. I guess...
 => END
 
 ~ homie_lose
-Homie: Why bring my mama into this, dog??
+Homie: You doing alright buddy? Got nothing to say? I thought we were homies.
 * I can't believe i fumbled my homie like that... *
 => END
