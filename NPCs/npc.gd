@@ -51,10 +51,10 @@ func _on_responses_shown(_responses: Array) -> void:
 func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion, second_round: bool) -> void:
 	if dab_up_cutscene and result == DabUpMinigame.DabUpCompletion.PASS_HARD and second_round:
 		PlayerManager.player_movement.emit(false)
-		await dab_up_cutscene.play_dab_animation()
 		await dab_up_cutscene.play_success_animation()
 		PlayerManager.player_movement.emit(true)
 		CredzManager.increaseCredz(score)
+		
 		return
 	minigame_played = true
 	CredzManager.increaseCredz(score)
@@ -71,6 +71,7 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion, s
 	if dab_up_second_round != null and !second_round and result == DabUpMinigame.DabUpCompletion.PASS_HARD:
 		var dab_up_dialogue_balloon = DialogueManager.show_dialogue_balloon(dab_up_dialogue.dialogue_resource, dab_up_dialogue.dialogue_title)
 		await DialogueManager.dialogue_ended
+		await dab_up_cutscene.play_dab_animation()
 		dab_up_second_round.open(Enums.ResponseTag.HARD_MODE)
 
 func _process(delta: float) -> void:
