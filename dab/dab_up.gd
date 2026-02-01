@@ -4,7 +4,7 @@ class_name DabUpMinigame
 
 enum DabUpCompletion { PASS_EASY, PASS_HARD, FAILURE }
 
-signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
+signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion, second_round: bool)
 
 # DIFFICULTY SETTINGS
 @export var SEQ_LENGTH: int = 10
@@ -20,6 +20,7 @@ signal dab_up_completed(score: int, dab_up_completion: DabUpCompletion)
 @onready var dap4 = preload("res://audio/sound_effects/dap4.mp3")
 @onready var dap5 = preload("res://audio/sound_effects/dap5.mp3")
 @onready var dap6 = preload("res://audio/sound_effects/dap6.mp3")
+@export var dab_up_second_round : bool = false
 
 var chosen_difficulty : Enums.ResponseTag
 
@@ -277,11 +278,11 @@ func _success():
 	elif chosen_difficulty == Enums.ResponseTag.EASY_MODE:
 		chosen_completion = DabUpCompletion.PASS_EASY
 		chosen_score = easy_score
-	self.dab_up_completed.emit(chosen_score, chosen_completion)
+	self.dab_up_completed.emit(chosen_score, chosen_completion, dab_up_second_round)
 	close()
 
 func _failure():
-	self.dab_up_completed.emit(failure_score, DabUpCompletion.FAILURE)
+	self.dab_up_completed.emit(failure_score, DabUpCompletion.FAILURE, dab_up_second_round)
 	close()
 
 signal popup_closed

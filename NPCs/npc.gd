@@ -7,9 +7,12 @@ class_name NPC
 @export var area_3d : Area3D
 
 @export var dab_up : DabUpMinigame
+@export var dab_up_second_round : DabUpMinigame
 @export var win_hard_dialogue : DialogueWithTimer
 @export var win_easy_dialogue : DialogueWithTimer
 @export var lose_dialogue : DialogueWithTimer
+@export var dab_up_dialogue : DialogueWithTimer
+@export var dab_up_cutscene : DabUpCutscene
 
 var player_within_area : bool = false
 var dialogue_started : bool = false
@@ -22,6 +25,8 @@ func _ready() -> void:
 	area_3d.body_exited.connect(_on_body_exited)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	dab_up.dab_up_completed.connect(_on_minigame_completed)
+	if dab_up_second_round:
+		dab_up_second_round.dab_up_completed.connect(_on_minigame_completed)
 	response_timeout_value = dialogue.timeout_value
 	if sprite_3d:
 		sprite_3d.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
@@ -43,7 +48,14 @@ func _on_responses_shown(_responses: Array) -> void:
 	if response_timeout_value > 0:
 		TimerManager.create_dialogue_timer(response_timeout_value, TimerManager.Context.DIALOGUE)
 
-func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -> void:
+func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion, second_round: bool) -> void:
+	if dab_up_cutscene and result == DabUpMinigame.DabUpCompletion.PASS_HARD and second_round:
+		PlayerManager.player_movement.emit(false)
+		await dab_up_cutscene.play_success_animation()
+		PlayerManager.player_movement.emit(true)
+		CredzManager.increaseCredz(score)
+		
+		return
 	minigame_played = true
 	CredzManager.increaseCredz(score)
 	var dialogue_to_use : DialogueWithTimer
@@ -55,6 +67,12 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -
 		dialogue_to_use = lose_dialogue
 	var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue_to_use.dialogue_resource, dialogue_to_use.dialogue_title)
 	await dialogue_balloon.ready
+	await DialogueManager.dialogue_ended
+	if dab_up_second_round != null and !second_round and result == DabUpMinigame.DabUpCompletion.PASS_HARD:
+		var dab_up_dialogue_balloon = DialogueManager.show_dialogue_balloon(dab_up_dialogue.dialogue_resource, dab_up_dialogue.dialogue_title)
+		await DialogueManager.dialogue_ended
+		await dab_up_cutscene.play_dab_animation()
+		dab_up_second_round.open(Enums.ResponseTag.HARD_MODE)
 
 func _process(delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:

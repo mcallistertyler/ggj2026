@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+class_name DabUpCutscene
 
 #see assets/character_sprites/dabup
 @export var npc_texture : Texture2D
@@ -14,6 +15,8 @@ extends CanvasLayer
 
 @onready var animation_player = $AnimationPlayer
 
+signal all_animations_finished
+
 func _ready() -> void:
 	if npc_texture == null:
 		push_error("YOU FUCKER YOU FORGOT TO SET UP THE DAB SCENE")
@@ -23,6 +26,8 @@ func _ready() -> void:
 
 func play_dab_animation():
 	$AnimationPlayer.play("dab_me_up")
+	await $AnimationPlayer.animation_finished
 
 func play_success_animation():
 	$AnimationPlayer.play("dab_success")
+	await $AnimationPlayer.animation_finished

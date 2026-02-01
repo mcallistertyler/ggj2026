@@ -19,7 +19,7 @@ shader_parameter/sway_speed = 2.0
 height = 5.861084
 radius = 3.5854492
 
-[node name="DealerCat" type="Node3D" unique_id=1549133963 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
+[node name="DealerCat" type="Node3D" unique_id=1549133963 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue", "dab_up_dialogue")]
 script = ExtResource("1_8b6s6")
 npc_name = "DealerCat"
 sprite_3d = NodePath("AnimatedSprite3D")
@@ -28,6 +28,7 @@ area_3d = NodePath("Area3D")
 win_hard_dialogue = NodePath("WinHardDialogue")
 win_easy_dialogue = NodePath("WinEasyDialogue")
 lose_dialogue = NodePath("LoseDialogue")
+dab_up_dialogue = NodePath("DabUpDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1409908271]
@@ -62,4 +63,10 @@ metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 script = ExtResource("2_djd3p")
 dialogue_resource = ExtResource("6_jqx06")
 dialogue_title = "dealer_lose"
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="DabUpDialogue" type="Node" parent="." unique_id=1671903827]
+script = ExtResource("2_djd3p")
+dialogue_resource = ExtResource("6_jqx06")
+dialogue_title = "dealer_dab_up"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
