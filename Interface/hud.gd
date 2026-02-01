@@ -26,11 +26,11 @@ func _ready() -> void:
 	
 func _on_credz_decreased(amount):
 	credz_label.text = str(CredzManager.credz)
-	
+
 	var popup_instance = CREDZ_POPUP.instantiate()
 	add_child(popup_instance)
 	popup_instance.position = popup_spawn_position
-	popup_instance.set_label(-amount, subtract_icon)
+	popup_instance.set_label(-abs(amount), subtract_icon)
 
 func _on_credz_increased(amount):
 	credz_label.text = str(CredzManager.credz)
