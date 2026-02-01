@@ -39,7 +39,6 @@ shape = SubResource("CylinderShape3D_cwc8o")
 debug_color = Color(0.7299875, 0.29990995, 0.9113863, 0.41960785)
 
 [node name="Sprite3D" parent="." unique_id=1267509063 instance=ExtResource("3_xb10o")]
-transform = Transform3D(2.22, 0, 0, 0, 2.22, 0, 0, 0, 2.22, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_4e8fx")
 texture = ExtResource("5_4e8fx")
 
