@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="6_v13ed"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="7_1t868"]
 [ext_resource type="PackedScene" uid="uid://drvtj0mxsop6q" path="res://NPCs/Dealer/DealerCat.tscn" id="7_nvxn2"]
+[ext_resource type="PackedScene" uid="uid://conm7njwxsfis" path="res://dab_cutscene.tscn" id="8_m786f"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="8_trkf4"]
+[ext_resource type="Texture2D" uid="uid://badf61d4cm72s" path="res://assets/character_sprites/Dabup_dealer.png" id="9_ckaka"]
+[ext_resource type="Texture2D" uid="uid://6ys1u8ttan81" path="res://assets/character_sprites/Dabup_dealer_hand.png" id="10_v13ed"]
+[ext_resource type="Texture2D" uid="uid://bipwsshqlc52b" path="res://assets/character_sprites/Dabup_dealer_success.png" id="11_1t868"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -94,8 +98,14 @@ transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.85121
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
 transform = Transform3D(4.970764, 0, 0.5399102, 0, 5, 0, -0.5399102, 0, 4.970764, 1.0436511, 0, -0.5225034)
 
-[node name="DealerCat" parent="." unique_id=1549133963 node_paths=PackedStringArray("dab_up") instance=ExtResource("7_nvxn2")]
+[node name="DealerCat" parent="." unique_id=1549133963 node_paths=PackedStringArray("dab_up", "dab_up_cutscene") instance=ExtResource("7_nvxn2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.502155, 2.7004085, -1.7639732)
 dab_up = NodePath("../DabUpLayer/DabUp")
+dab_up_cutscene = NodePath("../dab_cutscene")
+
+[node name="dab_cutscene" parent="." unique_id=1255112179 instance=ExtResource("8_m786f")]
+npc_texture = ExtResource("9_ckaka")
+hand_texture = ExtResource("10_v13ed")
+success_texture = ExtResource("11_1t868")
 
 [editable path="ExitArea3D"]

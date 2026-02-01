@@ -10,6 +10,7 @@ class_name NPC
 @export var win_hard_dialogue : DialogueWithTimer
 @export var win_easy_dialogue : DialogueWithTimer
 @export var lose_dialogue : DialogueWithTimer
+@export var dab_up_cutscene : DabUpCutscene
 
 var player_within_area : bool = false
 var dialogue_started : bool = false
@@ -55,6 +56,12 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion) -
 		dialogue_to_use = lose_dialogue
 	var dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue_to_use.dialogue_resource, dialogue_to_use.dialogue_title)
 	await dialogue_balloon.ready
+	await DialogueManager.dialogue_ended
+	if dab_up_cutscene and result == DabUpMinigame.DabUpCompletion.PASS_HARD:
+		PlayerManager.player_movement.emit(false)
+		await dab_up_cutscene.play_dab_animation()
+		await dab_up_cutscene.play_success_animation()
+		PlayerManager.player_movement.emit(true)
 
 func _process(delta: float) -> void:
 	if player_within_area and !dialogue_started and Input.is_action_just_pressed("ui_accept") and !minigame_played:
