@@ -1,7 +1,7 @@
 ~ start
-* Oh no, it's the neighbour... Should you say 'hi'? *
-Neighbour: Hey! It was pretty noisy last night. 
-Neighbour: That was that you playing bass guitar all night, right??
+* Oh no, it's the neighbour... Should you say 'hi', or..? *
+Neighbour: Hey, you! It was pretty noisy last night. 
+Neighbour: That was you playing bass guitar all night, wasn't it? You know that stuff travels through the walls, right?
 
 - I don't even own a bass, dude. [#response_type=hard_mode]
 - Oh, uh... no? [#response_type=easy_mode]
