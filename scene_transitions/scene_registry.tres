@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvm626praj8yq" path="res://addons/scene_transitions/scene_registry.gd" id="1_mrjmu"]
 [ext_resource type="Script" uid="uid://bx1b54adesv51" path="res://addons/scene_transitions/resources/scene_entry.gd" id="2_dgyo5"]
-[ext_resource type="Resource" path="res://scene_transitions/main_menu_scene_entry.tres" id="3_mainmenu"]
+[ext_resource type="Resource" uid="uid://c6vkp6ps2bn1c" path="res://scene_transitions/main_menu_scene_entry.tres" id="3_mainmenu"]
 [ext_resource type="Resource" uid="uid://csihbqirckh65" path="res://scene_transitions/gangen_scene_entry.tres" id="4_gangen"]
 [ext_resource type="Resource" uid="uid://dcy8yi3bxlhs7" path="res://scene_transitions/hjemme_leilighet_scene_entry.tres" id="5_hjemme"]
 [ext_resource type="Resource" uid="uid://5nc6lxseailv" path="res://scene_transitions/eplehus_scene_entry.tres" id="6_eplehus"]
