@@ -15,11 +15,11 @@ func _on_body_entered(body: Node3D):
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		if body is PlayerCharacterBody3D:
 			body.show_interact()
-	is_player_within_area = true
+		is_player_within_area = true
 
 func _on_body_exited(body):
 	if body.is_in_group(Groups.PLAYER_GROUP):
 		if body is PlayerCharacterBody3D:
 			body.hide_interact()
-	is_player_within_area = false
-	has_player_entered_room = true
+		is_player_within_area = false
+		has_player_entered_room = true
