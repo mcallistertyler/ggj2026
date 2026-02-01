@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://badf61d4cm72s" path="res://assets/character_sprites/Dabup_dealer.png" id="9_ckaka"]
 [ext_resource type="Texture2D" uid="uid://6ys1u8ttan81" path="res://assets/character_sprites/Dabup_dealer_hand.png" id="10_v13ed"]
 [ext_resource type="Texture2D" uid="uid://bipwsshqlc52b" path="res://assets/character_sprites/Dabup_dealer_success.png" id="11_1t868"]
+[ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="12_ckaka"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -57,6 +58,7 @@ transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.8184
 shadow_enabled = true
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("5_ckaka")]
+layer = 6
 
 [node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=757534782]
 layer = 3
@@ -112,5 +114,9 @@ dab_up_cutscene = NodePath("../dab_cutscene")
 npc_texture = ExtResource("9_ckaka")
 hand_texture = ExtResource("10_v13ed")
 success_texture = ExtResource("11_1t868")
+
+[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("12_ckaka")]
+layer = 5
+visible = false
 
 [editable path="ExitArea3D"]
