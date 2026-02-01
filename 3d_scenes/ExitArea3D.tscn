@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://bnssem2j0e7g0"]
 
 [ext_resource type="Script" uid="uid://bcplsyeug1gsd" path="res://3d_scenes/script_exit_area_3d.gd" id="1_gy4wa"]
+[ext_resource type="Shader" uid="uid://07m1qkldtyvp" path="res://3d_scenes/ExitArea3D.gdshader" id="2_3cpl2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_la8by"]
 
-[node name="ExitArea3D" type="Area3D" unique_id=1391346410]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cpl2"]
+render_priority = 0
+shader = ExtResource("2_3cpl2")
+shader_parameter/particle_color = Color(1, 0.9019608, 0.5019608, 1)
+shader_parameter/speed = 0.5
+shader_parameter/density = 15.4730006874675
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltesa"]
+material = SubResource("ShaderMaterial_3cpl2")
+
+[node name="ExitArea3D" type="Area3D" unique_id=1391346410 node_paths=PackedStringArray("effect_mesh")]
 script = ExtResource("1_gy4wa")
+effect_mesh = NodePath("MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1620129430]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_la8by")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=878039897]
+transform = Transform3D(4.964344, 0, 0, 0, -1.0793713e-07, 3.106433, 0, -2.4693139, -1.357865e-07, 0, 0, 0)
+mesh = SubResource("BoxMesh_ltesa")

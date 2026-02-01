@@ -3,9 +3,13 @@ extends Area3D
 var is_player_within_area : bool = false
 var has_player_entered_room : bool = false
 
+@export var effect_mesh : MeshInstance3D
+
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	connect("body_exited", Callable(self, "_on_body_exited"))
+	if effect_mesh:
+		effect_mesh.visible = true
 
 func _process(delta):
 	if is_player_within_area and Input.is_action_just_pressed("ui_accept"):
@@ -16,6 +20,8 @@ func _on_body_entered(body: Node3D):
 		if body is PlayerCharacterBody3D:
 			body.show_interact()
 		is_player_within_area = true
+		if effect_mesh:
+			effect_mesh.visible = true
 
 func _on_body_exited(body):
 	if body.is_in_group(Groups.PLAYER_GROUP):
@@ -23,3 +29,5 @@ func _on_body_exited(body):
 			body.hide_interact()
 		is_player_within_area = false
 		has_player_entered_room = true
+		if effect_mesh:
+			effect_mesh.visible = false
