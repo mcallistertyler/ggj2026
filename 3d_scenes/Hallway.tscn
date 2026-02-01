@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://btdc00sqixo88"]
+[gd_scene format=3 uid="uid://cp3t1aunnuwlw"]
 
 [ext_resource type="Texture2D" uid="uid://cwjw7l4hps6uw" path="res://sprite_background_hallway.png" id="1_othvr"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_573av"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="4_c83d0"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="5_dw1h4"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="6_76pf0"]
+[ext_resource type="PackedScene" uid="uid://cdv4cp0lak1u3" path="res://NPCs/Neighbour/NeighbourDeer.tscn" id="7_2fenj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -89,9 +90,13 @@ shape = SubResource("BoxShape3D_nvxn2")
 debug_color = Color(1, 0.6, 0.69803923, 1)
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("6_76pf0")]
-transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 8.380829)
+transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 10.812691)
 
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
 transform = Transform3D(4.970764, 0, 0.5399102, 0, 5, 0, -0.5399102, 0, 4.970764, 1.0436511, 0, -0.5225034)
+
+[node name="NeighbourDeer" parent="." unique_id=1542945239 node_paths=PackedStringArray("dab_up") instance=ExtResource("7_2fenj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7641288, 3.5285053, -1.3923709)
+dab_up = NodePath("../DabUpLayer/DabUp")
 
 [editable path="ExitArea3D"]
