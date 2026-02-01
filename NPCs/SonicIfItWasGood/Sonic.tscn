@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_a0k7e"]
 [ext_resource type="Texture2D" uid="uid://crpuuu0l6dpyx" path="res://assets/character_sprites/npc_swoleic.png" id="2_hf7cl"]
 [ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="3_4k3i0"]
+[ext_resource type="Resource" uid="uid://dwmlxb7fvinps" path="res://dialogue/gym/svolic.dialogue" id="5_u4gn5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u4gn5"]
 render_priority = 0
@@ -15,7 +16,7 @@ shader_parameter/sway_speed = 2.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4k3i0"]
 height = 3.628418
-radius = 3.3266602
+radius = 5.342285
 
 [node name="Sonic" type="Node3D" unique_id=1246788618 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
 script = ExtResource("1_6lur4")
@@ -40,16 +41,24 @@ shape = SubResource("CylinderShape3D_4k3i0")
 
 [node name="StartDialogue" type="Node" parent="." unique_id=1615726756]
 script = ExtResource("3_4k3i0")
+dialogue_resource = ExtResource("5_u4gn5")
+dialogue_title = "start"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="WinHardDialogue" type="Node" parent="." unique_id=296781666]
 script = ExtResource("3_4k3i0")
+dialogue_resource = ExtResource("5_u4gn5")
+dialogue_title = "svolic_win_hard"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="WinEasyDialogue" type="Node" parent="." unique_id=262604216]
 script = ExtResource("3_4k3i0")
+dialogue_resource = ExtResource("5_u4gn5")
+dialogue_title = "svolic_win_easy"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 
 [node name="LoseDialogue" type="Node" parent="." unique_id=1630930463]
 script = ExtResource("3_4k3i0")
+dialogue_resource = ExtResource("5_u4gn5")
+dialogue_title = "svolic_lose"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
