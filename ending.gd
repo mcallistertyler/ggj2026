@@ -21,10 +21,10 @@ func set_assets():
 	if credz <= 0:
 		dialogue_title = "terrible_ending"
 		illustration.texture = load("res://assets/ending/endsplash_terrible.png")
-	elif credz <= 650:
+	elif credz < 650:
 		dialogue_title = "bad_ending"
 		illustration.texture = load("res://assets/ending/endsplash_bad.png")
-	elif credz <= 1050:
+	elif credz < 1200:
 		dialogue_title = "neutral_ending"
 		illustration.texture = load("res://assets/ending/endsplash_neutral.png")
 	else:
