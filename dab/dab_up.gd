@@ -22,9 +22,13 @@ var chosen_difficulty : Enums.ResponseTag
 const LANES: Array[String] = ["←", "↑", "↓", "→"]   # indices: 0,1,2,3
 const KEY_MAP := {
 	"ui_left":  0,
+	"move_left": 0,
 	"ui_up":    1,
+	"move_up": 1,
 	"ui_down":  2,
-	"ui_right": 3
+	"move_down": 2,
+	"ui_right": 3,
+	"move_right": 3,
 }
 
 # STYLING CODE FOR BUTTONS
