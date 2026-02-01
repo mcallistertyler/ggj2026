@@ -29,7 +29,7 @@ scale = Vector2(4.333334, 2.5058079)
 texture = ExtResource("3_2wbdq")
 
 [node name="EntryNarvesen" parent="." unique_id=615619979 node_paths=PackedStringArray("cross_out") instance=ExtResource("2_mq3a5")]
-position = Vector2(1036, 260)
+position = Vector2(689, 162)
 my_texture = ExtResource("4_rlpqb")
 target_scene = 1
 cross_out = NodePath("Sprite2D")
@@ -37,7 +37,7 @@ cross_out = NodePath("Sprite2D")
 [node name="Sprite2D" parent="EntryNarvesen" unique_id=1279988669 instance=ExtResource("6_ujrh1")]
 
 [node name="EntryApple" parent="." unique_id=1280924198 node_paths=PackedStringArray("cross_out") instance=ExtResource("2_mq3a5")]
-position = Vector2(638, 149)
+position = Vector2(982, 278)
 my_texture = ExtResource("5_4ctb2")
 target_scene = 7
 cross_out = NodePath("Sprite2D")
