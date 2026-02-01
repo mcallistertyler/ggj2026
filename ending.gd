@@ -34,6 +34,7 @@ func set_assets():
 		dialogue_title = "neutral_ending"
 		illustration.texture = load("res://assets/ending/endsplash_neutral.png")
 	else:
+		AudioManager.play_music("ending-good")
 		dialogue_title = "good_ending"
 		illustration.texture = load("res://assets/ending/endsplash_good.png")
 

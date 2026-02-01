@@ -39,6 +39,7 @@ var music = {
 	"ambience-home": preload("res://audio/music/ambience_home.mp3"),
 	"ambience-gym": preload("res://audio/music/ambience_gym.mp3"),
 	"ambience-narvesen": preload("res://audio/music/ambience_narvesen.mp3"),
+	"ending-good": preload("res://audio/music/ending_good.mp3"),
 }
 
 var sfx_players = []
