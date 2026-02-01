@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cp3t1aunnuwlw"]
 
 [ext_resource type="Texture2D" uid="uid://cwjw7l4hps6uw" path="res://sprite_background_hallway.png" id="1_othvr"]
+[ext_resource type="Script" uid="uid://d1p8jsqppfkxs" path="res://3d_scenes/hallway.gd" id="1_uoswk"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_573av"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="3_uoswk"]
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="4_573av"]
@@ -23,6 +24,7 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 size = Vector3(53.77237, 2.4311523, 6.861328)
 
 [node name="Hallway" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_uoswk")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.3964653)
