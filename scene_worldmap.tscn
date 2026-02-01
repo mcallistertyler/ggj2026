@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://64b1uvkrr0qv"]
 
-[ext_resource type="PackedScene" uid="uid://0uxqmb7lw81" path="res://scene_car.tscn" id="1_j6b3k"]
+[ext_resource type="PackedScene" path="res://scene_car.tscn" id="1_j6b3k"]
+[ext_resource type="Script" uid="uid://bxooi3iv8fjuh" path="res://scene_worldmap.gd" id="1_tqbp0"]
 [ext_resource type="PackedScene" uid="uid://cynf4a4us8i00" path="res://scene_location_entry.tscn" id="2_mq3a5"]
 [ext_resource type="Texture2D" uid="uid://p76lw6yl286i" path="res://sprite_worldmap.png" id="3_2wbdq"]
 [ext_resource type="Texture2D" uid="uid://76cjxglkx4e0" path="res://sprite_narvesen.png" id="4_rlpqb"]
@@ -9,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://bf1xbcjeaspja" path="res://sprite_entry_gym.png" id="6_anor1"]
 [ext_resource type="Texture2D" uid="uid://b5l1b8ek5q2yi" path="res://sprite_entry_frukt.png" id="8_4ctb2"]
 
-[node name="WorldMap" type="Node2D" unique_id=118894363]
+[node name="WorldMap" type="Node2D" unique_id=118894363 node_paths=PackedStringArray("scene_car")]
+script = ExtResource("1_tqbp0")
+scene_car = NodePath("SceneCar")
 
-[node name="SceneCar" parent="." unique_id=937006682 instance=ExtResource("1_j6b3k")]
+[node name="SceneCar" parent="." unique_id=937006682 groups=["overworld_car"] instance=ExtResource("1_j6b3k")]
 z_index = 1
 position = Vector2(547, 245)
 
@@ -29,7 +32,7 @@ target_scene = 1
 [node name="EntryApple" parent="." unique_id=1280924198 instance=ExtResource("2_mq3a5")]
 position = Vector2(638, 149)
 my_texture = ExtResource("5_4ctb2")
-target_scene = 1
+target_scene = 7
 
 [node name="EntryHouseYellow" parent="." unique_id=1275570731 instance=ExtResource("2_mq3a5")]
 position = Vector2(215, 403)

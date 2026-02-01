@@ -14,6 +14,7 @@ func _ready():
 
 func _on_play_pressed() -> void:
 	AudioManager.playSFX("menu_blink")
+	SceneManager.transition_to_scene(Enums.Scenes.HJEMME_LEILIGHET)
 	
 func _on_credits_pressed() -> void:
 	%CreditsPanel.show()

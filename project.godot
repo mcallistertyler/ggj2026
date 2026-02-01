@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 player=""
+overworld_car=""
 
 [input]
 
@@ -75,7 +76,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/test/test_dialogue.dialogue", "res://dialogue/narvesen/kioskmann.dialogue", "res://dialogue/mom/mom.dialogue", "res://dialogue/gata/homie.dialogue", "res://dialogue/gata/homeless.dialogue", "res://dialogue/gym/svolic.dialogue", "res://dialogue/gata/hotbabe.dialogue", "res://dialogue/gata/dealer.dialogue", "res://dialogue/ending.dialogue", "res://dialogue/hallway/neighbour.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/test/test_dialogue.dialogue", "res://dialogue/narvesen/kioskmann.dialogue", "res://dialogue/mom/mom.dialogue", "res://dialogue/gata/homie.dialogue", "res://dialogue/gata/homeless.dialogue", "res://dialogue/gym/svolic.dialogue", "res://dialogue/gata/hotbabe.dialogue", "res://dialogue/gata/dealer.dialogue", "res://dialogue/ending.dialogue", "res://dialogue/hallway/neighbour.dialogue", "res://dialogue/intro.dialogue")
 
 [layer_names]
 

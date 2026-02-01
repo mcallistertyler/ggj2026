@@ -7,5 +7,8 @@ func _ready():
 	%MySprite.texture = my_texture
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
-func _on_body_entered(body):
-	SceneManager.transition_to_scene(target_scene)
+func _on_body_entered(body: Node2D):
+	if body.is_in_group(Groups.OVERWORLD_CAR_GROUP):
+		var car : OverworldCar = body
+		car.movement_allowed = false
+	SceneManager.transition_to_scene(target_scene, false, TransitionType.Value.FADE_CIRCLE, TransitionType.Value.FADE_CIRCLE)
