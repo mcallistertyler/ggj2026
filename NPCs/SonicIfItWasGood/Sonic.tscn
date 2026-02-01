@@ -18,7 +18,7 @@ shader_parameter/sway_speed = 2.0
 height = 3.628418
 radius = 5.342285
 
-[node name="Sonic" type="Node3D" unique_id=1246788618 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
+[node name="Sonic" type="Node3D" unique_id=1246788618 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue", "dab_up_dialogue")]
 script = ExtResource("1_6lur4")
 npc_name = "SonicIfItWasGood"
 sprite_3d = NodePath("Sprite3D")
@@ -27,6 +27,7 @@ area_3d = NodePath("Area3D")
 win_hard_dialogue = NodePath("WinHardDialogue")
 win_easy_dialogue = NodePath("WinEasyDialogue")
 lose_dialogue = NodePath("LoseDialogue")
+dab_up_dialogue = NodePath("DabUpDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=360850492]
@@ -61,4 +62,10 @@ metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 script = ExtResource("3_4k3i0")
 dialogue_resource = ExtResource("5_u4gn5")
 dialogue_title = "svolic_lose"
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="DabUpDialogue" type="Node" parent="." unique_id=1761470710]
+script = ExtResource("3_4k3i0")
+dialogue_resource = ExtResource("5_u4gn5")
+dialogue_title = "svolic_dab_up"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"

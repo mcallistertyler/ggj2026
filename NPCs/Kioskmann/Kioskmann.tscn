@@ -19,7 +19,7 @@ shader_parameter/tex = ExtResource("5_4e8fx")
 shader_parameter/sway_strength = 0.1
 shader_parameter/sway_speed = 2.0
 
-[node name="Kioskmann" type="Node3D" unique_id=2026299020 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
+[node name="Kioskmann" type="Node3D" unique_id=2026299020 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue", "dab_up_dialogue")]
 script = ExtResource("1_4e8fx")
 npc_name = "Kioskmann"
 sprite_3d = NodePath("Sprite3D")
@@ -28,6 +28,7 @@ area_3d = NodePath("Area3D")
 win_hard_dialogue = NodePath("WinHardDialogue")
 win_easy_dialogue = NodePath("WinEasyDialogue")
 lose_dialogue = NodePath("LoseDialogue")
+dab_up_dialogue = NodePath("DabUpDialogue")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2142674765]
@@ -64,4 +65,10 @@ metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 script = ExtResource("4_bylqt")
 dialogue_resource = ExtResource("5_cwc8o")
 dialogue_title = "kioskmann_lose"
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="DabUpDialogue" type="Node" parent="." unique_id=1174575822]
+script = ExtResource("4_bylqt")
+dialogue_resource = ExtResource("5_cwc8o")
+dialogue_title = "kioskmann_dab_up"
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"
