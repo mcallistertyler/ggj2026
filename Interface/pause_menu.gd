@@ -1,4 +1,7 @@
 extends CanvasLayer
+
+@export var player : PlayerBase
+
 @onready var resume_button = %Resume
 @onready var exit_button = %Exit
 
@@ -20,6 +23,8 @@ func _unhandled_input(event):
 		toggle_pause()
 
 func toggle_pause():
+	if player != null and player.character_body_3d.movement_disabled:
+		return
 	if visible == true:
 		visible = false
 	else:
