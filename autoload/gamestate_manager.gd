@@ -1,13 +1,11 @@
 extends Node
 
-
 #Contains all LOCATIONS
 #Just set to true by default if we skip the scene
 var is_dialogue_exhausted: Dictionary = {
 	"gate": false,
 	"narvesen": false,
 	"hallway": false,
-	"leilighet": false,
 	"kompis_hus": false,
 	"gym": false,
 	"eplehuset": false,

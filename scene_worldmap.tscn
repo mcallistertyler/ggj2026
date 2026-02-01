@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="5_anor1"]
 [ext_resource type="Texture2D" uid="uid://bf1xbcjeaspja" path="res://sprite_entry_gym.png" id="6_anor1"]
 [ext_resource type="Texture2D" uid="uid://b5l1b8ek5q2yi" path="res://sprite_entry_frukt.png" id="8_4ctb2"]
+[ext_resource type="Texture2D" uid="uid://dxsnukq5j1mkn" path="res://hus-sprite.png" id="10_os2y3"]
 
 [node name="WorldMap" type="Node2D" unique_id=118894363 node_paths=PackedStringArray("scene_car")]
 script = ExtResource("1_tqbp0")
@@ -16,7 +17,7 @@ scene_car = NodePath("SceneCar")
 
 [node name="SceneCar" parent="." unique_id=937006682 groups=["overworld_car"] instance=ExtResource("1_j6b3k")]
 z_index = 1
-position = Vector2(547, 245)
+position = Vector2(479, 245)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1805388494]
 z_index = -1
@@ -48,3 +49,13 @@ target_scene = 3
 position = Vector2(477, 636)
 my_texture = ExtResource("8_4ctb2")
 target_scene = 4
+
+[node name="EntryHome" parent="." unique_id=961540705 instance=ExtResource("2_mq3a5")]
+position = Vector2(325, 161)
+my_texture = ExtResource("10_os2y3")
+target_scene = 5
+
+[node name="MySprite" parent="EntryHome" index="1" unique_id=1102398639]
+scale = Vector2(0.15, 0.15)
+
+[editable path="EntryHome"]
