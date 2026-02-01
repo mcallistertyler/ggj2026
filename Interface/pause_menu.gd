@@ -35,15 +35,15 @@ func toggle_pause():
 func calculate_status():
 	#TODO: Match the statuses to the actual gameplay
 	var status = "BUG"
-	if CredzManager.credz >= 2500:
+	if CredzManager.credz >= 1000:
 		status = "LEGEND"
-	elif CredzManager.credz >= 2000:
+	elif CredzManager.credz >= 800:
 		status = "REAL ONE"
-	elif CredzManager.credz >= 1500:
+	elif CredzManager.credz >= 600:
 		status = "CHILL GUY"
-	elif CredzManager.credz >= 1000:
+	elif CredzManager.credz >= 400:
 		status = "NORMIE"
-	elif CredzManager.credz >= 500:
+	elif CredzManager.credz >= 0:
 		status = "NOBODY"
 	else:
 		print("Should have updated credz")
