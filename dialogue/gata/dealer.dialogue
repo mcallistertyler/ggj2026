@@ -2,11 +2,12 @@
 Dealer: [[Yo|Psst|Hey]], you looking for something?
 
 - What you got? [#response_type=hard_mode]
-- No thanks... [#response_type=easy_mode]
+- Ah, ehm, no thanks... [#response_type=easy_mode]
 => END
 
 ~ dealer_win_hard
-Dealer: [[Aight|Nice|Word]], I like your style.
+Dealer: [[Aight|Nice|Word]]. You know what's up. 
+Dealer: I've got some nice veggies, fresh from the farm. 
 => END
 
 ~ dealer_win_easy
@@ -19,4 +20,4 @@ Dealer: Get out of here, [[punk|fool|kid]].
 => END
 
 ~ dealer_dab_up
-Dealer: Heh...you know you're kinda cool [[home|dawg|bro]]. I ain't never met a customer as cool as you!
+Dealer: Heh...I like your style, [[home|dawg|bro]]. This one's on the house.

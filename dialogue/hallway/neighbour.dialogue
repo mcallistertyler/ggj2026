@@ -1,18 +1,23 @@
 ~ start
-Neighbour: Hey! It was pretty noisy last night. Was that you playing bass guitar all night?
+* Oh no, it's the neighbour... Should you say 'hi'? *
+Neighbour: Hey! It was pretty noisy last night. 
+Neighbour: That was that you playing bass guitar all night, right??
 
-- I don't own a bass guitar dude [#response_type=hard_mode]
-- Uhm...no? [#response_type=easy_mode]
+- I don't even own a bass, dude. [#response_type=hard_mode]
+- Oh, uh... no? [#response_type=easy_mode]
 => END
 
 ~ neighbour_win_hard
-Neighbour: Oh, okay! I'll have to find out who keeps playing that thing so late.
+Neighbour: Oh, okay! 
+Neighbour: I'll have to find out who keeps playing that thing so late.
+Neighbour: ..Sorry about that. Have a good one.
 => END
 
 ~ neighbour_win_easy
-Neighbour: Yeahhh...alright I'll ask the other neighbours then.
+Neighbour: Yeahhh.. alright I'll ask the other neighbours then.
 => END
 
 ~ neighbour_lose
 Neighbour: Look, just keep the noise down in the evenings alright?
+Neighbour: Some people actually have a job.
 => END
