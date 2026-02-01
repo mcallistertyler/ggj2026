@@ -64,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.456028, 0, 11.111239)
 
 [node name="Sonic" parent="." unique_id=1246788618 node_paths=PackedStringArray("dab_up", "dab_up_second_round", "dab_up_cutscene") instance=ExtResource("4_r6fwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.397397, -0.3312664, 1.931417)
+game_scene = "gym"
 dab_up = NodePath("../DabUpLayer/DabUp")
 dab_up_second_round = NodePath("../DabUpLayer/DabUpNewRound")
 dab_up_cutscene = NodePath("../dab_cutscene")
