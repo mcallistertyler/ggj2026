@@ -23,6 +23,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 CredzManager="*uid://bw33l4h7bywvb"
 TimerManager="*uid://b2gba5g6mfueu"
 PlayerManager="*uid://boalmsxexwxcx"
+GamestateManager="*uid://b4hwfiut2ecs7"
 
 [dialogue_manager]
 
