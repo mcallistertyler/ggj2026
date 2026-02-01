@@ -44,7 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 0.99806166, 0.06223309, 0, -0.06223309, 0.99
 [node name="BGImageSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1457430929]
 unique_name_in_owner = true
 transform = Transform3D(6.5, 0, 0, 0, 6.5000005, -2.9802322e-08, 0, 2.9802322e-08, 6.5000005, 0, 0.008657455, -30.138845)
-modulate = Color(1, 1, 1, 0.13333334)
 texture = ExtResource("2_nvxn2")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("3_oxqva")]
@@ -57,8 +56,11 @@ environment = SubResource("Environment_saxnu")
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
 
+[node name="PauseMenu" parent="." unique_id=2078417793 node_paths=PackedStringArray("player") instance=ExtResource("12_ckaka")]
+visible = false
+player = NodePath("../Player")
+
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("5_ckaka")]
-layer = 6
 
 [node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=757534782]
 layer = 3
@@ -114,9 +116,5 @@ dab_up_cutscene = NodePath("../dab_cutscene")
 npc_texture = ExtResource("9_ckaka")
 hand_texture = ExtResource("10_v13ed")
 success_texture = ExtResource("11_1t868")
-
-[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("12_ckaka")]
-layer = 5
-visible = false
 
 [editable path="ExitArea3D"]

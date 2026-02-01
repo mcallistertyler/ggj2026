@@ -9,7 +9,7 @@ func _ready():
 
 func _process(delta):
 	if is_player_within_area and Input.is_action_just_pressed("ui_accept"):
-		SceneManager.transition_to_scene(Enums.Scenes.WORLD_MAP)
+		SceneManager.transition_to_scene(Enums.Scenes.GANGEN)
 
 func _on_body_entered(body: Node3D):
 	if body.is_in_group(Groups.PLAYER_GROUP):

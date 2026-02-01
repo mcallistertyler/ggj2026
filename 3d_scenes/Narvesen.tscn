@@ -56,7 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8108188, 0.58529735, 0, -0.58529735, 0.810
 [node name="BGImageSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1457430929]
 unique_name_in_owner = true
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, -30)
-modulate = Color(1, 1, 1, 0.27058825)
 texture = ExtResource("2_la8by")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("1_saxnu")]
@@ -70,7 +69,8 @@ transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.8184
 visible = false
 shadow_enabled = true
 
-[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("4_ii5ib")]
+[node name="PauseMenu" parent="." unique_id=2078417793 node_paths=PackedStringArray("player") instance=ExtResource("4_ii5ib")]
+player = NodePath("../Player")
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 

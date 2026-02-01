@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://n2jv3ngt6g8o" path="res://sprite_background_leilighet.jpg" id="3_xmf8k"]
 [ext_resource type="PackedScene" uid="uid://b5ayjah6nwvgi" path="res://3d_scenes/UniqueExitArea3D.tscn" id="6_xmf8k"]
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="7_ij85a"]
+[ext_resource type="Script" uid="uid://bly3fa4xpgmys" path="res://3d_scenes/unique_exit_area_3d.gd" id="8_g6i4u"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -54,8 +55,10 @@ environment = SubResource("Environment_saxnu")
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
 
+[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("7_ij85a")]
+visible = false
+
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("3_74wha")]
-layer = 6
 
 [node name="RigidBody3D4" type="StaticBody3D" parent="." unique_id=878224058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743, -0.21181393, -10.640322)
@@ -97,6 +100,4 @@ debug_color = Color(1, 0.6, 0.69803923, 1)
 
 [node name="UniqueExitArea3D2" parent="." unique_id=1391346410 instance=ExtResource("6_xmf8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.808895, 0.5, 5.6863976)
-
-[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("7_ij85a")]
-layer = 5
+script = ExtResource("8_g6i4u")
