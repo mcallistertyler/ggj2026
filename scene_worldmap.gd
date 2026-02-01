@@ -9,6 +9,9 @@ func _ready() -> void:
 	AudioManager.create_audio_player(self, "engine-hum", -3.0)
 
 	disable_exhausted_locations()
+
+	if SceneManager.is_transitioning:
+		await SceneManager.transition_completed
 	check_win_conditions()
 
 #You can use GamestateManager.exhaust_dialogue("id") to permanently disable a location in the map

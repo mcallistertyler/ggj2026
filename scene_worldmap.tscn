@@ -77,10 +77,11 @@ cross_out = NodePath("Sprite2D")
 [node name="MySprite" parent="EntryHome" index="1" unique_id=1102398639]
 scale = Vector2(0.15, 0.15)
 
+[node name="Sprite2D" parent="EntryHome" unique_id=171931889 instance=ExtResource("6_ujrh1")]
+
 [node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("11_kahlr")]
 visible = false
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("12_5jth7")]
-[node name="Sprite2D" parent="EntryHome" unique_id=171931889 instance=ExtResource("6_ujrh1")]
 
 [editable path="EntryHome"]
