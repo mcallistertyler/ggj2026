@@ -58,15 +58,19 @@ shadow_enabled = true
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("3_caxsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.357037)
 
-[node name="Sonic" parent="." unique_id=1246788618 node_paths=PackedStringArray("dab_up", "dab_up_cutscene") instance=ExtResource("4_r6fwn")]
+[node name="Sonic" parent="." unique_id=1246788618 node_paths=PackedStringArray("dab_up", "dab_up_second_round", "dab_up_cutscene") instance=ExtResource("4_r6fwn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.257256, -1.3305845, 1.1577129)
 dab_up = NodePath("../DabUpLayer/DabUp")
+dab_up_second_round = NodePath("../DabUpLayer/DabUpNewRound")
 dab_up_cutscene = NodePath("../dab_cutscene")
 
 [node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=689393976]
 layer = 3
 
 [node name="DabUp" parent="DabUpLayer" unique_id=221765917 instance=ExtResource("5_hxdk7")]
+
+[node name="DabUpNewRound" parent="DabUpLayer" unique_id=854956483 instance=ExtResource("5_hxdk7")]
+dab_up_second_round = true
 
 [node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("6_0j3g3")]
 layer = 4
