@@ -8,8 +8,9 @@
 [ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="4_dink0"]
 [ext_resource type="Script" uid="uid://cgicppfvlpvpv" path="res://dialogue/dialogue_box/response_container.gd" id="7_48kwm"]
 [ext_resource type="Script" uid="uid://5jtg6r22lo3a" path="res://dialogue/dialogue_box/animated_texture_rect.gd" id="8_48kwm"]
-[ext_resource type="Texture2D" uid="uid://x5cs145pc138" path="res://sprite_car.png" id="9_fxp4q"]
-[ext_resource type="Texture2D" uid="uid://c6pw4b1bgb7lj" path="res://sprite_location_entry_house.png" id="10_ieogh"]
+[ext_resource type="Texture2D" uid="uid://brbyg3vlqk6o6" path="res://assets/ui/credzcoin.png" id="8_ib7vh"]
+[ext_resource type="Texture2D" uid="uid://b35ellerhrikk" path="res://assets/ui/solbrille.png" id="8_ieogh"]
+[ext_resource type="Texture2D" uid="uid://dsf5n2jjnxdbu" path="res://assets/ui/yikes.png" id="11_20ojp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -118,10 +119,13 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_fxp4q")
+"texture": ExtResource("8_ib7vh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_ieogh")
+"texture": ExtResource("8_ieogh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_20ojp")
 }],
 "loop": true,
 "name": &"default",
@@ -229,11 +233,14 @@ mouse_filter = 2
 script = ExtResource("7_48kwm")
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=1290589712]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("9_fxp4q")
+texture = ExtResource("8_ieogh")
+expand_mode = 1
 script = ExtResource("8_48kwm")
 sprites = SubResource("SpriteFrames_20ojp")
-speed_scale = 0.1
+frame_index = 1
+speed_scale = 0.2
 auto_play = true
 playing = true
 metadata/_custom_type_script = "uid://5jtg6r22lo3a"
@@ -243,6 +250,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
+theme_override_font_sizes/font_size = 25
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=776053598]

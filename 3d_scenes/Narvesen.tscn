@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="1_saxnu"]
 [ext_resource type="Texture2D" uid="uid://cq2oqhxfclbcj" path="res://sprite_narvesen_interior.jpg" id="2_la8by"]
 [ext_resource type="PackedScene" uid="uid://bptwcu5xksikr" path="res://NPCs/Kioskmann/Kioskmann.tscn" id="3_plnti"]
+[ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="4_ii5ib"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="4_plnti"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="5_4vlna"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="7_80t3h"]
@@ -55,7 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 0.8108188, 0.58529735, 0, -0.58529735, 0.810
 [node name="BGImageSprite3D" type="Sprite3D" parent="Camera3D" unique_id=1457430929]
 unique_name_in_owner = true
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, -30)
-modulate = Color(1, 1, 1, 0.27058825)
 texture = ExtResource("2_la8by")
 
 [node name="Player" parent="." unique_id=1892090061 instance=ExtResource("1_saxnu")]
@@ -68,6 +68,9 @@ environment = SubResource("Environment_saxnu")
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 visible = false
 shadow_enabled = true
+
+[node name="PauseMenu" parent="." unique_id=2078417793 node_paths=PackedStringArray("player") instance=ExtResource("4_ii5ib")]
+player = NodePath("../Player")
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 

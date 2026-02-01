@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwjw7l4hps6uw" path="res://sprite_background_hallway.png" id="1_othvr"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_573av"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="3_uoswk"]
+[ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="4_573av"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="4_c83d0"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="5_dw1h4"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="6_76pf0"]
@@ -53,6 +54,8 @@ environment = SubResource("Environment_saxnu")
 transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.81842107, 0.5721255, -0.053193245, -0.57446635, 0.816798, -0.66773796, 11.388701, 10.027683)
 shadow_enabled = true
 
+[node name="PauseMenu" parent="." unique_id=2078417793 instance=ExtResource("4_573av")]
+
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("3_uoswk")]
 
 [node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=757534782]
@@ -90,13 +93,13 @@ shape = SubResource("BoxShape3D_nvxn2")
 debug_color = Color(1, 0.6, 0.69803923, 1)
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("6_76pf0")]
-transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 10.812691)
+transform = Transform3D(0.8512144, 0, -0.5248181, 0, 1, 0, 0.5248181, 0, 0.8512144, -0.34578133, 1.7193394, 9.436739)
 
 [node name="CollisionShape3D" parent="ExitArea3D" index="0" unique_id=1620129430]
-transform = Transform3D(4.970764, 0, 0.5399102, 0, 5, 0, -0.5399102, 0, 4.970764, 1.0436511, 0, -0.5225034)
+transform = Transform3D(4.970764, 0, 0.53991044, 0, 5, 0, -0.53991044, 0, 4.970764, 0.3570695, 0, -1.636087)
 
 [node name="NeighbourDeer" parent="." unique_id=1542945239 node_paths=PackedStringArray("dab_up") instance=ExtResource("7_2fenj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7641288, 3.5285053, -1.3923709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.850912, 3.5285053, -3.6194541)
 dab_up = NodePath("../DabUpLayer/DabUp")
 
 [editable path="ExitArea3D"]
