@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dsgilyt43rq2t"]
 
+[ext_resource type="Script" uid="uid://cubp0tkhf7cta" path="res://3d_scenes/gym.gd" id="1_s340n"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_caxsf"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_caxsf"]
 [ext_resource type="Texture2D" uid="uid://dbhdk4clqy30l" path="res://sprite_background_gym.jpg" id="4_30smt"]
@@ -29,6 +30,7 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 size = Vector3(35.069946, 1, 4.6518555)
 
 [node name="Gym" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_s340n")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5739007, 0)
