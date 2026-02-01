@@ -4,3 +4,4 @@ extends WalkableArea
 
 func _ready() -> void:
 	background_sprite.visible = true
+	AudioManager.play_music("ambience-narvesen")
