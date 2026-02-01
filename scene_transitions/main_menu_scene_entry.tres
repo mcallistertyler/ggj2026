@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SceneEntry" format=3]
+[gd_resource type="Resource" script_class="SceneEntry" format=3 uid="uid://c6vkp6ps2bn1c"]
 
 [ext_resource type="Script" uid="uid://bx1b54adesv51" path="res://addons/scene_transitions/resources/scene_entry.gd" id="1_entry"]
 

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bejoxd28okgyw" path="res://Interface/menu_button.tscn" id="1_ijom4"]
 [ext_resource type="Script" uid="uid://buexlwl4c31ww" path="res://Interface/pause_menu.gd" id="1_v680y"]
-[ext_resource type="Texture2D" uid="uid://x5cs145pc138" path="res://sprite_car.png" id="3_plta2"]
 [ext_resource type="Texture2D" uid="uid://b3aco3gdbxf6v" path="res://assets/character_sprites/player_sprite.png" id="3_ul3im"]
 [ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="5_obkrf"]
+[ext_resource type="Texture2D" uid="uid://bshbp16pkr24y" path="res://leftie_hand.webp" id="5_ul3im"]
 
 [sub_resource type="FontVariation" id="FontVariation_ul3im"]
 base_font = ExtResource("5_obkrf")
@@ -138,7 +138,8 @@ sprite_frames = SubResource("SpriteFrames_v2e3r")
 [node name="Icon" type="Sprite2D" parent="." unique_id=1787156563]
 unique_name_in_owner = true
 position = Vector2(59, 37)
-texture = ExtResource("3_plta2")
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_ul3im")
 
 [connection signal="focus_entered" from="VBoxContainer2/Resume" to="." method="_on_resume_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer2/Resume" to="." method="_on_resume_focus_exited"]
