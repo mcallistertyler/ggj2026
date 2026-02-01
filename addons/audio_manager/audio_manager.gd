@@ -1,195 +1,125 @@
 extends Node
 
-signal music_finished
-signal music_fade_completed
+#The SoundManager allows music to play across scene transitions, and
+#makes sure too many sound effects don't overlap at once.
 
-@export var voices: int = 15
-@export var sfx_bus: String = "SFX"
-@export var music_bus: String = "Music"
-@export var library: AudioLibrary
+#To use the SoundManager from anywhere in the game, use the following functions!
 
-var _sfx_players: Array[AudioStreamPlayer] = []
-var _next: int = 0
+# playSFX(sfx_name, volume, pitch)
+# - Plays a sound effect. Make sure it is listed in the sound_effects dict!
+# - For example playSFX("explosion", 0.8, 1.2)
 
-var _music_player: AudioStreamPlayer
-var _fade_tween: Tween = null
+# play_random_pitch(sfx_name, volume, pitch_spread)
+# - Plays a sound effect but picks a random pitch every time for variation.
+# - For example play_random_pitch("explosion", 1.0, 0.05)
 
-func _ready() -> void:
+# play_music(song_name, volume)
+# - Starts playing a new song. Note: Only one song can play at a time.
+
+# Tip: If you want to add ambient sounds (i.e. wind sounds)
+# please add an AudioPlayer node manually to your scene instead of using SoundManager
+
+var voices := 15
+
+var sound_effects = {
+	"menu_blink": preload("res://audio/sound_effects/button_accept.mp3"),
+}
+
+var music = {}
+
+var sfx_players = []
+var next = 0
+var sfx_bus = "SFX"
+
+var music_player
+var music_bus = "Music"
+var fade_tween: Tween = null # New Godot 4 tween
+
+
+func _ready():
+	randomize()
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_setup_buses()
-	_create_sfx_players()
-	_create_music_player()
-
-func _setup_buses() -> void:
+	#Default to master if they can't find the bus
 	if AudioServer.get_bus_index(sfx_bus) == -1:
 		sfx_bus = "Master"
 	if AudioServer.get_bus_index(music_bus) == -1:
 		music_bus = "Master"
 
-func _create_sfx_players() -> void:
+	#SFX players
 	for i in range(voices):
 		var player = AudioStreamPlayer.new()
 		player.bus = sfx_bus
 		add_child(player)
-		_sfx_players.append(player)
+		sfx_players.append(player)
 
-func _create_music_player() -> void:
-	_music_player = AudioStreamPlayer.new()
-	_music_player.bus = music_bus
-	_music_player.finished.connect(_on_music_finished)
-	add_child(_music_player)
+	#Single Music player (Can add one more if we want overlapping transitions or whatever)
+	music_player = AudioStreamPlayer.new()
+	music_player.bus = music_bus
+	add_child(music_player)
 
-# --- SFX ---
 
-func play_sfx(sound_name: String, pitch_scale := 1.0, volume_db := 0.0) -> void:
-	var stream = _get_sfx(sound_name)
-	if stream == null:
-		push_error("AudioManager: Sound effect not found: " + sound_name)
+### ----- Play Sound Effects! ----- ###
+func playSFX(sound_effect: String, volume_db := 0.0, pitch_scale := 1.0) -> void:
+	var sfx = sound_effects[sound_effect]
+	if sfx == null:
+		print("AudioManager: Couldn't find requested sound effect, ", sound_effect)
 		return
-	_play_sfx_stream(stream, pitch_scale, volume_db)
 
-func play_sfx_stream(stream: AudioStream, pitch_scale := 1.0, volume_db := 0.0) -> void:
-	_play_sfx_stream(stream, pitch_scale, volume_db)
+	var sfx_player: AudioStreamPlayer = sfx_players[next]
+	next = (next + 1) % sfx_players.size()
+	sfx_player.stop()
+	sfx_player.stream = sfx
+	sfx_player.volume_db = volume_db
+	sfx_player.pitch_scale = pitch_scale
+	sfx_player.play()
 
-func play_random_pitch(sound_name: String, spread := 0.04, volume_db := 0.0) -> void:
-	var pitch = 1.0 + randf_range(-spread, spread)
-	play_sfx(sound_name, pitch, volume_db)
 
-func play_random_pitch_stream(stream: AudioStream, spread := 0.04, volume_db := 0.0) -> void:
-	var pitch = 1.0 + randf_range(-spread, spread)
-	_play_sfx_stream(stream, pitch, volume_db)
+func play_random_pitch(sound_effect: String, volume_db := 0.0, pitch_spread := 0.04) -> void:
+	var pitch = 1.0 + randf_range(-pitch_spread, pitch_spread)
+	playSFX(sound_effect, volume_db, pitch)
+
 
 func stop_all_sfx() -> void:
-	for player in _sfx_players:
-		player.stop()
+	for sfx_player in sfx_players:
+		sfx_player.stop()
 
-func _play_sfx_stream(stream: AudioStream, pitch_scale: float, volume_db: float) -> void:
-	var player: AudioStreamPlayer = _sfx_players[_next]
-	_next = (_next + 1) % _sfx_players.size()
-	player.stop()
-	player.stream = stream
-	player.volume_db = volume_db
-	player.pitch_scale = pitch_scale
-	player.play()
 
-func _get_sfx(sound_name: String) -> AudioStream:
-	if library == null:
-		return null
-	return library.sound_effects.get(sound_name)
-
-# --- Music ---
-
-func play_music(track_name: String, volume_db := 0.0) -> void:
-	var stream = _get_music(track_name)
-	if stream == null:
-		push_error("AudioManager: Music track not found: " + track_name)
+### ----- Play music ----- ###
+func play_music(track: String, volume_db := 0.0):
+	var song = music[track]
+	if song == null:
 		return
-	play_music_stream(stream, volume_db)
 
-func play_music_stream(stream: AudioStream, volume_db := 0.0) -> void:
 	_kill_fade()
-	_music_player.stop()
-	_music_player.stream = stream
-	_music_player.volume_db = volume_db
-	_music_player.play()
+
+	music_player.stop()
+	music_player.stream = song
+	music_player.volume_db = volume_db
+	music_player.play()
+	print("volume", music_player.volume_db)
+	print("is_playing", music_player.playing)
+
 
 func stop_music() -> void:
 	_kill_fade()
-	_music_player.stop()
+	music_player.stop()
+
 
 func fade_out_music(duration := 1.0) -> void:
-	if not _music_player or not _music_player.playing:
+	if not music_player or not music_player.playing:
 		return
 
-	_kill_fade()
-	_fade_tween = get_tree().create_tween()
-	_fade_tween.tween_property(_music_player, "volume_db", -80.0, duration) \
-		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-	_fade_tween.finished.connect(_on_fade_done)
+	_kill_fade() #Avoid overlapping tweens
 
-func fade_in_music(track_name: String, duration := 1.0, target_volume_db := 0.0) -> void:
-	var stream = _get_music(track_name)
-	if stream == null:
-		push_error("AudioManager: Music track not found: " + track_name)
-		return
-	fade_in_music_stream(stream, duration, target_volume_db)
+	fade_tween = get_tree().create_tween()
+	fade_tween.tween_property(music_player, "volume_db", -80.0, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	fade_tween.connect("finished", Callable(self, "_on_fade_done"))
 
-func fade_in_music_stream(stream: AudioStream, duration := 1.0, target_volume_db := 0.0) -> void:
-	_kill_fade()
-	_music_player.stop()
-	_music_player.stream = stream
-	_music_player.volume_db = -80.0
-	_music_player.play()
-
-	_fade_tween = get_tree().create_tween()
-	_fade_tween.tween_property(_music_player, "volume_db", target_volume_db, duration) \
-		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-func crossfade_music(track_name: String, duration := 1.0, target_volume_db := 0.0) -> void:
-	var stream = _get_music(track_name)
-	if stream == null:
-		push_error("AudioManager: Music track not found: " + track_name)
-		return
-	crossfade_music_stream(stream, duration, target_volume_db)
-
-func crossfade_music_stream(stream: AudioStream, duration := 1.0, target_volume_db := 0.0) -> void:
-	if not _music_player.playing:
-		fade_in_music_stream(stream, duration, target_volume_db)
-		return
-
-	_kill_fade()
-
-	# Create a temporary player for the old track
-	var old_player = AudioStreamPlayer.new()
-	old_player.bus = music_bus
-	old_player.stream = _music_player.stream
-	old_player.volume_db = _music_player.volume_db
-	add_child(old_player)
-	old_player.play()
-	old_player.seek(_music_player.get_playback_position())
-
-	# Fade out old player and remove it
-	var fade_out_tween = get_tree().create_tween()
-	fade_out_tween.tween_property(old_player, "volume_db", -80.0, duration)
-	fade_out_tween.finished.connect(old_player.queue_free)
-
-	# Start new track with fade in
-	_music_player.stop()
-	_music_player.stream = stream
-	_music_player.volume_db = -80.0
-	_music_player.play()
-
-	_fade_tween = get_tree().create_tween()
-	_fade_tween.tween_property(_music_player, "volume_db", target_volume_db, duration) \
-		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
-
-func is_music_playing() -> bool:
-	return _music_player.playing
-
-func get_current_music_position() -> float:
-	return _music_player.get_playback_position()
-
-func seek_music(position: float) -> void:
-	_music_player.seek(position)
-
-func _get_music(track_name: String) -> AudioStream:
-	if library == null:
-		return null
-	return library.music.get(track_name)
 
 func _kill_fade() -> void:
-	if _fade_tween != null and _fade_tween.is_valid():
-		_fade_tween.kill()
-		_fade_tween = null
+	if fade_tween != null and fade_tween.is_valid():
+		fade_tween.kill() # Tween cleanup
+
 
 func _on_fade_done() -> void:
 	_kill_fade()
-	music_fade_completed.emit()
-
-func _on_music_finished() -> void:
-	music_finished.emit()
-
-# --- Backwards Compatibility Aliases ---
-
-func playSFX(sound_effect: String, pitch_scale := 1.0, volume_db := 0.0) -> void:
-	play_sfx(sound_effect, pitch_scale, volume_db)

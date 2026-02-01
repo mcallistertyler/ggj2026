@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8ygia20352q"
-path.s3tc="res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"
+uid="uid://b7u2ijxl8sfv5"
+path.s3tc="res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/character_sprites/npc_dealer1.png"
-dest_files=["res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"]
+source_file="res://sprite_background_kompishus_front.png"
+dest_files=["res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.s3tc.ctex"]
 
 [params]
 

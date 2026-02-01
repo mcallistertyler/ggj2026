@@ -1,8 +1,92 @@
 [gd_scene format=3 uid="uid://t12lggek3pi3"]
 
 [ext_resource type="Script" uid="uid://cu7klw6we4tpe" path="res://Interface/main_menu.gd" id="1_astxr"]
+[ext_resource type="PackedScene" uid="uid://bejoxd28okgyw" path="res://Interface/menu_button.tscn" id="2_0giyo"]
+[ext_resource type="Texture2D" uid="uid://brbyg3vlqk6o6" path="res://assets/ui/credzcoin.png" id="2_8jmsl"]
+[ext_resource type="FontFile" uid="uid://ct2yke1mx4x3m" path="res://fonts/Jet Set Italic.ttf" id="2_i5e38"]
 
-[node name="MainMenu" type="Control" unique_id=1884329985]
-layout_mode = 3
-anchors_preset = 0
+[sub_resource type="FontVariation" id="FontVariation_8eduw"]
+base_font = ExtResource("2_i5e38")
+
+[node name="MainMenu" type="Node2D" unique_id=589204823]
 script = ExtResource("1_astxr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1815397286]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 456.5
+offset_top = 67.5
+offset_right = 823.5
+offset_bottom = 330.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1825795885]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_8eduw")
+theme_override_font_sizes/font_size = 70
+text = "MASKING"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1965425479]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8235294, 0.4, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_fonts/font = SubResource("FontVariation_8eduw")
+theme_override_font_sizes/font_size = 31
+text = "Get credz, get bitches"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1473402387]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 534.0
+offset_top = 290.5
+offset_right = 746.0
+offset_bottom = 553.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Play" parent="VBoxContainer2" unique_id=579359187 instance=ExtResource("2_0giyo")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Credits" parent="VBoxContainer2" unique_id=320944476 instance=ExtResource("2_0giyo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" parent="VBoxContainer2" unique_id=1135893968 instance=ExtResource("2_0giyo")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1575028981]
+unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8jmsl")
+
+[connection signal="focus_entered" from="VBoxContainer2/Play" to="." method="_on_play_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Play" to="." method="_on_play_focus_exited"]
+[connection signal="pressed" from="VBoxContainer2/Play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/Credits" to="." method="_on_credits_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Credits" to="." method="_on_credits_focus_exited"]
+[connection signal="pressed" from="VBoxContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer2/Quit" to="." method="_on_quit_focus_exited"]
+[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_quit_pressed"]
