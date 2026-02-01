@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dsgilyt43rq2t"]
 
-[ext_resource type="Script" uid="uid://dn6dxabsnjmdu" path="res://3d_scenes/narvesen.gd" id="1_g7dc4"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="2_caxsf"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_caxsf"]
 [ext_resource type="Texture2D" uid="uid://dbhdk4clqy30l" path="res://sprite_background_gym.jpg" id="4_30smt"]
@@ -18,8 +17,7 @@ size = Vector3(29.749634, 1, 30.158691)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 0.9882353, 1)
 
-[node name="KompisHus" type="Node3D" unique_id=1809051035]
-script = ExtResource("1_g7dc4")
+[node name="Gym" type="Node3D" unique_id=1809051035]
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 visible = false

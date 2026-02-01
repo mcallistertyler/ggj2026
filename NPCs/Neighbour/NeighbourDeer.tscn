@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cdv4cp0lak1u3"]
+
+[ext_resource type="Script" uid="uid://bi2v6bg12bqm6" path="res://NPCs/npc.gd" id="1_r4cf3"]
+[ext_resource type="Shader" uid="uid://wptxwr33evy6" path="res://Player/sway.gdshader" id="2_y8wen"]
+[ext_resource type="Texture2D" uid="uid://dcf3mitwyua27" path="res://assets/character_sprites/deer_spritesheet.png" id="3_rdp2c"]
+[ext_resource type="Script" uid="uid://dt5v7wedgqasr" path="res://dialogue/npc_dialogue.gd" id="4_rdp2c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1swb"]
+render_priority = 0
+shader = ExtResource("2_y8wen")
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/tex = ExtResource("3_rdp2c")
+shader_parameter/sway_strength = 0.1
+shader_parameter/sway_speed = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aii7"]
+atlas = ExtResource("3_rdp2c")
+region = Rect2(0, 0, 461, 660)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qogl3"]
+atlas = ExtResource("3_rdp2c")
+region = Rect2(0, 660, 461, 660)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdcrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aii7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qogl3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y8wen"]
+height = 5.9000244
+radius = 3.5703125
+
+[node name="NeighbourDeer" type="Node3D" unique_id=1542945239 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
+script = ExtResource("1_r4cf3")
+npc_name = "NeighbourDeer"
+sprite_3d = NodePath("AnimatedSprite3D")
+dialogue = NodePath("StartDialogue")
+area_3d = NodePath("Area3D")
+win_hard_dialogue = NodePath("WinHardDialogue")
+win_easy_dialogue = NodePath("WinEasyDialogue")
+lose_dialogue = NodePath("LoseDialogue")
+metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2054543790]
+material_override = SubResource("ShaderMaterial_i1swb")
+sprite_frames = SubResource("SpriteFrames_pdcrc")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=122511014]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=106731319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1930542, 0)
+shape = SubResource("CylinderShape3D_y8wen")
+
+[node name="StartDialogue" type="Node" parent="." unique_id=766160747]
+script = ExtResource("4_rdp2c")
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="WinHardDialogue" type="Node" parent="." unique_id=939546526]
+script = ExtResource("4_rdp2c")
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="WinEasyDialogue" type="Node" parent="." unique_id=212880791]
+script = ExtResource("4_rdp2c")
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
+
+[node name="LoseDialogue" type="Node" parent="." unique_id=384335221]
+script = ExtResource("4_rdp2c")
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8ygia20352q"
-path.s3tc="res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"
+uid="uid://b5l1b8ek5q2yi"
+path="res://.godot/imported/sprite_entry_frukt.png-c2ac12fa90c27a1b0f0152ed22378a47.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character_sprites/npc_dealer1.png"
-dest_files=["res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"]
+source_file="res://sprite_entry_frukt.png"
+dest_files=["res://.godot/imported/sprite_entry_frukt.png-c2ac12fa90c27a1b0f0152ed22378a47.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -65,10 +65,6 @@ transform = Transform3D(0.9971515, 0.013243812, 0.07425318, -0.053473473, 0.8184
 visible = false
 shadow_enabled = true
 
-[node name="Kioskmann" parent="." unique_id=2026299020 node_paths=PackedStringArray("dab_up") instance=ExtResource("3_plnti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.727, 3.831, -5.435)
-dab_up = NodePath("../DabUpLayer/DabUp")
-
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("4_plnti")]
 
 [node name="DabUpLayer" type="CanvasLayer" parent="." unique_id=757534782]
@@ -148,3 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.899906, 0, 10.690571)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37469482, 0.7155762, -10.396484)
 shape = SubResource("BoxShape3D_7ga4v")
 debug_color = Color(1, 0.6, 0.69803923, 1)
+
+[node name="Kioskmann" parent="." unique_id=2026299020 node_paths=PackedStringArray("dab_up") instance=ExtResource("3_plnti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3527555, 0, -14.676476)
+dab_up = NodePath("../DabUpLayer/DabUp")

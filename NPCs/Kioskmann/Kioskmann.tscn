@@ -9,7 +9,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cwc8o"]
 height = 5.8598633
-radius = 8.654785
+radius = 18.564453
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4e8fx"]
 render_priority = 0
