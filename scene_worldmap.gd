@@ -4,7 +4,10 @@ extends Node2D
 
 func _ready() -> void:
 	scene_car.movement_allowed = true
+
 	AudioManager.play_music("hip_hop")
+	AudioManager.create_audio_player(self, "engine-hum", -3.0)
+
 	disable_exhausted_locations()
 	check_win_conditions()
 

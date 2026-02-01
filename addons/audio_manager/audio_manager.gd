@@ -29,7 +29,8 @@ var sound_effects = {
 	"dab4": preload("res://audio/sound_effects/dap4.mp3"),
 	"dab5": preload("res://audio/sound_effects/dap5.mp3"),
 	"dab6": preload("res://audio/sound_effects/dap6.mp3"),
-	"big-dab": preload("res://audio/sound_effects/big_dap.mp3")
+	"big-dab": preload("res://audio/sound_effects/big_dap.mp3"),
+	"engine-hum": preload("res://audio/sound_effects/engine-hum.ogg"),
 }
 
 var music = {
@@ -112,6 +113,19 @@ func play_music(track: String, volume_db := 0.0):
 func stop_music() -> void:
 	_kill_fade()
 	music_player.stop()
+
+
+func create_audio_player(parent: Node, track: String, volume_db := 0.0):
+	var audio_res = sound_effects[track]
+	if audio_res == null:
+		print("TODO ERROR ", track)
+		return null
+
+	var player = AudioStreamPlayer.new()
+	player.stream = audio_res
+	player.volume_db = volume_db
+	parent.add_child(player)
+	player.play()
 
 
 func fade_out_music(duration := 1.0) -> void:
