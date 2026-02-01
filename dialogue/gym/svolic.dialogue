@@ -1,12 +1,12 @@
 ~ start
-Svolic: Yo [[shrimp|loser|sweetpea]], it's my time on the machine!
+Svolic: Yo [[shrimp|loser|sweetpea]], it's my turn on the bench!
 
 - Nu-uh [#response_type=hard_mode]
 - Ok... [#response_type=easy_mode]
 => END
 
 ~ svolic_win_hard
-Svolic: Damn, [[shrimp|loser|sweetpea]] i didn't know you were intimidating like that!
+Svolic: Damn, [[shrimp|loser|sweetpea]] I didn't know you were intimidating like that!
 => END
 
 ~ svolic_win_easy
