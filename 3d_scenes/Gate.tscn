@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://chgx6ewnlkdrp"]
 
+[ext_resource type="Script" uid="uid://dutge1b28mk87" path="res://3d_scenes/gate.gd" id="1_v13ed"]
 [ext_resource type="Texture2D" uid="uid://c61b8v6qxp3xn" path="res://sprite_background_gate.jpg" id="2_nvxn2"]
 [ext_resource type="PackedScene" uid="uid://c73ctxxcajvnk" path="res://Player/Player.tscn" id="3_oxqva"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="5_ckaka"]
@@ -27,6 +28,7 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 size = Vector3(53.77237, 2.4311523, 6.861328)
 
 [node name="Gate" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_v13ed")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 visible = false

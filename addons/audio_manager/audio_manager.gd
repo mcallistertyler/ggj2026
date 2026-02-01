@@ -35,6 +35,7 @@ var sound_effects = {
 
 var music = {
 	"hip_hop": preload("res://audio/music/hiphoppy.mp3"),
+	"ambience-city": preload("res://audio/music/ambience_city.mp3"),
 }
 
 var sfx_players = []

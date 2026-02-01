@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://du2vx7a2sdtux"]
 
+[ext_resource type="Script" uid="uid://bjhpqeuo4rwfx" path="res://3d_scenes/eplehus.gd" id="1_4fujt"]
 [ext_resource type="Texture2D" uid="uid://om3hf46tjdvd" path="res://sprite_background_eplehus – Kopi.png" id="2_lgr6y"]
 [ext_resource type="Texture2D" uid="uid://ytun8jhvwnls" path="res://sprite_background_eplehus.png" id="2_mtuvu"]
 [ext_resource type="Texture2D" uid="uid://b558yrpguqaeh" path="res://sprite_background_eplehus-forgrunn.png" id="3_mtuvu"]
@@ -31,6 +32,7 @@ size = Vector3(11.145288, 1, 19.179413)
 size = Vector3(17.568329, 1, 7.008301)
 
 [node name="Eplehus" type="Node3D" unique_id=1809051035]
+script = ExtResource("1_4fujt")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.686882, 0, -41.712513)
