@@ -40,6 +40,9 @@ var music = {
 	"ambience-gym": preload("res://audio/music/ambience_gym.mp3"),
 	"ambience-narvesen": preload("res://audio/music/ambience_narvesen.mp3"),
 	"ending-good": preload("res://audio/music/ending_good.mp3"),
+	"ending-neutral": preload("res://audio/music/ending_neutral.wav"),
+	"ending-bad": preload("res://audio/music/ending_bad.mp3"),
+	"ending-terrible": preload("res://audio/music/ending_terrible.wav"),
 }
 
 var sfx_players = []
