@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7u2ijxl8sfv5" path="res://sprite_background_kompishus_front.png" id="2_te53e"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="3_im13u"]
 [ext_resource type="PackedScene" uid="uid://dc86dhdbcri6y" path="res://NPCs/MouseMan/MouseMan.tscn" id="4_te53e"]
+[ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="6_5hm12"]
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="6_fix58"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="7_5hm12"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="8_epk6l"]
@@ -59,6 +60,7 @@ shadow_enabled = true
 
 [node name="KompisCSGSphere3D" type="CSGSphere3D" parent="." unique_id=1764151542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.370826, 2.0282793, -2.6704032)
+visible = false
 
 [node name="ExitArea3D" parent="." unique_id=1391346410 instance=ExtResource("3_im13u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5500245, 4.797805, 13.247711)
@@ -115,6 +117,9 @@ debug_color = Color(0.85490197, 0.30588236, 0.52156866, 0.48235294)
 layer = 3
 
 [node name="DabUp" parent="DabUpLayer" unique_id=221765917 instance=ExtResource("6_fix58")]
+
+[node name="PauseMenu" parent="." unique_id=2078417793 node_paths=PackedStringArray("player") instance=ExtResource("6_5hm12")]
+player = NodePath("../Player")
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("7_5hm12")]
 
