@@ -7,7 +7,7 @@ extends Node2D
 
 var dialogue_title : String = "bugged_ending"
 var credz
-var glide_delay := 5.0 # seconds before gliding
+var glide_delay := 3.0 # seconds before gliding
 var glide_active := false
 var glide_elapsed := 0.0
 var glide_start_y := 0.0
@@ -53,7 +53,7 @@ func _on_dialogue_ended(resource: DialogueResource):
 	glide_target_y = -label_height - 20
 	# Glide time based on distance and speed (e.g. 80 px/sec for slower)
 	var distance = glide_start_y - glide_target_y
-	var speed = 30.0 # px/sec (slower)
+	var speed = 50.0 # px/sec (slower)
 	glide_time = distance / speed
 
 func _process(delta):
