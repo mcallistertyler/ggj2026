@@ -15,6 +15,7 @@ class_name NPC
 @export var lose_dialogue : DialogueWithTimer
 @export var dab_up_dialogue : DialogueWithTimer
 @export var dab_up_cutscene : DabUpCutscene
+@export var player : PlayerBase
 
 var player_within_area : bool = false
 var dialogue_started : bool = false
@@ -62,6 +63,8 @@ func _on_minigame_completed(score: int, result: DabUpMinigame.DabUpCompletion, s
 		return
 	finished_with_scene()
 	minigame_played = true
+	if player:
+		player.character_body_3d.hide_interact()
 	CredzManager.increaseCredz(score)
 	var dialogue_to_use : DialogueWithTimer
 	if result == DabUpMinigame.DabUpCompletion.PASS_EASY:
