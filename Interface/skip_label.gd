@@ -9,7 +9,7 @@ var fill_tween: Tween
 var pulse_tween: Tween
 var disappear_tween: Tween
 var base_text: String = ""
-const FILL_COLOR := "a09e92"
+@export var fill_colour : Color
 
 func _ready() -> void:
 	base_text = text
@@ -49,7 +49,7 @@ func _update_fill(ratio: float) -> void:
 	var char_count = base_text.length()
 	var filled = int(char_count * ratio)
 	if filled > 0:
-		text = "[color=#" + FILL_COLOR + "]" + base_text.left(filled) + "[/color]" + base_text.substr(filled)
+		text = "[color=#" + fill_colour.to_html() + "]" + base_text.left(filled) + "[/color]" + base_text.substr(filled)
 	else:
 		text = base_text
 

@@ -49,6 +49,7 @@ bbcode_enabled = true
 text = " Hold E to Skip"
 fit_content = true
 script = ExtResource("6_cgs40")
+fill_colour = Color(0.627451, 0.61960787, 0.57254905, 1)
 
 [node name="SkipTimer" type="Timer" parent="SkipLabel" unique_id=823139923]
 wait_time = 3.5
