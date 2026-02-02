@@ -32,6 +32,9 @@ var is_waiting_for_input: bool = false
 ## See if we are running a long mutation and should hide the balloon
 var will_hide_balloon: bool = false
 
+## Cooldown to prevent accidental response selection when spamming dialogue
+var can_select_response: bool = false
+
 ## A dictionary to store any ephemeral variables
 var locals: Dictionary = {}
 
@@ -79,7 +82,7 @@ func _ready() -> void:
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
 
-	# Don't auto-focus first response to prevent accidental selection when mashing
+	# Disable auto-focus - we manually focus the button inside the response container
 	responses_menu.auto_focus_first_item = false
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
@@ -114,8 +117,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				elif event.is_action_pressed(&"ui_down"):
 					_focus_response_item(menu_items[menu_items.size() - 1])
 			else:
-				# Response is focused - handle confirmation
-				if event.is_action_pressed(next_action):
+				# Response is focused - handle confirmation (only if cooldown has passed)
+				if can_select_response and event.is_action_pressed(next_action):
 					var response = focused_item.get_meta("response")
 					if response:
 						responses_menu.response_selected.emit(response)
@@ -199,6 +202,14 @@ func apply_dialogue_line() -> void:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 		responses_shown.emit(dialogue_line.responses)
+		# Delay before allowing response selection to prevent accidental selection when spamming
+		can_select_response = false
+		await get_tree().create_timer(0.3).timeout
+		can_select_response = true
+		# Focus the first response's button after cooldown
+		var menu_items = responses_menu.get_menu_items()
+		if menu_items.size() > 0:
+			_focus_response_item(menu_items[0])
 	elif dialogue_line.time != "":
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
@@ -253,6 +264,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
+	if not can_select_response:
+		return
 	next(response.next_id)
 
 
