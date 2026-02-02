@@ -7,7 +7,7 @@ var is_intro : bool = false
 var fill_tween: Tween
 var pulse_tween: Tween
 var base_text: String = ""
-const FILL_COLOR := "fffdf1"
+const FILL_COLOR := "5080ff"
 
 func _ready() -> void:
 	base_text = text
