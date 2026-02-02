@@ -1,19 +1,24 @@
 extends CanvasLayer
 
+class_name HUD
 const CREDZ_POPUP : PackedScene = preload("res://Interface/ScorePopup.tscn")
 
+@export var skip_label : SkipLabel
 @export var add_icon : Texture2D
 @export var subtract_icon : Texture2D
 
 @onready var credz_label = %CredzLabel
-
-
 @onready var viewport_size := get_viewport().get_visible_rect().size
 
 var popup_spawn_position = Vector2(500,500)
 
-
 func _ready() -> void:
+	if self.get_parent() is Intro:
+		skip_label.is_intro = true
+		skip_label.visible = true
+	else:
+		skip_label.is_intro = false
+		skip_label.visible = false
 	CredzManager.credz_decreased.connect(_on_credz_decreased)
 	CredzManager.credz_increased.connect(_on_credz_increased)
 	popup_spawn_position = Vector2(

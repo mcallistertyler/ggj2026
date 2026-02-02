@@ -22,8 +22,9 @@ ambient_light_color = Color(1, 1, 0.9882353, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvxn2"]
 size = Vector3(35.02123, 2.4311523, 7.164551)
 
-[node name="Leilighet" type="Node3D" unique_id=1809051035]
+[node name="Leilighet" type="Node3D" unique_id=1809051035 node_paths=PackedStringArray("hud")]
 script = ExtResource("1_aj0qm")
+hud = NodePath("Hud")
 intro_dialogue = ExtResource("2_xmf8k")
 
 [node name="FloorMeshInstance3D" type="MeshInstance3D" parent="." unique_id=380874950]

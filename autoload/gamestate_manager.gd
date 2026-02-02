@@ -1,5 +1,7 @@
 extends Node
 
+var hold_skip_time : float = 2.0
+
 #Contains all LOCATIONS
 #Just set to true by default if we skip the scene
 var is_dialogue_exhausted: Dictionary = {
