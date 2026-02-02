@@ -15,12 +15,12 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if !skipped_cutscene:
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_pressed("skip_dialogue"):
 			if hud:
 				if !hud.skip_label.being_held:
 					hud.skip_label.set_held(true)
 			total_seconds_held += delta
-		if Input.is_action_just_released("ui_accept"):
+		if Input.is_action_just_released("skip_dialogue"):
 			if hud:
 				if hud.skip_label.being_held:
 					hud.skip_label.set_held(false)
