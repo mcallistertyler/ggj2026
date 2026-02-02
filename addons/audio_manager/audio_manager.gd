@@ -43,6 +43,7 @@ var music = {
 	"ending-neutral": preload("res://audio/music/ending_neutral.mp3"),
 	"ending-bad": preload("res://audio/music/ending_bad.mp3"),
 	"ending-terrible": preload("res://audio/music/ending_terrible.mp3"),
+	"ending-sigma": preload("res://audio/music/space_race.mp3"),
 }
 
 var sfx_players = []
