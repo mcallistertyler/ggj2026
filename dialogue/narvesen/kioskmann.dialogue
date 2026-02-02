@@ -1,7 +1,7 @@
 ~ start
 Kioskmann: [[Yo|Hi|Hey]].
 
-- Ayo, get me a toasted bacon dog with crispy onions. [#response_type=hard_mode]
+- Ayo, get me a toasted bacon \ndog with crispy onions. [#response_type=hard_mode]
 - Uh.. one hotdog, please. [#response_type=easy_mode]
 => END
 

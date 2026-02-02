@@ -19,3 +19,8 @@ Homeless person: Uh, I guess? I need clothes though...
 Homeless person: Damn. You too, huh, [[dude|bro|son]].
 * Damn what am I even doing... *
 => END
+
+
+~ homeless_dab_up
+New Friend: Thanks, guy. Gimmie one of these.
+=> END

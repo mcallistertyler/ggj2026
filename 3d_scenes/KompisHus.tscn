@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c78e8hn08pqcr" path="res://dab/dabUp.tscn" id="6_fix58"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="7_5hm12"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="8_epk6l"]
+[ext_resource type="PackedScene" uid="uid://conm7njwxsfis" path="res://dab_cutscene.tscn" id="10_epk6l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -128,3 +129,5 @@ player = NodePath("../Player")
 
 [node name="TimeLayer" parent="." unique_id=763430348 instance=ExtResource("8_epk6l")]
 layer = 4
+
+[node name="dab_cutscene" parent="." unique_id=1255112179 instance=ExtResource("10_epk6l")]
