@@ -18,7 +18,7 @@ shader_parameter/sway_speed = 2.0
 height = 4.4174805
 radius = 4.563965
 
-[node name="MouseMan" type="Node3D" unique_id=212321152 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue")]
+[node name="MouseMan" type="Node3D" unique_id=212321152 node_paths=PackedStringArray("sprite_3d", "dialogue", "area_3d", "win_hard_dialogue", "win_easy_dialogue", "lose_dialogue", "dab_up_dialogue")]
 script = ExtResource("1_tvk06")
 npc_name = "Kompis"
 sprite_3d = NodePath("Sprite3D")
@@ -27,6 +27,7 @@ area_3d = NodePath("Area3D")
 win_hard_dialogue = NodePath("WinHard")
 win_easy_dialogue = NodePath("WinEasy")
 lose_dialogue = NodePath("Loss")
+dab_up_dialogue = NodePath("DabUp")
 metadata/_custom_type_script = "uid://bi2v6bg12bqm6"
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=716331821]
@@ -62,3 +63,9 @@ metadata/_custom_type_script = "uid://dt5v7wedgqasr"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=996281519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2087402, 0)
 shape = SubResource("CylinderShape3D_84j24")
+
+[node name="DabUp" type="Node" parent="." unique_id=2051040916]
+script = ExtResource("3_6ofp2")
+dialogue_resource = ExtResource("4_wu0wj")
+dialogue_title = "homie_dab_up"
+metadata/_custom_type_script = "uid://dt5v7wedgqasr"
