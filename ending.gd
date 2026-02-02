@@ -24,15 +24,19 @@ func _ready():
 	set_assets()
 
 func set_assets():
-	if credz <= 0:
+	if credz < 0:
+		AudioManager.play_music("ending-sigma")
+		dialogue_title = "sigma_ending"
+		illustration.texture = load("res://assets/ending/endsplash_sigma.png")
+	elif credz <= 400:
 		AudioManager.play_music("ending-terrible")
 		dialogue_title = "terrible_ending"
 		illustration.texture = load("res://assets/ending/endsplash_terrible.png")
-	elif credz < 650:
+	elif credz < 750:
 		AudioManager.play_music("ending-bad")
 		dialogue_title = "bad_ending"
 		illustration.texture = load("res://assets/ending/endsplash_bad.png")
-	elif credz < 1200:
+	elif credz < 1300:
 		AudioManager.play_music("ending-neutral")
 		dialogue_title = "neutral_ending"
 		illustration.texture = load("res://assets/ending/endsplash_neutral.png")
