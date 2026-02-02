@@ -5,9 +5,11 @@
 [ext_resource type="FontFile" uid="uid://jeqjpu5it7yx" path="res://fonts/BagelFatOne-Regular.ttf" id="1_qowjp"]
 [ext_resource type="Texture2D" uid="uid://b35ellerhrikk" path="res://assets/ui/solbrille.png" id="2_lrx7b"]
 [ext_resource type="Texture2D" uid="uid://dsf5n2jjnxdbu" path="res://assets/ui/yikes.png" id="3_cgs40"]
+[ext_resource type="Script" uid="uid://bdfjp14m2pdr6" path="res://Interface/skip_label.gd" id="6_cgs40"]
 
-[node name="Hud" type="CanvasLayer" unique_id=1200000705]
+[node name="Hud" type="CanvasLayer" unique_id=1200000705 node_paths=PackedStringArray("skip_label")]
 script = ExtResource("1_exb1t")
+skip_label = NodePath("SkipLabel")
 add_icon = ExtResource("2_lrx7b")
 subtract_icon = ExtResource("3_cgs40")
 
@@ -34,3 +36,18 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("1_p8tq8")
 expand_mode = 1
+
+[node name="SkipLabel" type="RichTextLabel" parent="." unique_id=981729851]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 299.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("1_qowjp")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = " Hold E to Skip"
+fit_content = true
+script = ExtResource("6_cgs40")
