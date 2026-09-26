@@ -7,6 +7,8 @@ extends CanvasLayer
 
 @export var grab_margin : float = 1.25
 
+@export var hide_interact_button : bool = false
+
 @onready var pad : Node2D = $Pad
 @onready var base : Sprite2D = $Pad/Base
 @onready var nub : Sprite2D = $Pad/Nub
@@ -35,6 +37,8 @@ func _ready() -> void:
 	# Input stays enabled even while hidden, otherwise the toggle key is never delivered.
 	set_process_input(true)
 	_apply_visibility()
+	if hide_interact_button:
+		interact_button.visible = false
 
 func _apply_visibility() -> void:
 	var wanted : bool = always_visible or is_touchscreen_device or _force_touch_ui
@@ -72,18 +76,6 @@ func refresh_visibility() -> void:
 func set_blocked_by_ui(blocked: bool) -> void:
 	blocked_by_ui = blocked
 	refresh_visibility()
-
-func _on_pause_opened() -> void:
-	set_blocked_by_ui(true)
-
-func _on_pause_closed() -> void:
-	set_blocked_by_ui(false)
-
-func _on_dialogue_started(_resource) -> void:
-	set_blocked_by_ui(true)
-
-func _on_dialogue_ended(_resource) -> void:
-	set_blocked_by_ui(false)
 
 func _exit_tree() -> void:
 	release_joystick()

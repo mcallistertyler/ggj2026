@@ -86,5 +86,6 @@ visible = false
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("12_5jth7")]
 
 [node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("14_o3fbk")]
+hide_interact_button = true
 
 [editable path="EntryHome"]
