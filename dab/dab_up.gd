@@ -242,12 +242,20 @@ func _highlight_active_arrow():
 
 	# The bottom arrow (last in array) is the one to press
 	var active_arrow := arrow_labels[arrow_labels.size() - 1]
+	var next_lane: int = sequence[sequence.size() - 1]
+	var next_button: TextureRect = bottom_labels[next_lane]
 
-	# Subtle pulsing glow effect
+	# Reset the buttons: the previously lit one may have been killed mid-pulse
+	for label in bottom_labels:
+		label.modulate = Color(1, 1, 1, 1)
+
+	# Subtle pulsing glow effect on the arrow and on the button it belongs to
 	_glow_tween = create_tween()
 	_glow_tween.set_loops()
 	_glow_tween.tween_property(active_arrow, "modulate", Color(1.3, 1.3, 1.3, 1.0), 0.4)
+	_glow_tween.parallel().tween_property(next_button, "modulate", Color(1.3, 1.3, 1.3, 1.0), 0.4)
 	_glow_tween.tween_property(active_arrow, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.4)
+	_glow_tween.parallel().tween_property(next_button, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.4)
 
 
 # -----------------------
