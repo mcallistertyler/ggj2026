@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d0dowor2ojl80"]
+
+[node name="TouchscreenTalkButton" type="Node2D" unique_id=1553516557]
+
+[node name="InteractButton" type="Sprite2D" parent="." unique_id=984392943]

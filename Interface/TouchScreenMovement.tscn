@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b771d0dmpq6i6"]
+
+[ext_resource type="Script" uid="uid://cyxv3078fw63k" path="res://Interface/touch_screen_movement.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cyu0m1h64qupf" path="res://assets/touchscreen/joystick_circle_pad_c.png" id="2_pad"]
+[ext_resource type="Texture2D" uid="uid://rqiopkhgj6wf" path="res://assets/touchscreen/joystick_circle_nub_a.png" id="3_nub"]
+[ext_resource type="Texture2D" uid="uid://c05buhggrmrg5" path="res://assets/ui/e.png" id="4_interact"]
+
+[node name="TouchScreenMovement" type="CanvasLayer" unique_id=367903691]
+script = ExtResource("1_script")
+always_visible = true
+
+[node name="Pad" type="Node2D" parent="." unique_id=112717349]
+position = Vector2(170, 550)
+scale = Vector2(1.5, 1.5)
+
+[node name="Base" type="Sprite2D" parent="Pad" unique_id=45689419]
+texture = ExtResource("2_pad")
+
+[node name="Nub" type="Sprite2D" parent="Pad" unique_id=144254031]
+texture = ExtResource("3_nub")
+
+[node name="InteractButton" type="TouchScreenButton" parent="." unique_id=1201873693]
+unique_name_in_owner = true
+position = Vector2(1050, 475)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_interact")
+action = "ui_accept"

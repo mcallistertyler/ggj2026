@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://rnob5qau20jr" path="res://assets/character_sprites/dabup_homie.png" id="11_xbr8r"]
 [ext_resource type="Texture2D" uid="uid://c2hj2uv73fnk5" path="res://assets/character_sprites/Dabup_homie_hand.png" id="12_frb7n"]
 [ext_resource type="Texture2D" uid="uid://b3rcitlay0rbt" path="res://assets/character_sprites/dabup_homie_success.png" id="13_aeugk"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="16_touch"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -142,3 +143,5 @@ layer = 4
 npc_texture = ExtResource("11_xbr8r")
 hand_texture = ExtResource("12_frb7n")
 success_texture = ExtResource("13_aeugk")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("16_touch")]

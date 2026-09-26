@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cvp6ut3184n7b" path="res://assets/character_sprites/Dabup_kioskmann.png" id="10_ii5ib"]
 [ext_resource type="Texture2D" uid="uid://empguq3fb01h" path="res://assets/character_sprites/Dabup_kioskmann_hand.png" id="11_qlyae"]
 [ext_resource type="Texture2D" uid="uid://dhejcq7jw0fph" path="res://assets/character_sprites/Dabup_kioskmann_success.png" id="12_08f7a"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="14_qlyae"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(125.168, 120.149)
@@ -167,3 +168,5 @@ player = NodePath("../Player")
 npc_texture = ExtResource("10_ii5ib")
 hand_texture = ExtResource("11_qlyae")
 success_texture = ExtResource("12_08f7a")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("14_qlyae")]

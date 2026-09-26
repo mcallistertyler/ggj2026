@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ayjah6nwvgi" path="res://3d_scenes/UniqueExitArea3D.tscn" id="6_xmf8k"]
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="7_ij85a"]
 [ext_resource type="Script" uid="uid://bly3fa4xpgmys" path="res://3d_scenes/unique_exit_area_3d.gd" id="8_g6i4u"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="9_74wha"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -102,3 +103,5 @@ debug_color = Color(1, 0.6, 0.69803923, 1)
 [node name="UniqueExitArea3D2" parent="." unique_id=1391346410 instance=ExtResource("6_xmf8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.808895, 0.5, 5.6863976)
 script = ExtResource("8_g6i4u")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("9_74wha")]
