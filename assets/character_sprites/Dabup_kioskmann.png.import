@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvp6ut3184n7b"
 path.s3tc="res://.godot/imported/Dabup_kioskmann.png-6c968c45e0de97c1bcb44f6804773374.s3tc.ctex"
+path.etc2="res://.godot/imported/Dabup_kioskmann.png-6c968c45e0de97c1bcb44f6804773374.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/Dabup_kioskmann.png"
-dest_files=["res://.godot/imported/Dabup_kioskmann.png-6c968c45e0de97c1bcb44f6804773374.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dabup_kioskmann.png-6c968c45e0de97c1bcb44f6804773374.s3tc.ctex", "res://.godot/imported/Dabup_kioskmann.png-6c968c45e0de97c1bcb44f6804773374.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc5pqq4c2ipja"
 path.s3tc="res://.godot/imported/obj_kaffe.png-50fc61586b0290b08bfc163dda9e6a21.s3tc.ctex"
+path.etc2="res://.godot/imported/obj_kaffe.png-50fc61586b0290b08bfc163dda9e6a21.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/obj_kaffe.png"
-dest_files=["res://.godot/imported/obj_kaffe.png-50fc61586b0290b08bfc163dda9e6a21.s3tc.ctex"]
+dest_files=["res://.godot/imported/obj_kaffe.png-50fc61586b0290b08bfc163dda9e6a21.s3tc.ctex", "res://.godot/imported/obj_kaffe.png-50fc61586b0290b08bfc163dda9e6a21.etc2.ctex"]
 
 [params]
 

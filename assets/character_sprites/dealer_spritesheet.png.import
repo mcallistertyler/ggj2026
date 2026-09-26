@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djurl3atfkulp"
 path.s3tc="res://.godot/imported/dealer_spritesheet.png-35d836dbef02fe138960c127950d5f1c.s3tc.ctex"
+path.etc2="res://.godot/imported/dealer_spritesheet.png-35d836dbef02fe138960c127950d5f1c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/dealer_spritesheet.png"
-dest_files=["res://.godot/imported/dealer_spritesheet.png-35d836dbef02fe138960c127950d5f1c.s3tc.ctex"]
+dest_files=["res://.godot/imported/dealer_spritesheet.png-35d836dbef02fe138960c127950d5f1c.s3tc.ctex", "res://.godot/imported/dealer_spritesheet.png-35d836dbef02fe138960c127950d5f1c.etc2.ctex"]
 
 [params]
 

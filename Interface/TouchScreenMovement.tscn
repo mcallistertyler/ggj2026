@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cyu0m1h64qupf" path="res://assets/touchscreen/joystick_circle_pad_c.png" id="2_pad"]
 [ext_resource type="Texture2D" uid="uid://rqiopkhgj6wf" path="res://assets/touchscreen/joystick_circle_nub_a.png" id="3_nub"]
 [ext_resource type="Texture2D" uid="uid://c05buhggrmrg5" path="res://assets/ui/e.png" id="4_interact"]
+[ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="5_v6ai8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkuxt"]
+size = Vector2(140, 50)
 
 [node name="TouchScreenMovement" type="CanvasLayer" unique_id=367903691]
 script = ExtResource("1_script")
-always_visible = true
 
 [node name="Pad" type="Node2D" parent="." unique_id=112717349]
 position = Vector2(170, 550)
@@ -28,5 +31,20 @@ action = "ui_accept"
 
 [node name="PauseButton" type="TouchScreenButton" parent="." unique_id=1559912810]
 unique_name_in_owner = true
-texture_normal = ExtResource("4_interact")
+position = Vector2(65, 25)
+shape = SubResource("RectangleShape2D_nkuxt")
+shape_centered = false
 action = "ui_cancel"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseButton" unique_id=894177112]
+offset_left = -51.0
+offset_top = -22.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_colors/default_color = Color(1, 0.8235294, 0.4, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_fonts/normal_font = ExtResource("5_v6ai8")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "PAUSE"
+scroll_active = false
