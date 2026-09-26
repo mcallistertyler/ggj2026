@@ -11,6 +11,7 @@ size = Vector2(140, 50)
 
 [node name="TouchScreenMovement" type="CanvasLayer" unique_id=367903691]
 script = ExtResource("1_script")
+always_visible = false
 
 [node name="Pad" type="Node2D" parent="." unique_id=112717349]
 position = Vector2(170, 550)

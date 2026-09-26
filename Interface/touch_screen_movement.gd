@@ -16,15 +16,51 @@ extends CanvasLayer
 
 @onready var radius : float = base.texture.get_width() / 2.0
 
+var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 var touch_index : int = -1
 var blocked_by_ui : bool = false
 var pressed_actions : Dictionary[StringName, bool] = {}
+
+# Runtime override, flipped by the toggle_touch_controls action so the controls can be
+# tested on desktop without editing the scene.
+var _force_touch_ui : bool = false
+var _pause_open : bool = false
+var _dialogue_active : bool = false
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GamestateManager.pause_opened.connect(_on_pause_opened)
 	GamestateManager.pause_closed.connect(_on_pause_closed)
+	# Input stays enabled even while hidden, otherwise the toggle key is never delivered.
+	set_process_input(true)
+	_apply_visibility()
+
+func _apply_visibility() -> void:
+	var wanted : bool = always_visible or is_touchscreen_device or _force_touch_ui
+	var should_show : bool = wanted and not _pause_open and not _dialogue_active
+	if should_show == visible:
+		return
+	visible = should_show
+	if not visible:
+		# Never leave move_* actions held when the pad disappears mid-drag.
+		release_joystick()
+
+func _on_pause_opened() -> void:
+	_pause_open = true
+	_apply_visibility()
+
+func _on_pause_closed() -> void:
+	_pause_open = false
+	_apply_visibility()
+
+func _on_dialogue_started(_resource) -> void:
+	_dialogue_active = true
+	_apply_visibility()
+
+func _on_dialogue_ended(_resource) -> void:
+	_dialogue_active = false
+	_apply_visibility()
 	refresh_visibility()
 
 func refresh_visibility() -> void:
@@ -53,6 +89,14 @@ func _exit_tree() -> void:
 	release_joystick()
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_touch_controls"):
+		_force_touch_ui = not _force_touch_ui
+		_apply_visibility()
+		get_viewport().set_input_as_handled()
+		return
+	# A hidden pad must not keep grabbing touches.
+	if not visible:
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and touch_index == -1:
 			var local_position : Vector2 = pad.make_input_local(event).position
