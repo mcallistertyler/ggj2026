@@ -7,5 +7,4 @@
 script = ExtResource("1_kqcun")
 dialogue_resource = ExtResource("2_vnfly")
 dialogue_title = "start"
-timeout = 4.0
 metadata/_custom_type_script = "uid://dt5v7wedgqasr"

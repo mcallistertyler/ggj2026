@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bipwsshqlc52b"
 path.s3tc="res://.godot/imported/Dabup_dealer_success.png-a475b9a50e7f6633e7acd9af9f8f19a1.s3tc.ctex"
-path.etc2="res://.godot/imported/Dabup_dealer_success.png-a475b9a50e7f6633e7acd9af9f8f19a1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/Dabup_dealer_success.png"
-dest_files=["res://.godot/imported/Dabup_dealer_success.png-a475b9a50e7f6633e7acd9af9f8f19a1.s3tc.ctex", "res://.godot/imported/Dabup_dealer_success.png-a475b9a50e7f6633e7acd9af9f8f19a1.etc2.ctex"]
+dest_files=["res://.godot/imported/Dabup_dealer_success.png-a475b9a50e7f6633e7acd9af9f8f19a1.s3tc.ctex"]
 
 [params]
 

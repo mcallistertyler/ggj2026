@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq2oqhxfclbcj"
 path.s3tc="res://.godot/imported/sprite_narvesen_interior.jpg-fde10ce8cb18d4c3eee028b8153c4c50.s3tc.ctex"
-path.etc2="res://.godot/imported/sprite_narvesen_interior.jpg-fde10ce8cb18d4c3eee028b8153c4c50.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprite_narvesen_interior.jpg"
-dest_files=["res://.godot/imported/sprite_narvesen_interior.jpg-fde10ce8cb18d4c3eee028b8153c4c50.s3tc.ctex", "res://.godot/imported/sprite_narvesen_interior.jpg-fde10ce8cb18d4c3eee028b8153c4c50.etc2.ctex"]
+dest_files=["res://.godot/imported/sprite_narvesen_interior.jpg-fde10ce8cb18d4c3eee028b8153c4c50.s3tc.ctex"]
 
 [params]
 

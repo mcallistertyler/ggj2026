@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="8_4fujt"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="8_uhavq"]
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="9_4fujt"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="12_skv0o"]
 [ext_resource type="PackedScene" uid="uid://conm7njwxsfis" path="res://dab_cutscene.tscn" id="12_xj7a1"]
 [ext_resource type="Texture2D" uid="uid://bcd0bqwvvqgnn" path="res://assets/character_sprites/dabup_homeless.png" id="13_6kbtt"]
 [ext_resource type="Texture2D" uid="uid://bnbqtcgeui4uc" path="res://assets/character_sprites/Dabup_homeless_hand.png" id="14_tdsn7"]
 [ext_resource type="Texture2D" uid="uid://cfw58dkjgqg2j" path="res://assets/character_sprites/dabup_homeless_success.png" id="15_m6be2"]
-[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="12_skv0o"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)

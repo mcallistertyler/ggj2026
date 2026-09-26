@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crpuuu0l6dpyx"
 path.s3tc="res://.godot/imported/npc_swoleic.png-5ae57585e50d43b654aed686a88a94f3.s3tc.ctex"
-path.etc2="res://.godot/imported/npc_swoleic.png-5ae57585e50d43b654aed686a88a94f3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/npc_swoleic.png"
-dest_files=["res://.godot/imported/npc_swoleic.png-5ae57585e50d43b654aed686a88a94f3.s3tc.ctex", "res://.godot/imported/npc_swoleic.png-5ae57585e50d43b654aed686a88a94f3.etc2.ctex"]
+dest_files=["res://.godot/imported/npc_swoleic.png-5ae57585e50d43b654aed686a88a94f3.s3tc.ctex"]
 
 [params]
 
