@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxsnukq5j1mkn" path="res://hus-sprite.png" id="10_os2y3"]
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="11_kahlr"]
 [ext_resource type="PackedScene" uid="uid://bpbb6hsj1ibjd" path="res://Interface/HUD.tscn" id="12_5jth7"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="14_o3fbk"]
 
 [node name="WorldMap" type="Node2D" unique_id=118894363 node_paths=PackedStringArray("scene_car")]
 script = ExtResource("1_tqbp0")
@@ -83,5 +84,7 @@ scale = Vector2(0.15, 0.15)
 visible = false
 
 [node name="Hud" parent="." unique_id=1200000705 instance=ExtResource("12_5jth7")]
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("14_o3fbk")]
 
 [editable path="EntryHome"]

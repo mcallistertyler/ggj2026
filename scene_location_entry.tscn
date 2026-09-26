@@ -6,7 +6,6 @@
 
 [node name="SceneLocationEntry" type="Area2D" unique_id=615619979]
 script = ExtResource("1_q0hf4")
-my_name = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=372356963]
 scale = Vector2(2, 2)

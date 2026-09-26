@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb8ygia20352q"
 path.s3tc="res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"
-path.etc2="res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/npc_dealer1.png"
-dest_files=["res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex", "res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.etc2.ctex"]
+dest_files=["res://.godot/imported/npc_dealer1.png-4b37d8f8dbc97678e0d24dd004d284fa.s3tc.ctex"]
 
 [params]
 

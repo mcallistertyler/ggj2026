@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7u2ijxl8sfv5"
 path.s3tc="res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.s3tc.ctex"
-path.etc2="res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprite_background_kompishus_front.png"
-dest_files=["res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.s3tc.ctex", "res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.etc2.ctex"]
+dest_files=["res://.godot/imported/sprite_background_kompishus_front.png-9226f262d2c35239f0a51ef83fef8021.s3tc.ctex"]
 
 [params]
 
