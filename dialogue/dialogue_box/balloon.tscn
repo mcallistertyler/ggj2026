@@ -229,7 +229,6 @@ response_template = NodePath("ResponseContainer")
 
 [node name="ResponseContainer" type="HBoxContainer" parent="Balloon/ResponsesMenu" unique_id=546722812]
 layout_mode = 2
-mouse_filter = 2
 script = ExtResource("7_48kwm")
 
 [node name="AnimatedTextureRect" type="TextureRect" parent="Balloon/ResponsesMenu/ResponseContainer" unique_id=1290589712]
