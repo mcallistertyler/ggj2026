@@ -16,8 +16,8 @@ extends CanvasLayer
 
 @onready var radius : float = base.texture.get_width() / 2.0
 
-var is_touchscreen_device : bool = DisplayServer.is_touchscreen_available()
 var touch_index : int = -1
+var blocked_by_ui : bool = false
 var pressed_actions : Dictionary[StringName, bool] = {}
 
 func _ready() -> void:
@@ -25,24 +25,29 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	GamestateManager.pause_opened.connect(_on_pause_opened)
 	GamestateManager.pause_closed.connect(_on_pause_closed)
-	visible = always_visible or is_touchscreen_device
+	refresh_visibility()
+
+func refresh_visibility() -> void:
+	visible = not blocked_by_ui and (always_visible or GamestateManager.is_mobile_device)
 	set_process_input(visible)
+	if not visible:
+		release_joystick()
+
+func set_blocked_by_ui(blocked: bool) -> void:
+	blocked_by_ui = blocked
+	refresh_visibility()
 
 func _on_pause_opened() -> void:
-	if is_touchscreen_device:
-		self.visible = false
+	set_blocked_by_ui(true)
 
 func _on_pause_closed() -> void:
-	if is_touchscreen_device:
-		self.visible = true
+	set_blocked_by_ui(false)
 
 func _on_dialogue_started(_resource) -> void:
-	if is_touchscreen_device:
-		self.visible = false
+	set_blocked_by_ui(true)
 
 func _on_dialogue_ended(_resource) -> void:
-	if is_touchscreen_device:
-		self.visible = true
+	set_blocked_by_ui(false)
 
 func _exit_tree() -> void:
 	release_joystick()
