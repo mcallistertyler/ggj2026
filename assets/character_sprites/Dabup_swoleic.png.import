@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0icg3t6s5egn"
 path.s3tc="res://.godot/imported/Dabup_swoleic.png-b7721fe983315e30b19aeacdb686e160.s3tc.ctex"
-path.etc2="res://.godot/imported/Dabup_swoleic.png-b7721fe983315e30b19aeacdb686e160.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/Dabup_swoleic.png"
-dest_files=["res://.godot/imported/Dabup_swoleic.png-b7721fe983315e30b19aeacdb686e160.s3tc.ctex", "res://.godot/imported/Dabup_swoleic.png-b7721fe983315e30b19aeacdb686e160.etc2.ctex"]
+dest_files=["res://.godot/imported/Dabup_swoleic.png-b7721fe983315e30b19aeacdb686e160.s3tc.ctex"]
 
 [params]
 

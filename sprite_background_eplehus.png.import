@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ytun8jhvwnls"
 path.s3tc="res://.godot/imported/sprite_background_eplehus.png-ffc3bb307731ef89b1f0fd496abb2f28.s3tc.ctex"
-path.etc2="res://.godot/imported/sprite_background_eplehus.png-ffc3bb307731ef89b1f0fd496abb2f28.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprite_background_eplehus.png"
-dest_files=["res://.godot/imported/sprite_background_eplehus.png-ffc3bb307731ef89b1f0fd496abb2f28.s3tc.ctex", "res://.godot/imported/sprite_background_eplehus.png-ffc3bb307731ef89b1f0fd496abb2f28.etc2.ctex"]
+dest_files=["res://.godot/imported/sprite_background_eplehus.png-ffc3bb307731ef89b1f0fd496abb2f28.s3tc.ctex"]
 
 [params]
 

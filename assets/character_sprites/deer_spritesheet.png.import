@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcf3mitwyua27"
 path.s3tc="res://.godot/imported/deer_spritesheet.png-6c9b642ff92eebf122dab2e1692f7daf.s3tc.ctex"
-path.etc2="res://.godot/imported/deer_spritesheet.png-6c9b642ff92eebf122dab2e1692f7daf.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/deer_spritesheet.png"
-dest_files=["res://.godot/imported/deer_spritesheet.png-6c9b642ff92eebf122dab2e1692f7daf.s3tc.ctex", "res://.godot/imported/deer_spritesheet.png-6c9b642ff92eebf122dab2e1692f7daf.etc2.ctex"]
+dest_files=["res://.godot/imported/deer_spritesheet.png-6c9b642ff92eebf122dab2e1692f7daf.s3tc.ctex"]
 
 [params]
 

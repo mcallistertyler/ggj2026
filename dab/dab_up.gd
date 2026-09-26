@@ -45,6 +45,9 @@ const ROW_SPACING: float = 80.0
 const BUTTONS_Y_FRACTION: float = 0.78
 const GAP_ABOVE_BUTTONS: float = 80.0
 
+# TOUCH (mobile) - lanes are tapped instead of pressed
+const TOUCH_ZONE_HEIGHT: float = 200.0
+
 # -----------------------
 # STATE
 # -----------------------
@@ -54,6 +57,9 @@ var bottom_labels: Array[TextureRect] = []  # bottom row icons
 
 var _x_start: float = 0.0
 var _buttons_y: float = 0.0
+
+var _touch_zones: Array[Rect2] = []
+var _press_tween: Tween = null
 
 var _rng := RandomNumberGenerator.new()
 var _game_over: bool = false
@@ -121,6 +127,23 @@ func _compute_layout():
 			_buttons_y
 		)
 
+	_build_touch_zones()
+
+
+# Build one generous hit zone per lane around the bottom icons.
+# Zone width = X_SPACING so lanes tile without gaps, so a fat finger
+# anywhere over the button row still hits exactly one lane.
+func _build_touch_zones():
+	_touch_zones.clear()
+	var icon_size: Vector2 = bottom_labels[0].size
+	for i in range(LANES.size()):
+		var center := Vector2(
+			_x_start + float(i) * X_SPACING,
+			_buttons_y
+		) + icon_size * 0.5
+		var zone_size := Vector2(X_SPACING, TOUCH_ZONE_HEIGHT)
+		_touch_zones.append(Rect2(center - zone_size * 0.5, zone_size))
+
 
 # -----------------------
 # SEQUENCE + LABELS
@@ -148,6 +171,7 @@ func _create_bottom_labels():
 		# --- ICON SIZES ---
 		tr.custom_minimum_size = Vector2(70, 70)
 		tr.size = tr.custom_minimum_size
+		tr.pivot_offset = tr.custom_minimum_size * 0.5
 		tr.modulate.a = 0.0  # Start invisible for tween
 
 		add_child(tr)
@@ -239,9 +263,40 @@ func _input(event: InputEvent):
 	if not event.is_pressed():
 		return
 
+	# Touch: tap a lane. Mouse clicks also arrive here as ScreenTouch
+	# because "pointing/emulate_touch_from_mouse" is enabled.
+	if event is InputEventScreenTouch and event.pressed:
+		var lane := _lane_at(make_input_local(event).position)
+		if lane >= 0:
+			_flash_label(lane)
+			_on_lane_pressed(lane)
+		return
+
 	for action in KEY_MAP.keys():
 		if event.is_action_pressed(action):
 			_on_lane_pressed(KEY_MAP[action])
+
+
+# Which lane (0..3) was tapped, or -1 if the tap missed the button row.
+func _lane_at(local_position: Vector2) -> int:
+	for i in range(_touch_zones.size()):
+		if _touch_zones[i].has_point(local_position):
+			return i
+	return -1
+
+
+# Pop the tapped icon so touch players get feedback (keys give that for free).
+func _flash_label(lane_index: int) -> void:
+	if lane_index < 0 or lane_index >= bottom_labels.size():
+		return
+	if _press_tween and _press_tween.is_valid():
+		_press_tween.kill()
+
+	var label: TextureRect = bottom_labels[lane_index]
+	_press_tween = create_tween()
+	_press_tween.tween_property(label, "scale", Vector2(1.25, 1.25), 0.06)
+	_press_tween.tween_property(label, "scale", Vector2.ONE, 0.12)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _on_lane_pressed(lane_index: int):
