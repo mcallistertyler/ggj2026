@@ -48,20 +48,24 @@ func _apply_visibility() -> void:
 
 func _on_pause_opened() -> void:
 	_pause_open = true
+	set_blocked_by_ui(true)
 	_apply_visibility()
 
 func _on_pause_closed() -> void:
 	_pause_open = false
 	_apply_visibility()
+	set_blocked_by_ui(false)
 
 func _on_dialogue_started(_resource) -> void:
 	_dialogue_active = true
 	_apply_visibility()
+	set_blocked_by_ui(true)
 
 func _on_dialogue_ended(_resource) -> void:
 	_dialogue_active = false
 	_apply_visibility()
 	refresh_visibility()
+	set_blocked_by_ui(false)
 
 func refresh_visibility() -> void:
 	visible = not blocked_by_ui and (always_visible or GamestateManager.is_mobile_device)
@@ -72,18 +76,6 @@ func refresh_visibility() -> void:
 func set_blocked_by_ui(blocked: bool) -> void:
 	blocked_by_ui = blocked
 	refresh_visibility()
-
-func _on_pause_opened() -> void:
-	set_blocked_by_ui(true)
-
-func _on_pause_closed() -> void:
-	set_blocked_by_ui(false)
-
-func _on_dialogue_started(_resource) -> void:
-	set_blocked_by_ui(true)
-
-func _on_dialogue_ended(_resource) -> void:
-	set_blocked_by_ui(false)
 
 func _exit_tree() -> void:
 	release_joystick()
