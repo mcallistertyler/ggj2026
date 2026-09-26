@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du2vx7a2sdtux"]
 
-[ext_resource type="Script" uid="uid://bjhpqeuo4rwfx" path="res://3d_scenes/eplehus.gd" id="1_4fujt"]
+[ext_resource type="Script" path="res://3d_scenes/eplehus.gd" id="1_4fujt"]
 [ext_resource type="Texture2D" uid="uid://om3hf46tjdvd" path="res://sprite_background_eplehus – Kopi.png" id="2_lgr6y"]
 [ext_resource type="Texture2D" uid="uid://ytun8jhvwnls" path="res://sprite_background_eplehus.png" id="2_mtuvu"]
 [ext_resource type="Texture2D" uid="uid://b558yrpguqaeh" path="res://sprite_background_eplehus-forgrunn.png" id="3_mtuvu"]
