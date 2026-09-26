@@ -8,15 +8,26 @@ extends CanvasLayer
 @onready var icon = %Icon
 @onready var status_label = %StatusLabel
 
+@onready var pc_instructions : Label = get_node("%PCInstructions")
+@onready var mobile_instructions : Label = get_node("%MobileInstructions")
+
 # Hardcoded positions - dynamic layout calculation with control nodes was problematic
 var position_A = Vector2(400.0, 300.0)
 var position_B = Vector2(400.0, 375.0)
+
+var is_touchscreen_device : bool = DisplayServer.is_touchscreen_available()
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	visible = false
 	calculate_status()
+	if is_touchscreen_device:
+		mobile_instructions.visible = true
+		pc_instructions.visible = false
+	else:
+		mobile_instructions.visible = false
+		pc_instructions.visible = true
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel") and not event.is_echo():
@@ -26,8 +37,10 @@ func toggle_pause():
 	if player != null and player.character_body_3d.movement_disabled:
 		return
 	if visible == true:
+		GamestateManager.pause_closed.emit()
 		visible = false
 	else:
+		GamestateManager.pause_opened.emit()
 		visible = true
 		resume_button.grab_focus() # So player can immediately hit Enter/Confirm
 		calculate_status()
@@ -53,10 +66,8 @@ func calculate_status():
 func _on_resume_pressed() -> void:
 	toggle_pause()
 
-
 func _on_exit_pressed() -> void:
 	SceneManager.transition_to_scene(Enums.Scenes.MAIN_MENU)
-
 
 func focus_button(button):
 	AudioManager.playSFX("menu_blink")
@@ -64,7 +75,6 @@ func focus_button(button):
 
 func unfocus_button(button):
 	button.add_theme_font_size_override("font_size", 30)
-
 
 func _on_resume_focus_entered() -> void:
 	icon.position = position_A
@@ -79,7 +89,6 @@ func _on_exit_focus_entered() -> void:
 
 func _on_exit_focus_exited() -> void:
 	unfocus_button(exit_button)
-
 
 func _on_dialogue_ended(resource: DialogueResource):
 	resume_button.grab_focus()

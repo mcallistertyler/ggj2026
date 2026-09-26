@@ -10,7 +10,9 @@ extends CanvasLayer
 @onready var pad : Node2D = $Pad
 @onready var base : Sprite2D = $Pad/Base
 @onready var nub : Sprite2D = $Pad/Nub
+
 @onready var interact_button : TouchScreenButton = get_node("%InteractButton")
+@onready var pause_button : TouchScreenButton = get_node("%PauseButton")
 
 @onready var radius : float = base.texture.get_width() / 2.0
 
@@ -21,8 +23,18 @@ var pressed_actions : Dictionary[StringName, bool] = {}
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	GamestateManager.pause_opened.connect(_on_pause_opened)
+	GamestateManager.pause_closed.connect(_on_pause_closed)
 	visible = always_visible or is_touchscreen_device
 	set_process_input(visible)
+
+func _on_pause_opened() -> void:
+	if is_touchscreen_device:
+		self.visible = false
+
+func _on_pause_closed() -> void:
+	if is_touchscreen_device:
+		self.visible = true
 
 func _on_dialogue_started(_resource) -> void:
 	if is_touchscreen_device:

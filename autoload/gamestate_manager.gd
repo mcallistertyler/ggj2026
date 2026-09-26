@@ -1,5 +1,8 @@
 extends Node
 
+signal pause_opened
+signal pause_closed
+
 var hold_skip_time : float = 2.0
 
 #Contains all LOCATIONS
