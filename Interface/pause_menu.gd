@@ -15,7 +15,7 @@ extends CanvasLayer
 var position_A = Vector2(400.0, 300.0)
 var position_B = Vector2(400.0, 375.0)
 
-var is_touchscreen_device : bool = DisplayServer.is_touchscreen_available()
+var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS

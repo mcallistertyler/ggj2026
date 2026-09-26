@@ -10,7 +10,7 @@ class_name PlayerCharacterBody3D
 enum PlayerStates { IDLE, WALK }
 
 var movement_disabled : bool = false
-var is_touchscreen_device : bool = DisplayServer.is_touchscreen_available()
+var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 
 func show_interact() -> void:
 	if is_touchscreen_device:
