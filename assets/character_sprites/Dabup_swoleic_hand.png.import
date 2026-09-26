@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkmh7grkoo25o"
 path.s3tc="res://.godot/imported/Dabup_swoleic_hand.png-52a9e22b6597b6d8c38c1b054e5d0d14.s3tc.ctex"
+path.etc2="res://.godot/imported/Dabup_swoleic_hand.png-52a9e22b6597b6d8c38c1b054e5d0d14.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/character_sprites/Dabup_swoleic_hand.png"
-dest_files=["res://.godot/imported/Dabup_swoleic_hand.png-52a9e22b6597b6d8c38c1b054e5d0d14.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dabup_swoleic_hand.png-52a9e22b6597b6d8c38c1b054e5d0d14.s3tc.ctex", "res://.godot/imported/Dabup_swoleic_hand.png-52a9e22b6597b6d8c38c1b054e5d0d14.etc2.ctex"]
 
 [params]
 

@@ -164,7 +164,6 @@ func start(with_dialogue_resource: DialogueResource = null, title: String = "", 
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(start_from_title, temporary_game_states)
 	show()
 
-
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
 	mutation_cooldown.stop()

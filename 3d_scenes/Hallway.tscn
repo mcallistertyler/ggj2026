@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://58ood8ugleus" path="res://Interface/TimeLayer.tscn" id="5_dw1h4"]
 [ext_resource type="PackedScene" uid="uid://bnssem2j0e7g0" path="res://3d_scenes/ExitArea3D.tscn" id="6_76pf0"]
 [ext_resource type="PackedScene" uid="uid://cdv4cp0lak1u3" path="res://NPCs/Neighbour/NeighbourDeer.tscn" id="7_2fenj"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="10_c83d0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -105,5 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.850912, 3.5285053, -3.6194
 game_scene = "hallway"
 dab_up = NodePath("../DabUpLayer/DabUp")
 player = NodePath("../Player")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("10_c83d0")]
 
 [editable path="ExitArea3D"]

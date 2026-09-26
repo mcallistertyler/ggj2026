@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://6ys1u8ttan81" path="res://assets/character_sprites/Dabup_dealer_hand.png" id="10_v13ed"]
 [ext_resource type="Texture2D" uid="uid://bipwsshqlc52b" path="res://assets/character_sprites/Dabup_dealer_success.png" id="11_1t868"]
 [ext_resource type="PackedScene" uid="uid://b3cqatwpvbdm0" path="res://Interface/PauseMenu.tscn" id="12_ckaka"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="14_1t868"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7owcu"]
 size = Vector2(30, 30)
@@ -120,5 +121,7 @@ player = NodePath("../Player")
 npc_texture = ExtResource("9_ckaka")
 hand_texture = ExtResource("10_v13ed")
 success_texture = ExtResource("11_1t868")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("14_1t868")]
 
 [editable path="ExitArea3D"]

@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://0icg3t6s5egn" path="res://assets/character_sprites/Dabup_swoleic.png" id="9_s340n"]
 [ext_resource type="Texture2D" uid="uid://bkmh7grkoo25o" path="res://assets/character_sprites/Dabup_swoleic_hand.png" id="10_e21o7"]
 [ext_resource type="Texture2D" uid="uid://bjnanyospm2cp" path="res://assets/character_sprites/Dabup_swoleic_success.png" id="11_ok2d0"]
+[ext_resource type="PackedScene" uid="uid://b771d0dmpq6i6" path="res://Interface/TouchScreenMovement.tscn" id="13_e21o7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30smt"]
 
@@ -107,3 +108,5 @@ shape = SubResource("BoxShape3D_a24kr")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1667441324]
 transform = Transform3D(0.12941861, 0, 0.99159, 0, 1, 0, -0.99159, 0, 0.12941861, -6.5501795, 0, 3.955182)
 shape = SubResource("BoxShape3D_a24kr")
+
+[node name="TouchScreenMovement" parent="." unique_id=367903691 instance=ExtResource("13_e21o7")]
