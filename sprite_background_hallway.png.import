@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwjw7l4hps6uw"
 path.s3tc="res://.godot/imported/sprite_background_hallway.png-224e764940b4c3788191a55a64228c2d.s3tc.ctex"
+path.etc2="res://.godot/imported/sprite_background_hallway.png-224e764940b4c3788191a55a64228c2d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprite_background_hallway.png"
-dest_files=["res://.godot/imported/sprite_background_hallway.png-224e764940b4c3788191a55a64228c2d.s3tc.ctex"]
+dest_files=["res://.godot/imported/sprite_background_hallway.png-224e764940b4c3788191a55a64228c2d.s3tc.ctex", "res://.godot/imported/sprite_background_hallway.png-224e764940b4c3788191a55a64228c2d.etc2.ctex"]
 
 [params]
 

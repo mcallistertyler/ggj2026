@@ -18,6 +18,7 @@ extends CanvasLayer
 
 var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 var touch_index : int = -1
+var blocked_by_ui : bool = false
 var pressed_actions : Dictionary[StringName, bool] = {}
 
 # Runtime override, flipped by the toggle_touch_controls action so the controls can be
@@ -60,6 +61,29 @@ func _on_dialogue_started(_resource) -> void:
 func _on_dialogue_ended(_resource) -> void:
 	_dialogue_active = false
 	_apply_visibility()
+	refresh_visibility()
+
+func refresh_visibility() -> void:
+	visible = not blocked_by_ui and (always_visible or GamestateManager.is_mobile_device)
+	set_process_input(visible)
+	if not visible:
+		release_joystick()
+
+func set_blocked_by_ui(blocked: bool) -> void:
+	blocked_by_ui = blocked
+	refresh_visibility()
+
+func _on_pause_opened() -> void:
+	set_blocked_by_ui(true)
+
+func _on_pause_closed() -> void:
+	set_blocked_by_ui(false)
+
+func _on_dialogue_started(_resource) -> void:
+	set_blocked_by_ui(true)
+
+func _on_dialogue_ended(_resource) -> void:
+	set_blocked_by_ui(false)
 
 func _exit_tree() -> void:
 	release_joystick()

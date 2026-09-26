@@ -3,6 +3,10 @@ extends Node
 signal pause_opened
 signal pause_closed
 
+# Based on the device type rather than touchscreen support, so touchscreen laptops
+# still get keyboard controls.
+var is_mobile_device : bool = OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")
+
 var hold_skip_time : float = 2.0
 
 #Contains all LOCATIONS

@@ -22,12 +22,8 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	visible = false
 	calculate_status()
-	if is_touchscreen_device:
-		mobile_instructions.visible = true
-		pc_instructions.visible = false
-	else:
-		mobile_instructions.visible = false
-		pc_instructions.visible = true
+	mobile_instructions.visible = GamestateManager.is_mobile_device
+	pc_instructions.visible = not GamestateManager.is_mobile_device
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel") and not event.is_echo():
