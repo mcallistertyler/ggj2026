@@ -3,15 +3,19 @@
 [ext_resource type="Script" uid="uid://cyxv3078fw63k" path="res://Interface/touch_screen_movement.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://cyu0m1h64qupf" path="res://assets/touchscreen/joystick_circle_pad_c.png" id="2_pad"]
 [ext_resource type="Texture2D" uid="uid://rqiopkhgj6wf" path="res://assets/touchscreen/joystick_circle_nub_a.png" id="3_nub"]
-[ext_resource type="Texture2D" uid="uid://c05buhggrmrg5" path="res://assets/ui/e.png" id="4_interact"]
 [ext_resource type="FontFile" uid="uid://d2jlx8gqg6d8i" path="res://fonts/Jet Set.ttf" id="5_v6ai8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3861"]
+size = Vector2(155, 40)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3861"]
+bg_color = Color(1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkuxt"]
 size = Vector2(140, 50)
 
 [node name="TouchScreenMovement" type="CanvasLayer" unique_id=367903691]
 script = ExtResource("1_script")
-always_visible = false
 
 [node name="Pad" type="Node2D" parent="." unique_id=112717349]
 position = Vector2(170, 550)
@@ -25,10 +29,33 @@ texture = ExtResource("3_nub")
 
 [node name="InteractButton" type="TouchScreenButton" parent="." unique_id=1201873693]
 unique_name_in_owner = true
-position = Vector2(1050, 475)
+position = Vector2(1113, 528)
 scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("4_interact")
+shape = SubResource("RectangleShape2D_s3861")
 action = "ui_accept"
+
+[node name="Panel" type="Panel" parent="InteractButton" unique_id=1318043169]
+offset_left = -79.33331
+offset_top = -20.0
+offset_right = 77.333374
+offset_bottom = 20.666687
+theme_override_styles/panel = SubResource("StyleBoxFlat_s3861")
+
+[node name="CenterContainer" type="CenterContainer" parent="InteractButton/Panel" unique_id=718027418]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InteractButton/Panel/CenterContainer" unique_id=2018453868]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8235294, 0.4, 1)
+theme_override_colors/font_outline_color = Color(1, 0.81960785, 0.3882353, 1)
+theme_override_fonts/font = ExtResource("5_v6ai8")
+theme_override_font_sizes/font_size = 31
+text = "INTERACT"
 
 [node name="PauseButton" type="TouchScreenButton" parent="." unique_id=1559912810]
 unique_name_in_owner = true
