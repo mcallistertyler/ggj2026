@@ -5,7 +5,12 @@ signal pause_closed
 
 # Based on the device type rather than touchscreen support, so touchscreen laptops
 # still get keyboard controls.
-var is_mobile_device : bool = OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios")
+var is_mobile_device : bool = DeviceInfo.is_mobile_platform()
+
+# Desktop-only override flipped by the toggle_touch_controls action. Lives here rather
+# than on the touch CanvasLayer because that node is instanced into every scene and is
+# therefore recreated on each scene change, which used to drop the player's choice.
+var touch_ui_override : bool = false
 
 var hold_skip_time : float = 2.0
 
