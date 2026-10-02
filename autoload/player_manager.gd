@@ -1,6 +1,7 @@
 extends Node
 
 signal player_movement(is_enabled: bool)
+signal interact_available(is_available: bool)
 
 func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
