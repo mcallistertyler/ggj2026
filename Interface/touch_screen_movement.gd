@@ -7,8 +7,8 @@ extends CanvasLayer
 
 @export var grab_margin : float = 1.25
 
-@export var interact_active_color : Color = Color.WHITE
-@export var interact_glow_color : Color = Color(1, 1, 1, 0.6)
+@export var interact_active_color : Color = Color(0.929, 0.682, 0.306, 0.22)
+@export var interact_glow_color : Color = Color(0.955, 0.78, 0.384, 0.6)
 @export var interact_glow_period : float = 0.8
 @export var interact_glow_size_min : int = 4
 @export var interact_glow_size_max : int = 14
