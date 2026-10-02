@@ -13,12 +13,14 @@ var movement_disabled : bool = false
 var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 
 func show_interact() -> void:
+	PlayerManager.interact_available.emit(true)
 	if GamestateManager.is_mobile_device:
 		return
 	if !interaction_symbol.visible:
 		interaction_symbol.visible = true
 		
 func hide_interact() -> void:
+	PlayerManager.interact_available.emit(false)
 	if interaction_symbol.visible:
 		interaction_symbol.visible = false 
 
