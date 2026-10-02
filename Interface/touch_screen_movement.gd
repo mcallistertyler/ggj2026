@@ -25,12 +25,8 @@ extends CanvasLayer
 
 var is_touchscreen_device : bool = DeviceInfo.is_touch_device()
 var touch_index : int = -1
-var blocked_by_ui : bool = false
 var pressed_actions : Dictionary[StringName, bool] = {}
 
-# Runtime override, flipped by the toggle_touch_controls action so the controls can be
-# tested on desktop without editing the scene.
-var _force_touch_ui : bool = false
 var _pause_open : bool = false
 var _dialogue_active : bool = false
 var _interact_glow_tween : Tween
@@ -51,7 +47,7 @@ func _ready() -> void:
 	_apply_visibility()
 
 func _apply_visibility() -> void:
-	var wanted : bool = always_visible or is_touchscreen_device or _force_touch_ui
+	var wanted : bool = always_visible or is_touchscreen_device or GamestateManager.touch_ui_override
 	var should_show : bool = wanted and not _pause_open and not _dialogue_active
 	if should_show == visible:
 		return
@@ -86,42 +82,30 @@ func stop_interact_glow() -> void:
 
 func _on_pause_opened() -> void:
 	_pause_open = true
-	set_blocked_by_ui(true)
 	_apply_visibility()
 
 func _on_pause_closed() -> void:
 	_pause_open = false
 	_apply_visibility()
-	set_blocked_by_ui(false)
 
 func _on_dialogue_started(_resource) -> void:
 	_dialogue_active = true
 	_apply_visibility()
-	set_blocked_by_ui(true)
 
 func _on_dialogue_ended(_resource) -> void:
 	_dialogue_active = false
 	_apply_visibility()
-	refresh_visibility()
-	set_blocked_by_ui(false)
-
-func refresh_visibility() -> void:
-	visible = not blocked_by_ui and (always_visible or GamestateManager.is_mobile_device)
-	set_process_input(visible)
-	if not visible:
-		release_joystick()
-
-func set_blocked_by_ui(blocked: bool) -> void:
-	blocked_by_ui = blocked
-	refresh_visibility()
 
 func _exit_tree() -> void:
 	release_joystick()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_touch_controls"):
-		_force_touch_ui = not _force_touch_ui
-		_apply_visibility()
+		# Locked on wherever touch is the only input: the pause button lives on this
+		# layer, so hiding it would leave the player no way to open the pause menu.
+		if not is_touchscreen_device:
+			GamestateManager.touch_ui_override = not GamestateManager.touch_ui_override
+			_apply_visibility()
 		get_viewport().set_input_as_handled()
 		return
 	# A hidden pad must not keep grabbing touches.
